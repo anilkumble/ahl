@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default quicklinks">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -14,13 +14,36 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav center-links">
         <li>
-          <%= link_to "HOME", static_pages_home_path %>
+          <%= link_to "HOME", root_path %>
         </li>
         <li>
           <%= link_to "ABOUT", static_pages_about_path %>
         </li>
         <li><a href="#">NEWS</a></li>
-        <li><a href="#">TEAMS</a></li>
+        <!-- Dropdown for teams -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAMS <span class="glyphicon glyphicon-menu-down"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to "Crouching Griffinz".upcase(), team_path(1) %>
+            </li>
+            <li>
+              <%= link_to "Deadly Dribblerz".upcase(), team_path(2) %>
+            </li>
+            <li>
+              <%= link_to "Rising Warriors".upcase(), team_path(3) %>
+            </li>
+            <li>
+              <%= link_to "Roaring Ruffianz".upcase(), team_path(4) %>
+            </li>
+            <li>
+              <%= link_to "Sizzling Bluz".upcase(), team_path(5) %>
+            </li>
+            <li>
+              <%= link_to "Yo Yo Yakz".upcase(), team_path(6) %>
+            </li>
+          </ul>
+        </li>
         <li><a href="#">FIXTURES</a></li>
         <li><a href="#">PHOTOS</a></li>
         <li><a href="#">STATS</a></li>
