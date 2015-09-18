@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918180945) do
+ActiveRecord::Schema.define(version: 20150918183731) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "team1_id",   limit: 4
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 20150918180945) do
     t.integer  "points",     limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "slug",       limit: 255
   end
+
+  add_index "teams", ["slug"], name: "index_teams_on_slug", unique: true, using: :btree
 
 end
