@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team1_id: 1
+  team2_id: 1
+  date: 2015-09-18
+  result: MyString
+
+two:
+  team1_id: 1
+  team2_id: 1
+  date: 2015-09-18
+  result: MyString
