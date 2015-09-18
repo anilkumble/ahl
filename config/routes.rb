@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'match/index'
+
   resources :players
   root 'static_pages#home'
 
