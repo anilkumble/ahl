@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918183731) do
+ActiveRecord::Schema.define(version: 20151124154236) do
+
+  create_table "goals", force: :cascade do |t|
+    t.integer  "match_id",    limit: 4
+    t.integer  "player_id",   limit: 4
+    t.integer  "opponent_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "matches", force: :cascade do |t|
     t.integer  "team1_id",   limit: 4
@@ -23,13 +31,23 @@ ActiveRecord::Schema.define(version: 20150918183731) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "age",        limit: 4
-    t.string   "position",   limit: 255
-    t.integer  "goals",      limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "team_id",    limit: 4
+    t.string   "name",         limit: 255
+    t.integer  "age",          limit: 4
+    t.string   "position",     limit: 255
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.integer  "team_id",      limit: 4
+    t.integer  "green_cards",  limit: 4
+    t.integer  "yellow_cards", limit: 4
+    t.integer  "red_cards",    limit: 4
+    t.string   "photo",        limit: 255, default: "unknown.jpg"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.text     "article",    limit: 65535
+    t.string   "photo",      limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "teams", force: :cascade do |t|
@@ -39,6 +57,8 @@ ActiveRecord::Schema.define(version: 20150918183731) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "slug",       limit: 255
+    t.string   "captain",    limit: 255
+    t.string   "color",      limit: 255
   end
 
   add_index "teams", ["slug"], name: "index_teams_on_slug", unique: true, using: :btree

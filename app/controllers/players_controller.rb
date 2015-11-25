@@ -5,11 +5,15 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
-  end
 
+  end
   # GET /players/1
   # GET /players/1.json
   def show
+      respond_to do |format|
+         format.html
+         format.js
+      end
   end
 
   # GET /players/new
@@ -25,7 +29,7 @@ class PlayersController < ApplicationController
   # POST /players.json
   def create
     @player = Player.new(player_params)
-   
+
 
       respond_to do |format|
       if @player.save

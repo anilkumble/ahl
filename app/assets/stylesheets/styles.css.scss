@@ -1,23 +1,34 @@
-@import 'bootstrap-sprockets'; 
+@import 'bootstrap-sprockets';
 @import 'bootstrap';
- @import url(http://fonts.googleapis.com/css?family=Droid+Sans); 
 
 
 /** Adding the required font files so that it works locally**/
 @font-face{
 	font-family:'Droid Sans';
 	src:font-url('DroidSans.ttf') format("truetype");
-	font-weight: normal;
+	font-weight: bold;
     font-style: normal;
 }
-
+@font-face{
+  font-family: 'Source Sans Pro';
+  src: font-url('SourceSansPro-Light.ttf') format('truetype');
+}
+@font-face{
+	font-family: "Lato";
+	src: font-url('Lato-Regular.ttf') format('truetype');
+}
+*{
+	box-sizing: border-box;
+}
 body{
-	font-family: 'Droid Sans', 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans Pro','Droid Sans', sans-serif;
+  	padding-top: 70px;
+	overflow-x: hidden;
 }
 
 /** styles for quicklinks **/
 .center-links{
-	margin-left: 30%;
+	margin-left: 15%;
 }
 .center-links li{
 	font-weight: bold;
@@ -32,7 +43,126 @@ body{
     background-image: none;
     background-repeat: no-repeat;
 }
+/* Styles for past performance of teams */
+.circle{
+	width: 42px;
+    height: 40px;
+    border-radius: 60%;
+    display: inline-block;
+    text-align: center;
+    color: #ffffff;
+    vertical-align: middle;
+    line-height: 40px;
 
+}
+
+.red-circle{
+	background: #f22613;
+}
+.green-circle{
+	background: #26c281;
+}
+.yellow-circle{
+	background: #f4d03f;
+}
+/******/
+.row-content
+{
+	margin-bottom: 5%;
+}
 .carousel-control, .carousel-control:hover{
 	text-shadow: none;
+}
+.title-font{
+	font-size: 24px;
+	color: #fff;
+	font-family: "Lato";
+	font-weight: bold;
+}
+.font-big{
+	font-size: 120%;
+}
+
+/* Styles for jumbotron */
+.jumbotron
+{
+	background: #7986CB;
+	color: floralwhite;
+	font-size: 16px;
+}
+
+.footer-content{
+	background: whitesmoke;
+}
+/**For social buttons ***/
+.social-icons a{
+	text-decoration: none;
+}
+.social-icon{
+	font-size: 2em;
+	border-radius: 50%;
+}
+#facebook-icon{
+	color:#3b5998;
+	border-radius: 50%;
+}
+#twitter-icon{
+	color: #55acee;
+}
+#youtube-icon{
+	color:#e52d27;
+}
+/**Stats table **/
+th{
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+/** Cards **/
+.card{
+	width: 22px;
+	height: 28px;
+}
+#red-card{
+	background: #aa0000;
+}
+#green-card
+{
+	background: #26a65b;
+}
+#yellow-card
+{
+	background: #f7ca18;
+}
+/****Player image **/
+.player-image{
+	transition: transform 0.6s linear 0.2s, border 1s linear 0.2s;
+}
+.player-image:hover{
+	transform: scale(1.2);
+	border: 1px solid #ee0000;
+}
+/** Table styles  **/
+.players-table th{
+	background: #00000e;
+	color: #fff;
+}
+.stats-table th{
+	background: #eee;
+}
+
+#stats-table tr{
+	padding: 5px 10px;
+	opacity: 0.8;
+}
+
+#stats-table tr:hover{
+     opacity: 1;
+}
+/** navbar brand styles **/
+.navbar-brand
+{
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #eee;
 }

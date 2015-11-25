@@ -1,5 +1,6 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top quicklinks">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -7,12 +8,49 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Anna Hockey League</a>
+      <%= link_to "Anna Hockey League",root_path, class: "navbar-brand" %>
     </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" target = "_blank"> Main Sponsor</a></li>
+      <ul class="nav navbar-nav center-links">
+        <li>
+          <%= link_to "HOME", root_path %>
+        </li>
+        <li>
+          <%= link_to "ABOUT", static_pages_about_path %>
+        </li>
+        <li><a href="#">NEWS</a></li>
+        <!-- Dropdown for teams -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAMS <span class="glyphicon glyphicon-menu-down"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= link_to "Crouching Griffinz", Team.friendly.find(1) %>
+            </li>
+            <li>
+              <%= link_to "Deadly Dribblerz", Team.friendly.find(2) %>
+            </li>
+            <li>
+              <%= link_to "Rising Warriors", Team.friendly.find(3) %>
+            </li>
+            <li>
+              <%= link_to "Roaring Ruffianz", Team.friendly.find(5) %>
+            </li>
+            <li>
+              <%= link_to "Sizzling Bluz", Team.friendly.find(4)%>
+            </li>
+            <li>
+              <%= link_to "Yo Yo Yakz", Team.friendly.find(6)%>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">FIXTURES</a></li>
+        <li><a href="#">PHOTOS</a></li>
+        <li><a href="#">STATS</a></li>
       </ul>
+
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
