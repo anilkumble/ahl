@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :live_scores
+  resources :reports
   get 'match/index'
 
   resources :players

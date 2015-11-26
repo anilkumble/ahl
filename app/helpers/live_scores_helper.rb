@@ -1,0 +1,2 @@
+module LiveScoresHelper
+end

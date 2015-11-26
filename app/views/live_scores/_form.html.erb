@@ -1,0 +1,17 @@
+<%= form_for(@live_score) do |f| %>
+  <% if @live_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@live_score.errors.count, "error") %> prohibited this live_score from being saved:</h2>
+
+      <ul>
+      <% @live_score.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
