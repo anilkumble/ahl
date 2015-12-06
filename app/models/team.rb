@@ -5,9 +5,18 @@ class Team < ActiveRecord::Base
 
 	has_many :goals, through: :players
 
+	def team_captain
+		Player.find(captain)
+	end
+
 	def matches(opponent_id)
 		Match.where(team1_id: [self.id, opponent_id],team2_id: [opponent_id,self.id]).count
 	end
+
+	#def top_scorer
+	#	players = self.players
+	#	Goal.where(player_id: players)
+	#end
 
 	def goals_scored(opponent_id)
 		players = self.players

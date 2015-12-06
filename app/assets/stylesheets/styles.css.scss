@@ -1,32 +1,40 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-
+$pink:  #e00023;
 /** Adding the required font files so that it works locally**/
+
+
 @font-face{
-	font-family:'Droid Sans';
-	src:font-url('DroidSans.ttf') format("truetype");
-	font-weight: bold;
-    font-style: normal;
-}
-@font-face{
-  font-family: 'Source Sans Pro';
-  src: font-url('SourceSansPro-Light.ttf') format('truetype');
-}
-@font-face{
-	font-family: "Lato";
-	src: font-url('Lato-Regular.ttf') format('truetype');
+	font-family: "Cabin";
+	src: font-url('Cabin-Regular.ttf') format('truetype');
 }
 *{
 	box-sizing: border-box;
 }
 body{
-	font-family: 'Source Sans Pro','Droid Sans', sans-serif;
+	font-family: Cabin, sans-serif;
   	padding-top: 70px;
 	overflow-x: hidden;
+	font-size: 1.5em;
+}
+.text-big{
+	font-size: 200%;
+}
+a{
+	text-decoration: none;
+}
+.space{
+	padding-top: 50px;
 }
 
 /** styles for quicklinks **/
+.center-links > li > a{
+	color: #000 !important;
+}
+.center-links > li > a:hover{
+	color: #777;
+}
 .center-links{
 	margin-left: 15%;
 }
@@ -34,6 +42,15 @@ body{
 	font-weight: bold;
 }
 
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+	color: #eee;
+}
+/* AHL Banner*/
+.banner{
+	border-top-right-radius: 35%;
+	border-bottom-right-radius: 35%;
+	background: $pink;
+}
 /** This is to remove the black gradient in the right control of the carousel **/
 .carousel-control.right{
     left: auto;
@@ -65,7 +82,8 @@ body{
 .yellow-circle{
 	background: #f4d03f;
 }
-/******/
+/* row */
+
 .row-content
 {
 	margin-bottom: 5%;
@@ -73,11 +91,10 @@ body{
 .carousel-control, .carousel-control:hover{
 	text-shadow: none;
 }
-.title-font{
-	font-size: 24px;
+.title-style{
 	color: #fff;
-	font-family: "Lato";
 	font-weight: bold;
+	font-size: 26px;
 }
 .font-big{
 	font-size: 120%;
@@ -90,32 +107,55 @@ body{
 	color: floralwhite;
 	font-size: 16px;
 }
-
+/* Footer */
 .footer-content{
-	background: whitesmoke;
+	margin-top: 50px;
+	background: #2d2d2d;
+	color: #fff;
 }
+.footer-content h3{
+	color: $pink;
+}
+.footer-content a{
+	color: #999;
+}
+
 /**For social buttons ***/
-.social-icons a{
+.social-icons a:hover{
 	text-decoration: none;
 }
-.social-icon{
-	font-size: 2em;
-	border-radius: 50%;
+.circle-logo{
+	width: 35px;
+	height: 35px;
+	background: #e00023;
+	text-align: center;
+	border-radius:100%;
+	transition: -webkit-transform 0.7s ease-out 0.2s;
+	transition: -moz-transform 0.7s ease-out 0.2s;
+	transition: -o-transform 0.7s ease-out 0.2s;
+	transition: transform 0.7s ease-out 0.2s;
 }
-#facebook-icon{
-	color:#3b5998;
-	border-radius: 50%;
+.circle-logo:hover{
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
-#twitter-icon{
-	color: #55acee;
+.circle-logo i{
+	line-height: 35px;
+	font-size: 150%;
+	color: #fff;
 }
-#youtube-icon{
-	color:#e52d27;
+.circle-logo{
+	display: inline-block;
 }
 /**Stats table **/
 th{
 	font-weight: bold;
-	font-size: 1.3em;
+	font-size: 1.2em;
+}
+.stats-table thead tr{
+	color: $pink;
 }
 
 /** Cards **/
@@ -124,7 +164,7 @@ th{
 	height: 28px;
 }
 #red-card{
-	background: #aa0000;
+	background: #cc0000;
 }
 #green-card
 {
@@ -134,13 +174,15 @@ th{
 {
 	background: #f7ca18;
 }
-/****Player image **/
+/****Player gallery **/
+.captain-image{
+	border: 1px solid #ee0000;
+}
 .player-image{
-	transition: transform 0.6s linear 0.2s, border 1s linear 0.2s;
+	transition: transform 0.6s linear 0.2s;
 }
 .player-image:hover{
 	transform: scale(1.2);
-	border: 1px solid #ee0000;
 }
 /** Table styles  **/
 .players-table th{
@@ -164,5 +206,112 @@ th{
 {
 	font-size: 1.4em;
 	font-weight: bold;
-	color: #eee;
+	color: $pink !important;
+}
+/* Carousel  */
+.carousel .item {
+  height: 350px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 350px;
+}
+/* ahl intro in home page  */
+#ahl-intro{
+	background: $pink;
+	border-top-left-radius: 20%;
+	border-bottom-right-radius: 20%;
+}
+/** Reports **/
+.report{
+	background: #E9E9E9;
+}
+/* Style for team motto */
+#motto{
+	background: $pink;
+	color: #fff;
+	text-align: center;
+}
+/* Players table styles */
+td,th{
+	text-align: center;
+}
+.players-table td{
+	margin-right: 5px;
+	border: 1px solid #fff;
+}
+.players-table tr:nth-child(even){
+	background: $pink;color: #fff;
+}
+.players-table tr:hover td:first-child{
+	border-left: 5px solid #eee;
+}
+/* Fixtures styles */
+.match-fixture{
+	color: #2d2d2d;
+}
+.match-fixture:hover{
+	text-decoration: none;
+	color: $pink;
+}
+.date{
+	text-align: right;
+	color: #777;
+}
+
+/* styles for player modal */
+.player-name-header{
+	background: #e00023;
+	color: #fff;
+}
+.player-info{
+	margin-left: 12%;
+}
+.player-modal-image{
+	margin-left: 35%;
+}
+/* Reports  */
+.report-title{
+	color: $pink;
+}
+/* Leaderboard */
+.leaderboard tr:nth-child(even){
+	background: $pink;
+	color: #fff;
+}
+.leaderboard tr:hover td:first-child{
+	border-left: 3px solid #337ab7;
+}
+.leaderboard th{
+	background: #337ab7;
+	color: floralwhite;
+}
+/***/
+.versus{
+	color: $pink;
+}
+#player-modal modal-header, #player-modal modal-body, #player-modal modal-footer{
+	width: 80%;
+}
+.text-pink{
+		color: $pink;
+}
+/* LiveScore style */
+.livescore-style{
+	display: inline-block;
+}
+/* Form elements */
+.form-control{
+	width: 40%;
+}
+/* Gallery styles  */
+.gallery img{
+	max-height:200px;
+	max-width: 300px;
+}
+.nav > li > a:hover{
+	color: $pink;
 }

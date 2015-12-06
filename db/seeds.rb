@@ -14,6 +14,7 @@ require 'csv'
 #Goal.create(match_id: 3, player_id: 197, opponent_id: 1)
 #Goal.create(match_id: 3, player_id: 197, opponent_id: 1)
 #Goal.create(match_id: 3, player_id: 196, opponent_id: 2)
+=begin
 Report.create(article: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus. Vestibulum lobortis sit amet arcu eget consequat. Aliquam erat volutpat. In condimentum lacus nunc, eget molestie turpis placerat ut. Proin pretium aliquet elit, auctor auctor quam pulvinar at. Vivamus vel interdum urna. Mauris et ante vitae sem aliquet hendrerit sed dictum tellus. Quisque id consequat arcu, ac ornare nibh. Integer eu blandit elit. Cras dapibus quam a erat elementum, eu volutpat lorem laoreet. Aenean fermentum nec turpis dignissim sollicitudin. Nunc consequat lacus id magna lacinia, eget pretium ante euismod. Ut molestie felis sed odio facilisis rhoncus. Suspendisse potenti.
 
 Maecenas et magna auctor, efficitur leo eu, molestie velit. Proin orci risus, ornare vulputate finibus blandit, vehicula vestibulum nulla. In varius quis elit at consequat. Cras leo ex, consectetur id nunc nec, lobortis tristique tortor. Nullam urna augue, fermentum et varius eu, blandit in nibh. Proin vitae lobortis diam. Donec vitae tincidunt ipsum.
@@ -33,7 +34,7 @@ Aenean nunc erat, mollis sit amet luctus sit amet, pharetra a ligula. Interdum e
 Report.create(article: "Donec scelerisque dolor vel ultricies dignissim. Praesent laoreet nunc faucibus leo volutpat porttitor. Mauris a mattis est. Maecenas facilisis, ante id condimentum pellentesque, purus tellus ullamcorper ligula, a sollicitudin erat ligula quis leo. Maecenas consectetur semper nulla, non tristique purus mattis eget. Donec suscipit varius dolor, non efficitur justo elementum vitae. Cras malesuada ut ante ut scelerisque. Suspendisse potenti. Aenean neque elit, commodo ac eros sit amet, vulputate pellentesque massa. Quisque mattis leo turpis, non dapibus erat lobortis vel. Nulla facilisi.
 
 Sed ornare at sem non laoreet. Mauris sed erat condimentum nisi lobortis gravida in consequat arcu. Quisque blandit, risus eu commodo rhoncus, mi metus pharetra risus, at interdum massa nulla a lacus. In in sollicitudin dolor. Nulla facilisi. Pellentesque tincidunt consectetur ligula vel consequat. Mauris ultricies turpis quis pharetra posuere. Vestibulum et est ante. Integer ut accumsan lectus. Integer accumsan tincidunt mi at venenatis. Sed sollicitudin tempus lectus in gravida. Nam eu aliquet neque, et fringilla risus. Nam diam lorem, faucibus at turpis sed, convallis efficitur lacus. Aenean rhoncus libero nisl, sit amet semper augue dictum eu. Maecenas elementum in odio sit amet eleifend. Etiam eget vehicula arcu.
-
+w
 Nullam tincidunt vitae nunc quis sodales. Cras at dui nisi. Nulla facilisi. Integer maximus feugiat fermentum. Proin commodo eget lorem quis facilisis. Curabitur euismod leo a tempor feugiat. Nam maximus rhoncus pretium. Integer accumsan scelerisque augue, eget lobortis orci tincidunt ut.
 
 Aliquam ac ullamcorper felis. Suspendisse vel est id leo eleifend accumsan ultrices non tortor. Suspendisse lacinia sem a eros dictum, at mollis dui interdum. In tristique enim nec dictum ullamcorper. Vestibulum at urna odio. Quisque facilisis, ligula vel euismod volutpat, nunc enim lacinia lacus, et porta sapien magna sit amet ex. Sed in sollicitudin ligula. Proin viverra nisl vel felis consectetur, quis faucibus massa feugiat. Mauris eu sapien massa. Nulla sagittis, massa eget commodo auctor, odio lacus volutpat elit, lobortis tincidunt mauris erat a urna. Integer vel porttitor quam, id molestie lectus. Maecenas lacus quam, egestas id nisi sed, pellentesque lacinia sem. Sed efficitur convallis nunc, eget fermentum odio sagittis tincidunt. Aliquam vestibulum ante ac ligula sagittis sodales.", image: "photo3.jpg")
@@ -51,3 +52,26 @@ Sed ornare at sem non laoreet. Mauris sed erat condimentum nisi lobortis gravida
 Nullam tincidunt vitae nunc quis sodales. Cras at dui nisi. Nulla facilisi. Integer maximus feugiat fermentum. Proin commodo eget lorem quis facilisis. Curabitur euismod leo a tempor feugiat. Nam maximus rhoncus pretium. Integer accumsan scelerisque augue, eget lobortis orci tincidunt ut.
 
 Aliquam ac ullamcorper felis. Suspendisse vel est id leo eleifend accumsan ultrices non tortor. Suspendisse lacinia sem a eros dictum, at mollis dui interdum. In tristique enim nec dictum ullamcorper. Vestibulum at urna odio. Quisque facilisis, ligula vel euismod volutpat, nunc enim lacinia lacus, et porta sapien magna sit amet ex. Sed in sollicitudin ligula. Proin viverra nisl vel felis consectetur, quis faucibus massa feugiat. Mauris eu sapien massa. Nulla sagittis, massa eget commodo auctor, odio lacus volutpat elit, lobortis tincidunt mauris erat a urna. Integer vel porttitor quam, id molestie lectus. Maecenas lacus quam, egestas id nisi sed, pellentesque lacinia sem. Sed efficitur convallis nunc, eget fermentum odio sagittis tincidunt. Aliquam vestibulum ante ac ligula sagittis sodales.", image: "photo5.jpg")
+=end
+#Match.destroy_all
+#CSV.foreach("#{Rails.root}/fixtures.csv", headers: true) do |row|
+#        Match.create!(row.to_hash)
+#end
+
+# This is for updating team description
+=begin
+Team.all.each do |t|
+    t.update_attributes(description: "Nulla elementum tortor in erat feugiat, in pharetra mauris varius. Sed facilisis lorem a dolor pretium vestibulum. Cras nec mauris ultrices, dignissim risus et, varius ex. Suspendisse molestie fringilla est, id consectetur sapien iaculis nec. Nunc volutpat, erat in bibendum faucibus, felis odio scelerisque lacus, auctor pharetra justo arcu in augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nisl tortor, pellentesque consequat accumsan quis, varius vitae neque. In non quam nec dui pharetra commodo et in est. Sed ut volutpat ipsum, nec consequat nisi. Maecenas et libero at arcu tristique euismod non eget lectus. Morbi mattis sapien dui. Proin lacinia finibus diam vitae gravida. Donec luctus mattis mauris sodales ullamcorper. Aliquam sagittis tempor ligula, eget laoreet lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis condimentum tincidunt mollis.")
+end
+
+Match.all.each do |m|
+    m.result = -1
+    m.save
+end
+=end
+images = %w[photo1.jpg photo2.jpg photo3.jpg photo4.jpg photo5.jpg photo6.jpg unknown.jpg]
+match_index = 7
+images.each do |img|
+    Photo.create!(match_id: match_index, photo_url: img)
+    match_index += 1
+end

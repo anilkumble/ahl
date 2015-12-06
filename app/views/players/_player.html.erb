@@ -1,39 +1,36 @@
 <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header text-center">
-            <h3><%= @player.name %>&nbsp;<span class="label label-danger">Captain</span></h3>
+        <div class="modal-header text-center player-name-header">
+            <h3><%= @player.name %>&nbsp;
+                <% if @player.id == @player.team.captain %>
+                    <span class="label label-danger">Captain</span>
+                <% end  %>
         </div>
+
         <div class="modal-body">
-            <div class="thumbnail">
-                <%= image_tag @player.photo, width: "30%" , class: "img-responsive img-thumbnail" %>
-                <div class="caption text-center">
-            <p>
-              <strong>Name:</strong>
-              <%= @player.name %>
-            </p>
+                <%= image_tag @player.photo, width: "30%" , class: "img-responsive img-thumbnail player-modal-image" %>
 
-            <p>
-              <strong>Age:</strong>
-              <%= @player.age %>
-            </p>
 
-            <p>
-              <strong>Team id</strong>
-              <%= @player.team_id %>
-            </p>
+                <div class="caption"><br>
 
-            <p>
-              <strong>Position:</strong>
-              <%= @player.position %>
-            </p>
+                  <dl class="dl-horizontal player-info">
 
-            <p>
-              <strong>Goals:</strong>
-              <%= @player.goals %>
-            </p>
-        </div> <!-- caption -->
-    </div> <!-- thumbnail -->
-        </div> <!-- modal body -->
+                      <dt>Team</dt>
+                      <dd><%= @player.team.name %></dd>
+
+                      <dt>Position</dt>
+                      <dd><%= @player.position %></dd>
+
+                      <dt>Goals</dt>
+                      <dd><%= @player.goals %></dd>
+
+                  </dl>
+              </div> <!-- caption -->
+      </div> <!-- modal body -->
+
+      <div class="modal-footer">
+          <button class="btn btn-info" data-dismiss="modal">Close</button>
+      </div>
     </div> <!--modal content -->
 </div> <!--modal dialog -->
 <!--<script>

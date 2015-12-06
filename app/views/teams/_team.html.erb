@@ -1,0 +1,34 @@
+<table class="table table-condensed table-responsive table-striped players-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Goals</th>
+            <th>
+                <div id="green-card" class="card"></div>
+            </th>
+            <th>
+                <div id="yellow-card" class="card"></div>
+            </th>
+            <th>
+                <div id="red-card" class="card"></div>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% team.players.each do |player| %>
+        <tr>
+            <td><%= player.name %></td>
+            <td><%= player.age %></td>
+            <td><%= player.position %></td>
+            <td><%=player.goals%></td>
+            <td><%=player.green_cards%></td>
+            <td><%=player.yellow_cards%></td>
+            <td><%=player.red_cards%></td>
+        </tr>
+        <% end %>
+    </tbody>
+
+</table>

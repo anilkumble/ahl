@@ -1,0 +1,12 @@
+<div class="col-xs-12 col-sm-4">
+    <%= link_to photo do %>
+    <div class="thumbnail gallery">
+        <%= image_tag photo.photo_url, class: "img-responsive"%>
+        <div class="caption">
+            <% first_team = Team.find(photo.match.team1_id) %>
+            <% opponent_team = Team.find(photo.match.team2_id) %>
+            <%= first_team.name  %> Vs <%= opponent_team.name %>
+        </div>
+    </div> <!-- end of thumbnail -->
+    <% end %>
+</div>

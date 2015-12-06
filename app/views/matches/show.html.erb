@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <p class="space"></p>
+        <div class="col-xs-12">
+            <h2 class="text-primary text-center">Match&nbsp;<%= @match.id %></h2>
+        </div>
+    </div> <!--end of row -->
+
+    <div class="row">
+        <p class="space"></p>
+        <div class="col-xs-5">
+            <%= image_tag @first_team_captain.photo, class: "img-responsive"%><br>
+            <div class="text-center">
+                <%= @first_team_captain.name %>
+            </div>
+        </div>
+
+        <div class="col-xs-2 versus">
+            Vs
+        </div>
+        <div class="col-xs-5">
+            <%= image_tag @opponent_team_captain.photo, class: "img-responsive"%><br>
+            <div class="text-center">
+                <span><%= @opponent_team_captain.name %></span>
+            </div>
+        </div> <!--end of column -->
+    </div> <!-- end of row -->
+
+    <div class="row row-content">
+        <p class="space"></p>
+        <div class="col-xs-12 col-sm-5">
+            <%= render @first_team %>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+            <%= render @opponent_team %>
+        </div> <!-- End of column -->
+	</div> <!-- End of row -->
+
+    <div class="row">
+        <p class="space"></p>
+        <div class="col-xs-12">
+            <h3 class="text-primary text-center">Live Commentary</h3>
+            <p class="space"></p>
+            <!--Live scores to be displayed here -->
+            <% if @live_scores.count == 0 %>
+                <div class="text-center">
+                    <em>Match hasn't started yet</em>
+                </div>
+            <% end %>
+            <% @live_scores.each do |live_score| %>
+                    <div class="well">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+                                    <%= live_score.match.first_team.name %>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <span class="text-pink text-big">
+                                        <strong><%= live_score.teamone_goals %></strong>&nbsp;&nbsp;-&nbsp;&nbsp;
+                                        <strong><%= live_score.teamtwo_goals%></strong>
+                                    </span>
+                                </div>
+
+                                <div class="col-xs-4">
+                                        <%= live_score.match.opponent_team.name %>
+                                        <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+                                </div>
+                            </div> <!-- end of row -->
+                        </div> <!-- end of panel body -->
+
+                        <div class="panel-footer text-center">
+                            <strong><%= live_score.commentary %></strong>
+                        </div>
+                    </div> <!-- end of well -->
+            <% end %>
+        </div> <!-- end of column -->
+    </div><!-- end of row -->
+</div> <!-- end of container -->
+
+<!-- To remove the marquee effect -->
+<script>
+
+    marquee_nodes = document.getElementsByTagName("marquee");
+    for(var i = 0; i< marquee_nodes.length; i++)
+        console.log(marquee_nodes[i]);
+</script>

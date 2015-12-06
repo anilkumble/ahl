@@ -28,8 +28,9 @@ class LiveScoresController < ApplicationController
 
     respond_to do |format|
       if @live_score.save
-        format.html { redirect_to @live_score, notice: 'Live score was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Live score was successfully created.' }
         format.json { render :show, status: :created, location: @live_score }
+        format.js {render 'create'}
       else
         format.html { render :new }
         format.json { render json: @live_score.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class LiveScoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def live_score_params
-      params[:live_score]
+      params.require(:live_score).permit(:teamone_goals, :teamtwo_goals,:commentary, :match_id)
     end
 end

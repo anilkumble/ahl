@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+                <%= link_to match, class: "match-fixture" do %>
+                <div class="well match">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <%= image_tag match.first_team.logo, width: "50", height: "35" %>
+                        </div>
+
+                        <div class="col-xs-3">
+                            <%= match.first_team.name %>
+                        </div>
+
+                        <div class="col-xs-2">
+                            Vs
+                        </div>
+
+                        <div class="col-xs-3">
+                            <%= match.opponent_team.name %>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <%= image_tag match.opponent_team.logo, width: "50", height: "35" %>
+                        </div>
+
+                            <div class="date">
+                                <%= match.date.strftime("%b %d") %>
+                            </div>
+                    </div> <!-- end of row -->
+                </div>
+                <% end %>
+        </div> <!-- end of column -->
+    </div> <!-- end of row -->
+</div> <!-- end of container -->

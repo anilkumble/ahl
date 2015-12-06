@@ -20,15 +20,18 @@
         <li>
           <%= link_to "ABOUT", static_pages_about_path %>
         </li>
-        <li><a href="#">NEWS</a></li>
+        <li><%= link_to "NEWS", reports_path %></li>
         <!-- Dropdown for teams -->
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAMS <span class="glyphicon glyphicon-menu-down"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAMS <span class="glyphicon glyphicon-chevron-down"></span></a>
           <ul class="dropdown-menu">
+              <% teams = Team.all %>
+              <% teams.each do |team| %>
             <li>
-              <%= link_to "Crouching Griffinz", Team.friendly.find(1) %>
+              <%= link_to titlecase(team.name), Team.friendly.find(team.id) %>
             </li>
-            <li>
+            <% end %>
+            <!--<li>
               <%= link_to "Deadly Dribblerz", Team.friendly.find(2) %>
             </li>
             <li>
@@ -42,11 +45,15 @@
             </li>
             <li>
               <%= link_to "Yo Yo Yakz", Team.friendly.find(6)%>
-            </li>
-          </ul>
+          </li> -->
+      </ul>
+  </li>
+        <li>
+            <%= link_to "FIXTURES", matches_path %>
         </li>
-        <li><a href="#">FIXTURES</a></li>
-        <li><a href="#">PHOTOS</a></li>
+        <li>
+            <%= link_to "GALLERY", photos_path %>
+        </li>
         <li><a href="#">STATS</a></li>
       </ul>
 

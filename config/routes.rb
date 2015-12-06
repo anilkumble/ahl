@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :photos
   resources :live_scores
   resources :reports
-  get 'match/index'
+  resources :matches, only:[:index,:show,:new,:create]
 
   resources :players
   root 'static_pages#home'
