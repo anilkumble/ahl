@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
       @reports = Report.order(created_at: :desc)
       @teams = Team.order(points: :desc)
       @current_match = Match.where(result: -1).first
-      @liveScore = @current_match.live_scores.last
+      @live_score = @current_match.live_scores.last
   end
 
   def about

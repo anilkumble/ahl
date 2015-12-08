@@ -28,8 +28,8 @@ class LiveScoresController < ApplicationController
 
     respond_to do |format|
       if @live_score.save
-        format.html { redirect_to root_path, notice: 'Live score was successfully created.' }
-        format.json { render :show, status: :created, location: @live_score }
+        format.html { render :new, notice: 'Live score was successfully created.' }
+        format.json { render json: @live_score}
         format.js {render 'create'}
       else
         format.html { render :new }

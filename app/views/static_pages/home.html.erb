@@ -13,8 +13,24 @@
                 <div class="panel-heading text-center">
                     <h3>Live Score</h3>
                 </div>
-                    <%= render @liveScore %>
-            </div>
+
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+                            <%=  short_form @current_match.first_team.name %>&nbsp;&nbsp;
+                            <span class="text-pink" id="first_team_score"><%= @live_score.teamone_goals %></span>&nbsp;-&nbsp;
+                            <span class="text-pink" id="second_team_score"><%= @live_score.teamtwo_goals%>&nbsp;&nbsp;</span>
+                            <%=  short_form @current_match.opponent_team.name %>
+                            <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <marquee>
+                            <span id="commentary"><%= @live_score.commentary %></span>
+                        </marquee>
+                    </div>
+            </div> <!--  End of panel -->
         </div> <!-- end of second column -->
     </div> <!-- end of first row -->
 

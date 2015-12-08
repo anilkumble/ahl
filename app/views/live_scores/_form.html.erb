@@ -1,4 +1,4 @@
-<%= form_for(@live_score, remote: true) do |f| %>
+<%= form_for(@live_score) do |f| %>
   <% if @live_score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@live_score.errors.count, "error") %> prohibited this live_score from being saved:</h2>
@@ -30,6 +30,6 @@
       <%= f.text_field :match_id ,class: "form-control"%>
   </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary", id: "live_score_submit_button" %>
   </div>
 <% end %>
