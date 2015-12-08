@@ -68,10 +68,18 @@ Match.all.each do |m|
     m.result = -1
     m.save
 end
-=end
+
 images = %w[photo1.jpg photo2.jpg photo3.jpg photo4.jpg photo5.jpg photo6.jpg unknown.jpg]
 match_index = 7
 images.each do |img|
     Photo.create!(match_id: match_index, photo_url: img)
     match_index += 1
 end
+=end
+
+
+#This is for seeding goal table
+Goal.destroy_all
+#Goal.create!([{match_id: 7, player_id: 196, opponent_id: 2},
+    #{match_id: 7, player_id: 196, opponent_id: 2}
+    #])

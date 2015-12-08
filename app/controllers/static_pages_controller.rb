@@ -4,6 +4,8 @@ class StaticPagesController < ApplicationController
       @teams = Team.order(points: :desc)
       @current_match = Match.where(result: -1).first
       @live_score = @current_match.live_scores.last
+
+      @top_scorers = Player.order("goals_count desc").limit(4)
   end
 
   def about

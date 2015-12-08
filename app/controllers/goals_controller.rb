@@ -25,10 +25,15 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
-    @player = @goal.player
+
     respond_to do |format|
       if @goal.save
-          @player.goals += 1
+
+          #when a goal is created, the goals count from the player record has to be incremented
+          @player = @goal.player
+          goal_count = @player.goals_count
+          @player.update_attributes(goals_count: goal_count + 1)
+
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: @goal }
       else
@@ -55,7 +60,12 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
+
+      #when a goal is deleted, the goals count from the player record has to be decremented
+    @player = @goal.player
+    goal_count = @player.goals_count
     @goal.destroy
+    @player.update_attributes(goals_count: goal_count - 1)
     respond_to do |format|
       format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,6 +80,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params[:goal]
+      params.require(:goal).permit(:match_id, :player_id, :opponent_id)
     end
 end

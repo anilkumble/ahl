@@ -12,6 +12,9 @@
   <tbody>
     <% @goals.each do |goal| %>
       <tr>
+          <td><%=goal.match_id %></td>&nbsp;&nbsp;
+          <td><%= goal.player.name %></td>&nbsp;&nbsp;
+          <td><%=  Team.find(goal.opponent_id).name%></td>
         <td><%= link_to 'Show', goal %></td>
         <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
         <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>

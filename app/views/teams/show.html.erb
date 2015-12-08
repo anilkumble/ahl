@@ -90,13 +90,12 @@
 				<div class="panel-heading text-center text-danger">
 					<h3>Top scorer</h3>
 				</div>
-				<% random_player = @team.players.shuffle[2] %>
 				<div class="panel-body">
-					<%= image_tag random_player.photo, class: "img-responsive" %>
+					<%= image_tag @top_scorer.photo, class: "img-responsive" %>
 				</div>
 
 				<div class="panel-footer text-center text-pink">
-					<%= random_player.name %>
+					<%= @top_scorer.name %>
 				</div>
 			</div>
 		</div>

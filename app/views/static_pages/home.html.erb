@@ -98,6 +98,34 @@
     </div> <!-- row-->
 
 
+
+    <!-- Row for displaying the top scorers-->
+    <div class="row">
+        <p class="space"></p>
+        <div class="col-xs-12 text-center">
+            <h2>Top Scorers</h2>
+            <br>
+        </div>
+        <p class="space"></p>
+        <% @top_scorers.each do |top_scorer| %>
+            <div class="col-xs-12 col-sm-3">
+                <div class="panel panel-warning">
+                    <div class="panel-heading text-center">
+                        <span class="text-pink"><%= top_scorer.name %></span>
+                    </div>
+
+                    <div class="panel-body">
+                        <%= image_tag top_scorer.photo, class: "img-responsive" %>
+                    </div>
+
+                    <div class="panel-footer text-center">
+                        <span class="text-pink text-big"><%= pluralize(top_scorer.goals_count,"goal") %></span>
+                    </div>
+                </div> <!--  end of panel -->
+            </div> <!-- end of column -->
+        <% end %>
+    </div> <!--  End of row -->
+
     <div class="row">
         <div class="col-xs-12">
             <p style="padding-top:50px;"></p>
@@ -111,6 +139,7 @@
             </div> <!-- end of jumbotron -->
         </div> <!-- end of column -->
     </div> <!--end of a row -->
+
 
 
     <div class="row">

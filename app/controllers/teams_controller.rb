@@ -1,9 +1,10 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
-  
+
   def show
       @other_teams = Team.where.not(id: @team.id)
+      @top_scorer = @team.players.order("goals_count desc").first
       #@matches = Match.where(team_id: [team_id])
   end
 
