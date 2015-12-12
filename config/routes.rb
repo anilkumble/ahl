@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :reports
   resources :goals
   resources :matches, only:[:index,:show,:new,:create]
-
+  patch '/end_match/:id' => "matches#end_match"
+  get '/end_match/:id' => "matches#end"
   resources :players
   root 'static_pages#home'
 

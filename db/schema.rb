@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208164205) do
+ActiveRecord::Schema.define(version: 20151212030822) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -88,9 +88,9 @@ ActiveRecord::Schema.define(version: 20151208164205) do
   create_table "teams", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "motto",       limit: 255
-    t.integer  "points",      limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "points",      limit: 4,     default: -2
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "slug",        limit: 255
     t.integer  "captain",     limit: 4
     t.string   "color",       limit: 255

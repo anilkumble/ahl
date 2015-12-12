@@ -79,7 +79,10 @@ end
 
 
 #This is for seeding goal table
-Goal.destroy_all
+#Goal.destroy_all
 #Goal.create!([{match_id: 7, player_id: 196, opponent_id: 2},
     #{match_id: 7, player_id: 196, opponent_id: 2}
     #])
+Match.all.each do |match|
+    match.update(result: -2)
+end

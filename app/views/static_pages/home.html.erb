@@ -1,3 +1,4 @@
+<%= notice %>
 <div class="row">
         <div class="col-xs-12 col-sm-7">
             <div class="jumbotron text-center banner">
@@ -14,20 +15,40 @@
                     <h3>Live Score</h3>
                 </div>
 
-                    <div class="panel-body">
-                        <div class="text-center">
-                            <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
-                            <%=  short_form @current_match.first_team.name %>&nbsp;&nbsp;
-                            <span class="text-pink" id="first_team_score"><%= @live_score.teamone_goals %></span>&nbsp;-&nbsp;
-                            <span class="text-pink" id="second_team_score"><%= @live_score.teamtwo_goals%>&nbsp;&nbsp;</span>
-                            <%=  short_form @current_match.opponent_team.name %>
-                            <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+                        <%=  short_form @current_match.first_team.name %>&nbsp;&nbsp;
 
-                        </div>
+                        <span class="text-pink" id="first_team_score">
+                            <% if @live_score %>
+                                <%= @live_score.teamone_goals %>
+                            <% else %>
+                                0
+                            <%end%>
+                        </span>&nbsp;-&nbsp;
+                        <span class="text-pink" id="second_team_score">
+                            <% if @live_score %>
+                                <%= @live_score.teamtwo_goals%>&nbsp;&nbsp;
+                            <%else %>
+                                0
+                            <% end%>
+                        </span>
+
+                        <%=  short_form @current_match.opponent_team.name %>
+                        <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+
                     </div>
+                </div> <!-- /panel-body -->
+
+
                     <div class="panel-footer">
                         <marquee>
-                            <span id="commentary"><%= @live_score.commentary %></span>
+                            <% if @live_score %>
+                                <span id="commentary"><%= @live_score.commentary %></span>
+                            <%else%>
+                                Match hasn't started yet
+                            <% end %>
                         </marquee>
                     </div>
             </div> <!--  End of panel -->
@@ -109,9 +130,10 @@
         <p class="space"></p>
         <% @top_scorers.each do |top_scorer| %>
             <div class="col-xs-12 col-sm-3">
-                <div class="panel panel-warning">
+                <div class="panel panel-danger">
                     <div class="panel-heading text-center">
-                        <span class="text-pink"><%= top_scorer.name %></span>
+                        <span class="text-primary"><%= top_scorer.name %></span>
+                        <span class="pull-right"><%= top_scorer.goals_count %></span>
                     </div>
 
                     <div class="panel-body">
@@ -119,7 +141,9 @@
                     </div>
 
                     <div class="panel-footer text-center">
-                        <span class="text-pink text-big"><%= pluralize(top_scorer.goals_count,"goal") %></span>
+                        <%= link_to top_scorer.team, class: "team-link" do %>
+                            <span class="text-pink"><%= top_scorer.team.name %></span>
+                        <% end %>
                     </div>
                 </div> <!--  end of panel -->
             </div> <!-- end of column -->

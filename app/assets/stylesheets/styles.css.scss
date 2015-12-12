@@ -2,6 +2,7 @@
 @import 'bootstrap';
 
 $pink:  #e00023;
+$dark-grey: #2d2d2d;
 /** Adding the required font files so that it works locally**/
 
 
@@ -18,11 +19,21 @@ body{
 	overflow-x: hidden;
 	font-size: 1.5em;
 }
+ridge-bottom{
+	border-bottom: 1px ridge;
+}
+/* headings  */
+h2{
+	color: $dark-grey;
+}
 .text-big{
 	font-size: 200%;
 }
-a{
+a, a:hover{
 	text-decoration: none;
+}
+.team-link:hover{
+	color: $dark-grey;
 }
 .space{
 	padding-top: 50px;
