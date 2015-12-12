@@ -79,6 +79,24 @@
             <% end %>
         </div> <!-- end of column -->
     </div><!-- end of row -->
+
+    <% if @man_of_the_match %>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                <div class="panel panel-danger">
+    				<div class="panel-heading text-center text-danger">
+    					<h3>Man of the match</h3>
+    				</div>
+    				<div class="panel-body">
+    					<%= image_tag @man_of_the_match.photo, class: "img-responsive" %>
+    				</div>
+
+    				<div class="panel-footer text-center text-pink">
+    					<%= @man_of_the_match.name %>
+    				</div>
+    			</div>
+            </div>
+    <% end %>
 </div> <!-- end of container -->
 
 <!-- To remove the marquee effect -->

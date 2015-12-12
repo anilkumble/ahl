@@ -1,4 +1,4 @@
-require_relative '../../config/initializers/info'
+
 class MatchesController < ApplicationController
 
 before_action :set_match, only:[:show,:end_match,:end]
@@ -20,6 +20,7 @@ before_action :authenticate, only:[:create, :update, :delete, :end, :end_delete]
       @opponent_team_captain = Player.find(@opponent_team.captain)
 
       @live_scores = @match.live_scores.order(updated_at: :desc)
+      @man_of_the_match = Player.find(@match.man_of_the_match)
   end
 
 
