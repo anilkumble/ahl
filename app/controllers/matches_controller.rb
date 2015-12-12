@@ -20,7 +20,11 @@ before_action :authenticate, only:[:create, :update, :delete, :end, :end_delete]
       @opponent_team_captain = Player.find(@opponent_team.captain)
 
       @live_scores = @match.live_scores.order(updated_at: :desc)
-      @man_of_the_match = Player.find(@match.man_of_the_match)
+      if @match.man_of_the_match
+          @man_of_the_match = Player.find(@match.man_of_the_match)
+      else
+          @man_of_the_match = nil
+      end
   end
 
 
