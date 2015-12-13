@@ -118,33 +118,33 @@
 		</div>
 	</div> <!-- End of third row -->
 
+	<% if @recent_matches.length > 0 %>
 	<div class="row">
 		<p class="space"></p>
 		<div class="col-xs-12 col-sm-4">
 			<h3>Recent Performance</h3>
 			<div class="well">
-				<div class="circle green-circle">
-					W
-				</div>
-				<div class="circle yellow-circle">
-					D
-				</div>
-				<div class="circle red-circle">
-					L
-				</div>
-				<div class="circle green-circle">
-					W
-				</div>
-				<div class="circle red-circle">
-					L
-				</div>
-				<div class="circle yellow-circle">
-					D
-				</div>
-			</div>
-		</div>
+				<% @recent_matches.each do |match| %>
 
-		<!-- -->
+						<!-- Look at application_helper.rb -->
+						<% if team_status(match, @team)  == "W"%>
+							<div class="circle green-circle">
+								W
+							</div>
+
+						<% elsif team_status(match, @team) == "D" %>
+						<div class="circle yellow-circle">
+							D
+						</div>
+
+						<% else %>
+							<div class="circle red-circle">
+								W
+							</div>
+						<% end %>
+			</div> <!-- well -->
+			<% end %>
+		</div>
 
 		<div class="col-xs-12 col-sm-4">
 		</div>
@@ -152,4 +152,5 @@
 		<div class="col-xs-12 col-sm-4">
 		</div>
 	</div>
+	<% end %>
 </div>

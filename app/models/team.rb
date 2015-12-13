@@ -10,13 +10,19 @@ class Team < ActiveRecord::Base
 	end
 
 	def matches(opponent_id)
-		Match.where(team1_id: [self.id, opponent_id],team2_id: [opponent_id,self.id]).count
+		@matches = []
+		m = Match.where(team1_id: [self.id, opponent_id],team2_id: [opponent_id,self.id])
+		m.each do |match|
+			if match.result != -2
+				@matches << match
+			end
+		end
+		@matches.length
 	end
 
-	#def top_scorer
-	#	players = self.players
-	#	Goal.where(player_id: players)
-	#end
+	def recent_matches
+		Match.where("team1_id=? OR team2_id=? AND NOT result=?",self.id, self.id,-2).order(id: :desc).limit(5)
+	end
 
 	def goals_scored(opponent_id)
 		players = self.players

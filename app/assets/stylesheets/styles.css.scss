@@ -303,6 +303,8 @@ td,th{
 /***/
 .versus{
 	color: $pink;
+	text-align: center;
+	border: 1px solid #ff0000;
 }
 #player-modal modal-header, #player-modal modal-body, #player-modal modal-footer{
 	width: 80%;
@@ -322,4 +324,7 @@ td,th{
 .gallery img{
 	max-height:200px;
 	max-width: 300px;
+}
+.ridge-border{
+	border-bottom: 1px solid ridge;
 }
