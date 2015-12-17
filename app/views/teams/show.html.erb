@@ -54,34 +54,44 @@
 
 		<!-- Start of stats -->
 		<div class="col-xs-12 col-sm-6">
-				<table class="table table-condensed table-responsive table-striped stats-table" id="stats-table">
-					<thead>
-						<tr>
-							<th>Team / Stats</th>
-							<th>Games</th>
-							<th>W</th>
-							<th>D</th>
-							<th>L</th>
-							<th>GS</th>
-							<th>GA</th>
-						</tr>
-					</thead>
+			<table class="table table-condensed table-responsive table-striped stats-table" id="stats-table">
+				<thead>
+					<tr>
+						<th>Team / Stats</th>
+						<th>P</th>
+						<th>W</th>
+						<th>D</th>
+						<th>L</th>
+						<th>GS</th>
+						<th>GA</th>
+					</tr>
+				</thead>
 
-					<tbody>
-						<% @other_teams.each do |opponent_team| %>
-						<tr>
-							<th> <%= opponent_team.name %> </th>
-							<td><%= @team.matches opponent_team.id %></td>
-							<!-- Figure out how to display Wins, Draws and losses -->
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td><%= @team.goals_scored opponent_team.id %></td>
-							<td><%= opponent_team.goals_scored @team.id %></td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
+				<tbody>
+					<% @other_teams.each do |opponent_team| %>
+					<tr>
+						<th> <%= opponent_team.name %> </th>
+						<td><%= @team.matches(opponent_team.id).length %></td>
+						<!-- Figure out how to display Wins, Draws and losses -->
+						<td> <%= @team.wins_count opponent_team.id %></td>
+						<td> <%= @team.draws_count opponent_team.id %> </td>
+						<td> <%= @team.losses_count opponent_team.id %></td>
+						<td><%= @team.goals_scored opponent_team.id %></td>
+						<td><%= opponent_team.goals_scored @team.id %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+
+			<div class="well well-sm abbreviations text-center">
+				<span class="text-pink">P-</span>&nbsp;Played&nbsp;
+				<span class="text-pink">W-</span>&nbsp;Wins&nbsp;
+				<span class="text-pink">D-</span>&nbsp;Losses&nbsp;
+				<span class="text-pink">L-</span>&nbsp;Draws&nbsp;
+				<span class="text-pink">GS-</span>&nbsp;Goals Scored&nbsp;
+				<span class="text-pink">GA-</span>&nbsp;Goals Against&nbsp;
+
+			</div>
 	</div><!--End of second column -->
 	</div> <!--End of second row  -->
 
