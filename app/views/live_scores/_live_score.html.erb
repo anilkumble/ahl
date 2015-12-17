@@ -3,14 +3,26 @@
     <div class="text-center">
         <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
         <%=  short_form live_score.match.first_team.name %>&nbsp;&nbsp;
-        <span class="text-pink"><%= live_score.teamone_goals %></span>&nbsp;-&nbsp;<span class="text-pink"><%= live_score.teamtwo_goals%>&nbsp;&nbsp;</span>
+
+        <span class="text-pink">
+            <%= live_score.teamone_goals %>
+        </span>&nbsp;-&nbsp;
+
+        <span class="text-pink">
+            <%= live_score.teamtwo_goals%>&nbsp;&nbsp;
+        </span>
         <%=  short_form live_score.match.opponent_team.name %>
         <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
 
     </div>
 </div>
+
 <div class="panel-footer">
     <marquee>
-        <%= live_score.commentary %>
+        <% if live_score %>
+            <span id="commentary" class="text-pink"><%= live_score.commentary %></span>
+        <%else%>
+            Match hasn't started yet
+        <% end %>
     </marquee>
 </div>

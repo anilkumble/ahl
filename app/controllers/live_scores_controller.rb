@@ -1,75 +1,46 @@
 class LiveScoresController < ApplicationController
-  before_action :set_live_score, only: [:show, :edit, :update, :destroy]
+  before_action :set_match
+  before_action :authenticate
 
-  # GET /live_scores
-  # GET /live_scores.json
+
   def index
-    @live_scores = LiveScore.all
+      @live_scores = @match.live_scores.order(created_at: :desc)
+      @live_score = @match.live_scores.new
   end
 
-  # GET /live_scores/1
-  # GET /live_scores/1.json
-  def show
-  end
 
-  # GET /live_scores/new
-  def new
-    @live_score = LiveScore.new
-  end
-
-  # GET /live_scores/1/edit
-  def edit
-  end
-
-  # POST /live_scores
-  # POST /live_scores.json
   def create
-    @live_score = LiveScore.new(live_score_params)
 
-    respond_to do |format|
-      if @live_score.save
-        format.html { render :new, notice: 'Live score was successfully created.' }
-        format.json { render json: @live_score}
-        format.js {render 'create'}
-      else
-        format.html { render :new }
-        format.json { render json: @live_score.errors, status: :unprocessable_entity }
-      end
+    @live_score = @match.live_scores.new(live_score_params)
+    if @live_score.save
+        redirect_to match_live_scores_url(@match), notice: 'Live score was successfully created.'
+    else
+        redirect_to match_live_scores_url(@match), alert: "Couldn't update. Fill all the fields and try again"
     end
-  end
 
-  # PATCH/PUT /live_scores/1
-  # PATCH/PUT /live_scores/1.json
-  def update
-    respond_to do |format|
-      if @live_score.update(live_score_params)
-        format.html { redirect_to @live_score, notice: 'Live score was successfully updated.' }
-        format.json { render :show, status: :ok, location: @live_score }
-      else
-        format.html { render :edit }
-        format.json { render json: @live_score.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
 
- 
   def destroy
-    @live_score.destroy
-    respond_to do |format|
-      format.html { redirect_to live_scores_url, notice: 'Live score was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+      @live_score = @match.live_scores.find(params[:id])
+      @live_score.destroy
+      redirect_to match_live_scores_url(@match), notice: 'Live score was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_live_score
-      @live_score = LiveScore.find(params[:id])
+    def set_match
+        @match = Match.find(params[:match_id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def live_score_params
-      params.require(:live_score).permit(:teamone_goals, :teamtwo_goals,:commentary, :match_id)
+      params.require(:live_score).permit(:teamone_goals, :teamtwo_goals,:commentary)
     end
+
+    def authenticate
+        authenticate_or_request_with_http_basic("Trespassers will be prosecuted") do |username, password|
+           username == "admin" and password == "catchmeifyoucan"
+       end
+    end
+
 end

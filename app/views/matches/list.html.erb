@@ -18,6 +18,7 @@
                         <th>Date</th>
                         <th>Result</th>
                         <th>Man of the match</th>
+                        <th colspan="4"></th>
                     </tr>
                 </thead>
 
@@ -39,9 +40,10 @@
                                     <%= "not yet decided" %>
                                 <% end %>
                              </td>
+                             <td> <%= link_to "Live Scores", match_live_scores_path(match), target: "_blank" %></td>
+                             <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>
 
                              <td><%= link_to "Edit", edit_match_path(match), target: "_blank" %></td>
-                             <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>
                              <td><%= link_to "Delete", match, method: :delete, data: {confirm: "Are you sure?"} %></td>
                         </tr>
                     <% end %>

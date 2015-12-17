@@ -30,6 +30,7 @@ $dropdown-link-active-color: $pink;
 $dropdown-caret-color: $pink;
 
 @import 'bootstrap';
+$footer-height: 200px;
 
 /** Adding the required font files so that it works locally**/
 @font-face{
@@ -162,10 +163,17 @@ a, a:hover{
 		color: #999;
 	}
 }
+@media (min-width: 768px){
+	.footer-content{
+		height:$footer-height;
+	}
+}
 
 .trademark{
 	color: #eee;
-	font-size: 120%;
+	font-size: 160%;
+	height:$footer-height;
+	line-height: $footer-height;
 }
 
 /**For social buttons ***/
@@ -284,6 +292,9 @@ th{
 }
 .text-italic{
 	font-style: italic;
+}
+.report-time{
+	margin-bottom: 2%;
 }
 /* Style for team motto */
 #motto{
@@ -407,7 +418,7 @@ td,th{
 	color: #fff;
 }
 .comment, #commentary{
-	font-size: 150%;
+	font-size: 130%;
 }
 /** animations (experimental) **/
 @-webkit-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }

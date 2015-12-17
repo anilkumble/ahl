@@ -14,43 +14,7 @@
                 <div class="panel-heading text-center live-score-heading">
                     <h3>Live Score</h3>
                 </div>
-
-                <div class="panel-body">
-                    <div class="text-center">
-                        <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
-                        <%=  short_form @current_match.first_team.name %>&nbsp;&nbsp;
-
-                        <span class="text-pink" id="first_team_score">
-                            <% if @live_score %>
-                                <%= @live_score.teamone_goals %>
-                            <% else %>
-                                0
-                            <%end%>
-                        </span>&nbsp;-&nbsp;
-                        <span class="text-pink" id="second_team_score">
-                            <% if @live_score %>
-                                <%= @live_score.teamtwo_goals%>&nbsp;&nbsp;
-                            <%else %>
-                                0
-                            <% end%>
-                        </span>
-
-                        <%=  short_form @current_match.opponent_team.name %>
-                        <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
-
-                    </div>
-                </div> <!-- /panel-body -->
-
-
-                    <div class="panel-footer">
-                        <marquee>
-                            <% if @live_score %>
-                                <span id="commentary" class="text-pink"><%= @live_score.commentary %></span>
-                            <%else%>
-                                Match hasn't started yet
-                            <% end %>
-                        </marquee>
-                    </div>
+                <%= render @live_score %>
             </div> <!--  End of panel -->
         </div> <!-- end of second column -->
     </div> <!-- end of first row -->

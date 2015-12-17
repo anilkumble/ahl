@@ -1,26 +1,36 @@
 //console.log("Working");
-$(document).ready(function(){
+/*$(document).ready(function(){
     $("#live_score_submit_button").on("click", function(event){
         console.log("in liveScores.js");
         event.preventDefault();
 
+        // Finds the parent form element for getting the url to submit
         var form = $(this).parents('form');
-        //console.log(form);
+        //console.log(form.serialize());
+        // Issuing an synchronous request
         $.ajax({
             url: form.attr('action'),
             type: "POST",
             data: form.serialize(),
             dataType: "json",
             success: function(data){
-                console.log(data.teamone_goals);
-                $("#first_team_score").html(data.teamone_goals);
-                $("#second_team_score").html(data.teamtwo_goals);
-                $("#commentary").html(data.commentary);
-            } // End of success callback
+                // data is the json object rendered
+                $("tbody").prepend("<tr><td>" + data.teamone_goals + "</td>" +
+                "<td>" + data.teamtwo_goals + "</td>" +
+                "<td>" + data.commentary + "</td>" +
+                 "</tr>");
+                 $("#live_score_teamone_goals").val("");
+                 $("#live_score_teamtwo_goals").val("");
+                 $("#live_score_commentary").val("");
+
+            }, // End of success callback
+            error: function(data){
+                alert("Couldn't add. Try again");
+            }
         });
-        alert("Livescore added");
 
     }); // Click listener
 
 
 });
+*/

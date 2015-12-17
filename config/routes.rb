@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :teams, except:[:index]
 
   resources :matches do
-      resources :live_scores
+      resources :live_scores, only: [:index, :create, :destroy]
       resources :goals
   end
 
