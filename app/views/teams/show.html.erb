@@ -27,7 +27,7 @@
 		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
 			<div class="well well-sm" id="motto">
 				<blockquote>
-					<%= @team.motto %>
+					<span><%= @team.motto %></span>
 				</blockquote>
 			</div>
 		</div>
@@ -59,8 +59,11 @@
 						<tr>
 							<th>Team / Stats</th>
 							<th>Games</th>
-							<th>Goals Scored</th>
-							<th>Goals Against</th>
+							<th>W</th>
+							<th>D</th>
+							<th>L</th>
+							<th>GS</th>
+							<th>GA</th>
 						</tr>
 					</thead>
 
@@ -69,6 +72,10 @@
 						<tr>
 							<th> <%= opponent_team.name %> </th>
 							<td><%= @team.matches opponent_team.id %></td>
+							<!-- Figure out how to display Wins, Draws and losses -->
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
 							<td><%= @team.goals_scored opponent_team.id %></td>
 							<td><%= opponent_team.goals_scored @team.id %></td>
 						</tr>
@@ -87,7 +94,7 @@
 
 		<div class="col-xs-12 col-sm-4 col-sm-offset-1">
 			<div class="panel panel-danger">
-				<div class="panel-heading text-center text-danger">
+				<div class="panel-heading text-center">
 					<h3>Top scorer</h3>
 				</div>
 				<div class="panel-body">
@@ -118,39 +125,40 @@
 		</div>
 	</div> <!-- End of third row -->
 
-	<% if @recent_matches.length > 0 %>
+	<% if @recent_matches.length > 0%>
 	<div class="row">
 		<p class="space"></p>
 		<div class="col-xs-12 col-sm-4">
 			<h3>Recent Performance</h3>
-			<div class="well">
+			<br>
 				<% @recent_matches.each do |match| %>
-
+						<% result = team_status(match, @team) %>
 						<!-- Look at application_helper.rb -->
-						<% if team_status(match, @team)  == "W"%>
-							<div class="circle green-circle">
-								W
-							</div>
+						<div class="col-xs-3">
+							<% if result == "W"%>
+								<div class="circle green-circle">
+									W
+								</div>
 
-						<% elsif team_status(match, @team) == "D" %>
-						<div class="circle yellow-circle">
-							D
+							<% elsif result == "D" %>
+								<div class="circle yellow-circle">
+									D
+								</div>
+
+							<% elsif result == "L" %>
+								<div class="circle red-circle">
+									L
+								</div>
+							<% end %>
 						</div>
-
-						<% else %>
-							<div class="circle red-circle">
-								W
-							</div>
-						<% end %>
-			</div> <!-- well -->
-			<% end %>
-		</div>
+				<% end %>
+		</div> <!-- /column -->
 
 		<div class="col-xs-12 col-sm-4">
 		</div>
 
 		<div class="col-xs-12 col-sm-4">
 		</div>
-	</div>
+	</div> <!-- /row -->
 	<% end %>
 </div>

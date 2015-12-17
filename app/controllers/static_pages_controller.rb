@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
       @live_score = @current_match.live_scores.last
 
       @top_scorers = Player.order("goals_count desc").limit(4)
+      @matches_ended = Match.where("result <> -2").count
   end
 
   def about

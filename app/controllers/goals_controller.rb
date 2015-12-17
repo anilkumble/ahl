@@ -35,12 +35,12 @@ class GoalsController < ApplicationController
           @player.update_attributes(goals_count: goal_count + 1)
 
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
-        format.json { render :show, status: :created, location: @goal }
       else
         format.html { render :new }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end
+        format.json { render :show, status: :created, location: @goal }
   end
 
   # PATCH/PUT /goals/1

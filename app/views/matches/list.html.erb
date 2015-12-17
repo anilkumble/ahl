@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <%if notice %>
+                <div class="alert alert-info"><%= notice %></div>
+            <%elsif alert %>
+                <div class="alert alert-danger"> <%= alert %> </div>
+            <% end %>
+
+            <%= link_to 'New Match', new_match_path , class: "btn btn-primary", target: "_blank"%><br>
+
+            <table class="table table-striped table-condensed table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Match id</th>
+                        <th>Team one</th>
+                        <th>Team two</th>
+                        <th>Date</th>
+                        <th>Result</th>
+                        <th>Man of the match</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @matches.each do |match| %>
+                        <tr>
+
+                            <td><%= match.id %></td>
+                            <td><%= match.first_team.name %></td>
+                            <td><%= match.opponent_team.name %></td>
+                            <td><%= match.date  %></td>
+                            <td><%= match.winner %></td>
+                            <!-- Check this piece of code -->
+                            <td>
+                                <% if  match.man_of_the_match and match.man_of_the_match != 0%>
+                                    <% player_of_the_match = Player.find(match.man_of_the_match) %>
+                                    <%= player_of_the_match.name %>
+                                <% else %>
+                                    <%= "not yet decided" %>
+                                <% end %>
+                             </td>
+
+                             <td><%= link_to "Edit", edit_match_path(match), target: "_blank" %></td>
+                             <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>
+                             <td><%= link_to "Delete", match, method: :delete, data: {confirm: "Are you sure?"} %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+
+            </table>
+        </div> <!-- /column -->
+    </div> <!-- /row -->
+</div><!-- /container -->

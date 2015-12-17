@@ -1,39 +1,36 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, except:[:show]
 
-  # GET /players
-  # GET /players.json
+  #Don't remove index action
+  #useful for updating goals(to find the user id)
   def index
     @players = Player.all
 
   end
-  # GET /players/1
-  # GET /players/1.json
+
+
   def show
       respond_to do |format|
-         format.html
          format.js
+         format.json
       end
   end
 
-  # GET /players/new
   def new
     @player = Player.new
   end
 
-  # GET /players/1/edit
+
   def edit
   end
 
-  # POST /players
-  # POST /players.json
   def create
     @player = Player.new(player_params)
 
-
       respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
+        format.html { redirect_to players_url, notice: 'Player was successfully created.' }
         format.json { render :show, status: :created, location: @player }
       else
         format.html { render :new }
@@ -42,12 +39,10 @@ class PlayersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /players/1
-  # PATCH/PUT /players/1.json
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
+        format.html { redirect_to players_url, notice: 'Player was successfully updated.' }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit }
@@ -56,8 +51,7 @@ class PlayersController < ApplicationController
     end
   end
 
-  # DELETE /players/1
-  # DELETE /players/1.json
+
   def destroy
     @player.destroy
     respond_to do |format|
@@ -67,13 +61,19 @@ class PlayersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_player
       @player = Player.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    #Dont allow any other parameters
     def player_params
-      params.require(:player).permit(:name, :age, :team_id, :position, :goals)
+      params.require(:player).permit(:name, :age, :team_id, :position, :goals_count, :red_cards, :green_cards, :yellow_cards, :photo)
+    end
+
+    def authenticate
+       authenticate_or_request_with_http_basic("Trespassers will be prosecuted") do |username, password|
+          username == "admin" and password="catchmeifyoucan"
+      end
     end
 end

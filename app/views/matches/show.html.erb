@@ -6,21 +6,23 @@
         </div>
     </div> <!--end of row -->
 
+<div class="jumbotron match-title">
     <div class="row">
         <p class="space"></p>
+
         <div class="col-xs-5 col-sm-2 col-sm-offset-3 team-photo">
             <%= image_tag @first_team.logo, height: 150%>
         </div>
 
-        <div class="col-xs-1 col-xs-offset-1 versus">
-            Vs
+        <div class="col-xs-2 versus text-big">
+            Versus
         </div>
 
         <div class="col-xs-5 col-sm-2 team-photo">
             <%= image_tag @opponent_team.logo, height: 150 %>
         </div>
-    </div>
-
+    </div> <!-- /jumbotron -->
+</div>  <!-- /row -->
     <div class="row">
         <div class="col-xs-5 col-sm-2 col-sm-offset-3">
             <%= image_tag @first_team_captain.photo, class: "img-responsive"%><br>
@@ -50,14 +52,48 @@
         </div> <!-- End of column -->
 	</div> <!-- End of row -->
 
+
+<!-- Space to display the result -->
+    <% if @man_of_the_match %>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <div class="well">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3 col-sm-4 col-sm-offset-1">
+                                <%= image_tag @match.first_team.logo,width: "40", height: "25", class: "livescore-style" %>
+                                <%= @match.first_team.name %>
+                            </div>
+
+                            <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-0">
+                                <span class="text-pink text-big">
+                                    <!--<strong><%#= @final_score.teamone_goals %></strong>&nbsp;&nbsp;-&nbsp;
+                                    <strong><%#= @final_score.teamtwo_goals%></strong>-->
+                                </span>
+                            </div>
+
+                            <div class="col-xs-3 col-sm-4">
+                                    <%= image_tag @match.opponent_team.logo,height: "25", width: "40", class: "livescore-style" %>
+                                    <%= @match.opponent_team.name %>
+                            </div>
+                        </div> <!-- end of row -->
+                    </div> <!-- end of panel body -->
+                </div>
+            </div> <!-- /column -->
+        </div> <!-- /row -->
+    <% end %>
+
+
     <!-- Space for man of the match -->
     <% if @man_of_the_match %>
         <div class="row">
+            <p class="space"></p>
             <div class="col-xs-12 col-sm-4 col-sm-offset-4">
                 <div class="panel panel-danger">
     				<div class="panel-heading text-center text-danger">
     					<h3>Man of the match</h3>
     				</div>
+
     				<div class="panel-body">
     					<%= image_tag @man_of_the_match.photo, class: "img-responsive" %>
     				</div>
@@ -65,8 +101,10 @@
     				<div class="panel-footer text-center text-pink">
     					<%= @man_of_the_match.name %>
     				</div>
-    			</div>
-            </div>
+
+    			</div> <!-- /panel -->
+            </div> <!-- /column -->
+        </div> <!-- /row -->
     <% end %>
 
     <div class="row">
@@ -104,7 +142,7 @@
                         </div> <!-- end of panel body -->
 
                         <div class="panel-footer text-center">
-                            <strong><%= live_score.commentary %></strong>
+                            <strong><span class="comment"><%= live_score.commentary %></span></strong>
                         </div>
                     </div> <!-- end of well -->
             <% end %>
@@ -113,11 +151,3 @@
 
 
 </div> <!-- end of container -->
-
-<!-- To remove the marquee effect -->
-<script>
-
-    marquee_nodes = document.getElementsByTagName("marquee");
-    for(var i = 0; i< marquee_nodes.length; i++)
-        console.log(marquee_nodes[i]);
-</script>

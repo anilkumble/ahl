@@ -10,8 +10,8 @@
         </div> <!-- end of first column -->
 
         <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
-            <div class="panel panel-primary" id="liveScoreArea">
-                <div class="panel-heading text-center">
+            <div class="panel panel-danger" id="liveScoreArea">
+                <div class="panel-heading text-center live-score-heading">
                     <h3>Live Score</h3>
                 </div>
 
@@ -45,7 +45,7 @@
                     <div class="panel-footer">
                         <marquee>
                             <% if @live_score %>
-                                <span id="commentary"><%= @live_score.commentary %></span>
+                                <span id="commentary" class="text-pink"><%= @live_score.commentary %></span>
                             <%else%>
                                 Match hasn't started yet
                             <% end %>
@@ -78,7 +78,7 @@
                             <% else %>
                                 <div class="item">
                             <% end %>
-                                    <%= link_to (image_tag(report.image, alt: "Image missing")), report %>
+                                    <%= link_to (image_tag report.image, alt: "Image missing", toggle: "tooltip", placement: "top", title: "Click to read the full article"), report %>
                                     <div class="carousel-caption">
                                         <h4><%= report.caption %></h4>
                                     </div>
@@ -94,10 +94,12 @@
                     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                   </a>
-              </div> <!-- end of Carousel -->
+              </div> <!-- end of carousel -->
     </div> <!-- end of column -->
 
     <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+
+        <h3 class="text-center">Leaderboard</h3>
         <table class="table table-responsive table-striped leaderboard">
             <thead>
                 <tr>
@@ -121,6 +123,7 @@
 
 
     <!-- Row for displaying the top scorers-->
+    <%if @matches_ended > 0 %>
     <div class="row ridge-border">
         <p class="space"></p>
         <div class="col-xs-12 text-center">
@@ -130,10 +133,10 @@
         <p class="space"></p>
         <% @top_scorers.each do |top_scorer| %>
             <div class="col-xs-12 col-sm-3">
-                <div class="panel panel-danger">
+                <div class="panel panel-warning">
                     <div class="panel-heading text-center">
-                        <span class="text-primary"><%= top_scorer.name %></span>
-                        <span class="pull-right"><%= top_scorer.goals_count %></span>
+                        <span class="text-black"><%= top_scorer.name %></span>
+                        <span class="pull-right font-big"><%= top_scorer.goals_count %></span>
                     </div>
 
                     <div class="panel-body">
@@ -149,17 +152,16 @@
             </div> <!-- end of column -->
         <% end %>
     </div> <!--  End of row -->
+<% end %>
 
     <div class="row">
         <div class="col-xs-12">
             <p style="padding-top:50px;"></p>
             <div class="jumbotron" id="ahl-intro">
-                     <h2 class="title-font text-center">A little about AHL</h2>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus. Vestibulum lobortis sit amet arcu eget consequat. Aliquam erat volutpat. In condimentum lacus nunc, eget molestie turpis placerat ut. Proin pretium aliquet elit, auctor auctor quam pulvinar at. Vivamus vel interdum urna. Mauris et ante vitae sem aliquet hendrerit sed dictum tellus. Quisque id consequat arcu, ac ornare nibh. Integer eu blandit elit. Cras dapibus quam a erat elementum, eu volutpat lorem laoreet. Aenean fermentum nec turpis dignissim sollicitudin. Nunc consequat lacus id magna lacinia, eget pretium ante euismod. Ut molestie felis sed odio facilisis rhoncus. Suspendisse potenti.
+                 <h2 class="text-center text-grey">A little about AHL</h2>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus. Vestibulum lobortis sit amet arcu eget consequat. Aliquam erat volutpat. In condimentum lacus nunc, eget molestie turpis placerat ut. Proin pretium aliquet elit, auctor auctor quam pulvinar at. Vivamus vel interdum urna. Mauris et ante vitae sem aliquet hendrerit sed dictum tellus. Quisque id consequat arcu, ac ornare nibh. Integer eu blandit elit. Cras dapibus quam a erat elementum, eu volutpat lorem laoreet. Aenean fermentum nec turpis dignissim sollicitudin. Nunc consequat lacus id magna lacinia, eget pretium ante euismod. Ut molestie felis sed odio facilisis rhoncus. Suspendisse potenti.
 
-                    Maecenas et magna auctor, efficitur leo eu, molestie velit. Proin orci risus, ornare vulputate finibus blandit, vehicula vestibulum nulla. In varius quis elit at consequat. Cras leo ex, consectetur id nunc nec, lobortis tristique tortor. Nullam urna augue, fermentum et varius eu, blandit in nibh. Proin vitae lobortis diam. Donec vitae tincidunt ipsum.
-
-                    Aenean laoreet quam eu varius scelerisque. ltrices posuere cubilia Curae; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean varius odio et massa vestibulum, in tempor diam tincidunt. Nam vitae lobortis arcu. Cras bibendum sapien eu augue sodales, nec varius purus lacinia. Etiam semper enim vel lacus dictum bibendum. Vivamus commodo at mi quis imperdiet. Suspendisse sit amet porta sem. Pellentesque eget urna ac metus maximus facilisis.
+                Maecenas et magna auctor, efficitur leo eu, molestie velit. Proin orci risus, ornare vulputate finibus blandit, vehicula vestibulum nulla. In varius quis elit at consequat. Cras leo ex, consectetur id nunc nec, lobortis tristique tortor. Nullam urna augue, fermentum et varius eu, blandit in nibh. Proin vitae lobortis diam. Donec vitae tincidunt ipsum.
             </div> <!-- end of jumbotron -->
         </div> <!-- end of column -->
     </div> <!--end of a row -->
@@ -170,16 +172,10 @@
         <p class="space"></p>
         <div class="col-xs-12 text-center">
             <h2> Past Winners </h2>
+            <p class="space">
         </div> <!-- end of column -->
-        <p class="space"></p>
-        <% year = 2015 %>
-        <% %w[white.png white.png yellow.jpg blue.jpg yellow.jpg green.jpg violet.jpg blue.jpg yellow.jpg].each do |logo| %>
-            <div class="col-xs-6 col-sm-2">
-                <%= image_tag logo, height: "70", width:"100" %>
-                <caption><%= year %></caption>
-                <% year -= 1 %>
-            </div>
-        <% end %>
+
+        <%= render 'past_winners' %>
     </div> <!-- end of row -->
 
 

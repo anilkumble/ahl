@@ -1,25 +1,63 @@
 @import 'bootstrap-sprockets';
-@import 'bootstrap';
 
+
+/** Colors **/
 $pink:  #e00023;
 $dark-grey: #2d2d2d;
+$royal-blue: #337ba7;
+
+/** Overrides Bootstrap's default styles using less
+	Customize bootstrap and then load it
+ **/
+
+/** Navbar **/
+$navbar-default-bg: #fff;
+$navbar-height: 70px;
+$navbar-default-link-color: #111;
+$navbar-default-link-hover-color: $pink;
+$navbar-default-link-hover-bg: transparent;
+$navbar-default-link-active-bg: #fff;
+$navbar-default-brand-color: $pink;
+$navbar-default-border: #fff;
+$navbar-default-toggle-icon-bar-bg: $pink;
+$navbar-default-link-active-color: $pink;
+
+/** Dropwdown **/
+$dropdown-link-color: #333;
+$dropdown-link-hover-color: #fff;
+$dropdown-link-hover-bg: $pink;
+$dropdown-link-active-color: $pink;
+$dropdown-caret-color: $pink;
+
+@import 'bootstrap';
+
 /** Adding the required font files so that it works locally**/
-
-
 @font-face{
 	font-family: "Cabin";
 	src: font-url('Cabin-Regular.ttf') format('truetype');
 }
 *{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
 body{
 	font-family: Cabin, sans-serif;
-  	padding-top: 70px;
 	overflow-x: hidden;
 	font-size: 1.5em;
+  	padding-top: 100px;
 }
-ridge-bottom{
+/** Media queries for past winners**/
+@media (min-width: 768px){
+	.bottom-row{
+		margin-left: 16%;
+	}
+}
+
+
+/** ridge borders **/
+.ridge-bottom{
 	border-bottom: 1px ridge;
 }
 /* headings  */
@@ -40,12 +78,6 @@ a, a:hover{
 }
 
 /** styles for quicklinks **/
-.center-links > li > a{
-	color: #000 !important;
-}
-.center-links > li > a:hover{
-	color: #777;
-}
 .center-links{
 	margin-left: 15%;
 }
@@ -53,14 +85,20 @@ a, a:hover{
 	font-weight: bold;
 }
 
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
-	color: #eee;
-}
 /* AHL Banner*/
 .banner{
 	border-top-right-radius: 35%;
 	border-bottom-right-radius: 35%;
-	background: $pink;
+	background: $royal-blue;
+	font-size: 16px;
+	color: floralwhite;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+
+	-webkit-animation: slidein 1s linear 0s infinite alternate;
+	-moz-animation: slidein 1s linear 0s infinite alternate;
+	-o-animation: slidein 1s linear 0s infinite alternate;
+	animation: slidein 1s linear 0s alternate;
 }
 /** This is to remove the black gradient in the right control of the carousel **/
 .carousel-control.right{
@@ -111,24 +149,23 @@ a, a:hover{
 	font-size: 120%;
 }
 
-/* Styles for jumbotron */
-.jumbotron
-{
-	background: #7986CB;
-	color: floralwhite;
-	font-size: 16px;
-}
 /* Footer */
 .footer-content{
 	margin-top: 50px;
 	background: #2d2d2d;
-	color: #fff;
+	color: #aaa;
+	h3
+	{
+		color: $pink;
+	}
+	a{
+		color: #999;
+	}
 }
-.footer-content h3{
-	color: $pink;
-}
-.footer-content a{
-	color: #999;
+
+.trademark{
+	color: #eee;
+	font-size: 120%;
 }
 
 /**For social buttons ***/
@@ -212,6 +249,10 @@ th{
 #stats-table tr:hover{
      opacity: 1;
 }
+
+#stats-table tbody tr th{
+	text-align: center;
+}
 /** navbar brand styles **/
 .navbar-brand
 {
@@ -235,18 +276,32 @@ th{
 	background: $pink;
 	border-top-left-radius: 20%;
 	border-bottom-right-radius: 20%;
+	color: #fff;
 }
 /** Reports **/
 .report{
 	background: #E9E9E9;
+}
+.text-italic{
+	font-style: italic;
 }
 /* Style for team motto */
 #motto{
 	background: $pink;
 	color: #fff;
 	text-align: center;
+	span
+	{
+		font-size: 120%;
+	}
+	blockquote
+	{
+		margin-top: 2%;
+	}
 }
-/* Players table styles */
+/* Players table styles
+	Squad
+ */
 td,th{
 	text-align: center;
 }
@@ -258,7 +313,7 @@ td,th{
 	background: $pink;color: #fff;
 }
 .players-table tr:hover td:first-child{
-	border-left: 5px solid #eee;
+	border-left: 5px solid $royal-blue;
 }
 /* Fixtures styles */
 .match-fixture{
@@ -279,14 +334,19 @@ td,th{
 	color: #fff;
 }
 .player-info{
-	margin-left: 12%;
+	margin-left: 20%;
 }
 .player-modal-image{
 	margin-left: 35%;
 }
+.grey-x{
+	color: #999;
+	font-size: 250%;
+}
 /* Reports  */
 .report-title{
 	color: $pink;
+	margin-top: 50px;
 }
 /* Leaderboard */
 .leaderboard tr:nth-child(even){
@@ -304,18 +364,33 @@ td,th{
 .versus{
 	color: $pink;
 	text-align: center;
-	border: 1px solid #ff0000;
+	height: 150px;
+	line-height: 150px;
 }
+
 #player-modal modal-header, #player-modal modal-body, #player-modal modal-footer{
 	width: 80%;
 }
+/* text colors */
 .text-pink{
 		color: $pink;
 }
-/* LiveScore style */
+.text-grey{
+	color: #ddd;
+}
+.text-light-grey{
+	color: #777;
+}
+/* core style */
 .livescore-style{
 	display: inline-block;
 }
+/* styles for panel danger */
+.panel-danger .panel-heading{
+	background: $pink;
+	color: #eee;
+}
+
 /* Form elements */
 .form-control{
 	width: 40%;
@@ -327,4 +402,38 @@ td,th{
 }
 .ridge-border{
 	border-bottom: 1px solid ridge;
+}
+.liveScoreArea panel-heading{
+	color: #fff;
+}
+.comment, #commentary{
+	font-size: 150%;
+}
+/** animations (experimental) **/
+@-webkit-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
+   @-moz-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }   }
+     @-o-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
+        @keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
+
+/* match jumobtron */
+.match-title{
+	background: #fff;
+}
+/* Styles for past winners */
+.past-winners{
+	border: 10px solid $pink;
+}
+.past-winners img{
+	height: 116px;
+}
+@media (min-width: 768px){
+	.bottom-row .single-photo{
+		width: 195px;
+	}
+}
+
+@media (max-width: 768px){
+	.bottom-row .single-photo{
+		width: 192.5px;
+	}
 }

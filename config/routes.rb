@@ -1,17 +1,26 @@
 Rails.application.routes.draw do
 
-  resources :photos
-  resources :live_scores
-  resources :reports
-  resources :goals
-  resources :matches, only:[:index,:show,:new,:create]
-  patch '/end_match/:id' => "matches#end_match"
-  get '/end_match/:id' => "matches#end"
   resources :players
-  root 'static_pages#home'
+  resources :photos
+  resources :reports
+  resources :teams, except:[:index]
 
+  resources :matches do
+      resources :live_scores
+      resources :goals
+  end
+
+  #for updating match results
+  patch '/end_match/:id' => "matches#end_match"
+  get '/end_match/:id' => "matches#end", as: "end_match"
+
+  root 'static_pages#home'
   get 'static_pages/about'
-  resources :teams
+
+#for admin
+get '/goals' => 'goals#index'
+get '/all_matches' => 'matches#list'
+get '/all_reports' => 'reports#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

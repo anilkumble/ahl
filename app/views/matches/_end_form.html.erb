@@ -1,0 +1,30 @@
+<%= form_for(@match, url: {action: :end_match}) do |f| %>
+<!--Errors if any -->
+<% if @match.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@match.errors.count, "error") %></h2>
+
+    <ul>
+    <% @match.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2 class="text-center">You are updating details for Match <%=  @match.id %></h2>
+<div class="alert alert-danger text-pink"> If you updated the result wrongly, make sure to check the team points and update it accordingly</div>
+<div class="form-group">
+    <%= f.label :result %>
+    <%= f.text_field :result , class: "form-control"%>
+</div>
+
+<div class="form-group">
+    <%= f.label :man_of_the_match %>
+    <%= f.text_field :man_of_the_match , class: "form-control"%>
+</div>
+
+<div class="form-group">
+    <%= f.submit "End Match" , class: "btn btn-danger"%>
+</div>
+<% end %>

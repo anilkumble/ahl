@@ -10,34 +10,63 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+    <div class="col-xs-6">
+          <div class="form-group">
+            <%= f.label :name, class: "control-label" %><br>
+            <%= f.text_field :name , class: "form-control", autofocus: true%>
+          </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
 
+          <div class="form-group">
+            <%= f.label :age, class: "control-label" %><br>
+            <%= f.number_field :age, class: "form-control" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
+          <div class="form-group">
+              <%= f.label :team, class: "control-label"%><br>
+              <%= f.collection_select(:team_id ,Team.all, :id, :name, { include_blank: "Select Team"}) %>
+          </div>
 
-  <div class="field">
-  <%= f.label :team %>
-<%= f.collection_select(:team_id ,Team.all, :id, :name, { include_blank: "Select Team"}) %>
-  </div>
+          <div class="form-group">
+            <%= f.label :position, class: "control-label" %><br>
+            <%= f.text_field :position, class: "form-control" %>
+          </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :position %><br>
-    <%= f.text_field :position %>
-  </div>
+      <div class="col-xs-6">
 
-  <div class="field">
-    <%= f.label :goals %><br>
-    <%= f.number_field :goals %>
-  </div>
+          <div class="form-group">
+            <%= f.label :goals_count, class: "control-label" %><br>
+            <%= f.number_field :goals_count, class: "form-control" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+          <div class="form-group">
+            <%= f.label :green_cards, class: "control-label" %><br>
+            <%= f.number_field :green_cards, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :yellow_cards, class: "control-label" %><br>
+            <%= f.number_field :yellow_cards, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :red_cards, class: "control-label" %><br>
+            <%= f.number_field :red_cards, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+              <%= f.label :photo,"Image URL", class: "control-label" %><br>
+              <%= f.text_field :photo, class: "form-control" %>
+          </div>
+      </div>
+
+      <div class="col-xs-4 col-xs-offset-4">
+          <div class="actions">
+            <%= f.submit class: "btn btn-danger"%>
+          </div>
+      </div>
+
+ </div> <!-- /row -->
 <% end %>

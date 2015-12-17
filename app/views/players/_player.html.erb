@@ -1,20 +1,20 @@
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header text-center player-name-header">
+            <span data-dismiss="modal" class="grey-x pull-right">&times;</span>
             <h3><%= @player.name %>&nbsp;
                 <% if @player.id == @player.team.captain %>
-                    <span class="label label-danger">Captain</span>
+                    <span class="label label-primary">Captain</span>
                 <% end  %>
+            </h3>
         </div>
 
         <div class="modal-body">
                 <%= image_tag @player.photo, width: "30%" , class: "img-responsive img-thumbnail player-modal-image" %>
 
-
                 <div class="caption"><br>
-
+                    
                   <dl class="dl-horizontal player-info">
-
                       <dt>Team</dt>
                       <dd><%= @player.team.name %></dd>
 
@@ -23,19 +23,14 @@
 
                       <dt>Goals</dt>
                       <dd><%= @player.goals %></dd>
-
                   </dl>
+
               </div> <!-- caption -->
       </div> <!-- modal body -->
+
 
       <div class="modal-footer">
           <button class="btn btn-info" data-dismiss="modal">Close</button>
       </div>
     </div> <!--modal content -->
 </div> <!--modal dialog -->
-<!--<script>
-    $(document).ready(function(){
-        $("#player-modal").modal();
-    })
-</script>
--->

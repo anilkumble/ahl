@@ -52,8 +52,8 @@ class LiveScoresController < ApplicationController
     end
   end
 
-  # DELETE /live_scores/1
-  # DELETE /live_scores/1.json
+
+ 
   def destroy
     @live_score.destroy
     respond_to do |format|

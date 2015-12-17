@@ -3,11 +3,14 @@
     <%= link_to photo do %>
     <div class="thumbnail gallery">
         <%= image_tag photo.photo_url, class: "img-responsive"%>
-        <div class="caption">
-            <% first_team = Team.find(photo.match.team1_id) %>
-            <% opponent_team = Team.find(photo.match.team2_id) %>
-            <%= first_team.name  %> Vs <%= opponent_team.name %>
-        </div>
+        <% if photo.match_id %>
+            <div class="caption">
+                <% first_team = Team.find(photo.match.team1_id) %>
+                <% opponent_team = Team.find(photo.match.team2_id) %>
+                <span class="text-pink"><%= first_team.name  %><span class="text-primary"> Vs </span>
+                <span class="text-pink"><%= opponent_team.name %></span>
+            </div>
+        <% end %>
     </div> <!-- end of thumbnail -->
     <% end %>
 </div>
