@@ -287,6 +287,12 @@ th{
 	color: #fff;
 }
 /** Reports **/
+.report-well{
+	-webkit-box-shadow: 4px 4px 6px #999;
+	-moz-box-shadow: 4px 4px 6px #999;
+	-o-box-shadow: 4px 4px 6px #999;
+	box-shadow: 4px 4px 6px #999;
+}
 .report{
 	background: #E9E9E9;
 }
