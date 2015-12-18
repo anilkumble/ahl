@@ -1,7 +1,11 @@
 <% year = 2015 %>
-<% %w[white.png white.png yellow.jpg blue.jpg yellow.jpg].each_with_index do |logo, index| %>
+<% %w[white.png white.png yellow.jpg blue.jpg yellow.jpg green.jpg violet.jpg blue.jpg yellow.jpg].each_with_index do |logo, index| %>
     <% if index == 0 %>
         <div class="col-xs-6 col-sm-2 col-sm-offset-1">
+    <% elsif index == 5 %>
+        <div class="col-xs-6 col-sm-2 col-sm-offset-2">
+    <% elsif index > 5 %>
+        <div class="col-xs-6 col-sm-2">
     <%else%>
         <div class="col-xs-6 col-sm-2">
     <% end %>
@@ -14,17 +18,3 @@
             <% year -= 1 %>
         </div> <!-- /column -->
 <% end %>
-
-<div class="col-xs-12 bottom-row">
- <% %w[green.jpg violet.jpg blue.jpg yellow.jpg].each do |logo| %>
-     <div class="col-xs-6 col-sm-2 single-photo">
-         <div class="thumbnail img-responsive past-winners">
-             <%= image_tag logo, alt: logo.split(".")[0] + " team"%>
-             <div class="caption text-center">
-                 <span class="text-pink"><%= year %></span>
-             </div>
-         </div>
-     <% year -= 1 %>
-    </div> <!-- /column -->
-<% end %>
-</div>

@@ -77,4 +77,31 @@ class Team < ActiveRecord::Base
 		matches.length - (self.wins_count(opponent_id)) - (self.draws_count(opponent_id))
 	end
 
+
+	# Methods for pie charts
+
+	def total_wins opponent_teams
+		wins = 0
+		opponent_teams.each do |team|
+			wins += self.wins_count team.id
+		end
+		wins
+	end
+
+	def total_losses opponent_teams
+		losses = 0
+		opponent_teams.each do |team|
+			losses += self.losses_count team.id
+		end
+		losses
+	end
+
+
+	def total_draws opponent_teams
+		draws = 0
+		opponent_teams.each do |team|
+			draws += self.draws_count team.id
+		end
+		draws
+	end
 end  # end of class

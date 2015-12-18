@@ -6,6 +6,10 @@ class TeamsController < ApplicationController
       @other_teams = Team.where.not(id: @team.id)
       @top_scorer = @team.players.order("goals_count desc").first
       @recent_matches = @team.recent_matches
+      
+      @wins = @team.total_wins(@other_teams)
+      @draws = @team.total_draws(@other_teams)
+      @losses = @team.total_losses(@other_teams)
   end
 
   # GET /teams/new

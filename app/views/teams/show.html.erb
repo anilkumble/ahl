@@ -102,6 +102,12 @@
 			<%= render @team %>
 		</div> <!-- End of column -->
 
+		<!-- Pie charts -->
+		<div class="col-xs-12 col-sm-5 col-sm-offset-1">
+				<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"]) %>
+		</div> <!-- /column -->
+
+
 		<div class="col-xs-12 col-sm-4 col-sm-offset-1">
 			<div class="panel panel-danger">
 				<div class="panel-heading text-center">
@@ -117,7 +123,7 @@
 			</div>
 		</div>
 
-		<div class="col-xs-12 col-sm-4 col-sm-offset-1">
+		<!--<div class="col-xs-12 col-sm-4 col-sm-offset-1">
 			<div class="panel panel-success">
 				<div class="panel-heading text-center">
 					<h3>Facts</h3>
@@ -132,7 +138,7 @@
 					</dl>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div> <!-- End of third row -->
 
 	<% if @recent_matches.length > 0%>
@@ -165,10 +171,13 @@
 		</div> <!-- /column -->
 
 		<div class="col-xs-12 col-sm-4">
+
 		</div>
 
 		<div class="col-xs-12 col-sm-4">
 		</div>
 	</div> <!-- /row -->
 	<% end %>
+
+
 </div>
