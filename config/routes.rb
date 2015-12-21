@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :matches do
       resources :live_scores, only: [:index, :create, :destroy]
-      resources :goals
+      resources :goals, only: [:index, :create, :destroy]
   end
 
   #for updating match results

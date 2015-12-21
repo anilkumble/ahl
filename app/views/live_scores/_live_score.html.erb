@@ -13,7 +13,9 @@
         </span>
         <%=  short_form live_score.match.opponent_team.name %>
         <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
-
+        <div>
+         <%= link_to "GO TO MATCH CENTER",live_score.match, class: "btn btn-danger"  %>
+        </div>
     </div>
 </div>
 

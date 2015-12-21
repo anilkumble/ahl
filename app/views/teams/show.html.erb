@@ -107,38 +107,35 @@
 				<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"]) %>
 		</div> <!-- /column -->
 
-
+		<!-- Displays the goal scorers -->
 		<div class="col-xs-12 col-sm-4 col-sm-offset-1">
+			<ul class="list-group">
+				<li class="list-heading list-group-item"> Top Scorers</li>
+				<% @top_scorers.each do |top_scorer|%>
+				<li class="list-group-item"><%= top_scorer.name %>
+					<span class="pull-right text-pink">
+						<%= top_scorer.goals_count %>
+					</span>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<% top_scorer = @top_scorers.first %>
+		<!--<div class="col-xs-12 col-sm-4 col-sm-offset-1">
 			<div class="panel panel-danger">
 				<div class="panel-heading text-center">
 					<h3>Top scorer</h3>
 				</div>
 				<div class="panel-body">
-					<%= image_tag @top_scorer.photo, class: "img-responsive" %>
+					<%= image_tag top_scorer.photo, class: "img-responsive" %>
 				</div>
 
 				<div class="panel-footer text-center text-pink">
-					<%= @top_scorer.name %>
-				</div>
-			</div>
-		</div>
-
-		<!--<div class="col-xs-12 col-sm-4 col-sm-offset-1">
-			<div class="panel panel-success">
-				<div class="panel-heading text-center">
-					<h3>Facts</h3>
-				</div>
-				<div class="panel-body">
-					<dl class="dl-horizontal">
-						<dt>Captain</dt>
-						<dd> <%= @team.team_captain.name %> </dd>
-
-						<dt>Coach</dt>
-						<dd>Team coach</dd>
-					</dl>
+					<%= top_scorer.name %>
 				</div>
 			</div>
 		</div>-->
+
 	</div> <!-- End of third row -->
 
 	<% if @recent_matches.length > 0%>

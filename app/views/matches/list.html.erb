@@ -40,6 +40,7 @@
                                     <%= "not yet decided" %>
                                 <% end %>
                              </td>
+                             <td> <%= link_to "Goals", match_goals_path(match) , target: "_blank" %> </td>
                              <td> <%= link_to "Live Scores", match_live_scores_path(match), target: "_blank" %></td>
                              <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>
 
