@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216102138) do
+ActiveRecord::Schema.define(version: 20151221171709) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20151216102138) do
     t.datetime "updated_at",               null: false
     t.text     "caption",    limit: 65535
     t.string   "slug",       limit: 255
+    t.integer  "match_id",   limit: 4
   end
 
   add_index "reports", ["slug"], name: "index_reports_on_slug", unique: true, using: :btree
