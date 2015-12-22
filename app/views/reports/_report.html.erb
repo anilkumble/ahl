@@ -1,19 +1,20 @@
 <div class="container">
     <h2 class="report-title"><%= report.caption %></h2>
-    <div class="text-italic text-light-grey report-time">Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago</div>
+    <div class="text-italic text-light-grey report-time">
+        Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago
+    </div>
     <div class="well report-well">
-        <div class="row">
-            <div class="col-xs-12 col-sm-9 col-sm-offset-3">
-                <%= image_tag report.image, alt: "Image missing", width: "500" %>
-            </div>
-
-
-            <div class="col-xs-12">
+        <div class="media">
+            <div class="media-body">
                 <p class="space"></p>
                 <p class="report">
-                    <%= simple_format(report.article) %>
+                    <%= (simple_format(report.article)) %>
                 </p>
                 <p class="space"></p>
+            </div> <!-- /media-body -->
+
+            <div class="media-right media-middle">
+                <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
             </div>
          </div>
     </div> <!-- end of well -->

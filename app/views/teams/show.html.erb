@@ -33,6 +33,49 @@
 		</div>
 	</div>
 
+	<!-- This row displays the recent performance -->
+	<% if @recent_matches.length > 0%>
+	<div class="row">
+		<p class="space"></p>
+		<div class="col-xs-12 col-sm-4">
+			<h3>Recent Performance</h3>
+			<br>
+				<% @recent_matches.each do |match| %>
+						<% result = team_status(match, @team) %>
+						<% opponent = match.first_team %>
+						<% if opponent == @team %>
+							<% opponent = match.opponent_team %>
+						<% end %>
+						<!-- Look at application_helper.rb -->
+						<div class="col-xs-3">
+							<% if result == "W"%>
+								<div class="circle green-circle" data-toggle="tooltip" title="<%= "Vs #{opponent.name}"%>" data-placement="bottom">
+									W
+								</div>
+
+							<% elsif result == "D" %>
+								<div class="circle yellow-circle" data-toggle="tooltip" title="<%= "Vs #{opponent.name}"%>" data-placement="bottom">
+									D
+								</div>
+
+							<% elsif result == "L" %>
+								<div class="circle red-circle" data-toggle="tooltip" title="<%= "Vs #{opponent.name}"%>" data-placement="bottom">
+									L
+								</div>
+							<% end %>
+						</div>
+				<% end %>
+		</div> <!-- /column -->
+
+		<div class="col-xs-12 col-sm-4">
+
+		</div>
+
+		<div class="col-xs-12 col-sm-4">
+		</div>
+	</div> <!-- /row -->
+	<% end %>
+
 <!-- This row is for the team squad -->
 	<div class="row row-content">
 		<p class="space"></p>
@@ -138,43 +181,12 @@
 
 	</div> <!-- End of third row -->
 
-	<% if @recent_matches.length > 0%>
-	<div class="row">
-		<p class="space"></p>
-		<div class="col-xs-12 col-sm-4">
-			<h3>Recent Performance</h3>
-			<br>
-				<% @recent_matches.each do |match| %>
-						<% result = team_status(match, @team) %>
-						<!-- Look at application_helper.rb -->
-						<div class="col-xs-3">
-							<% if result == "W"%>
-								<div class="circle green-circle">
-									W
-								</div>
-
-							<% elsif result == "D" %>
-								<div class="circle yellow-circle">
-									D
-								</div>
-
-							<% elsif result == "L" %>
-								<div class="circle red-circle">
-									L
-								</div>
-							<% end %>
-						</div>
-				<% end %>
-		</div> <!-- /column -->
-
-		<div class="col-xs-12 col-sm-4">
-
-		</div>
-
-		<div class="col-xs-12 col-sm-4">
-		</div>
-	</div> <!-- /row -->
-	<% end %>
 
 
 </div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

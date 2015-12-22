@@ -1,15 +1,13 @@
 <div class="container">
-    <div class="row">
+    <!--<div class="row">
         <p class="space"></p>
         <div class="col-xs-12">
             <h2 class="text-primary text-center">Match&nbsp;<%= @match.id %></h2>
         </div>
-    </div> <!--end of row -->
+    </div>--> <!--end of row -->
 
 <div class="jumbotron match-title">
     <div class="row">
-        <p class="space"></p>
-
         <div class="col-xs-5 col-sm-2 col-sm-offset-3 team-photo">
             <%= image_tag @first_team.logo, height: 150%>
         </div>
@@ -22,7 +20,7 @@
             <%= image_tag @opponent_team.logo, height: 150 %>
         </div>
     </div> <!-- /jumbotron -->
-</div>  <!-- /row -->
+    </div>  <!-- /row -->
     <div class="row">
         <div class="col-xs-5 col-sm-2 col-sm-offset-3">
             <%= image_tag @first_team_captain.photo, class: "img-responsive"%><br>
