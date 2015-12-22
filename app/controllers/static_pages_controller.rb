@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-      @reports = Report.order(created_at: :desc)
+      @reports = Report.order(created_at: :desc).limit(4)
+      @photos = Photo.order(created_at: :desc).limit(5)
       @teams = Team.order(points: :desc)
       @current_match = Match.where(result: -2).first
       @live_score = @current_match.live_scores.last

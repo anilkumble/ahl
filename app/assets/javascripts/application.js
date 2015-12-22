@@ -15,3 +15,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+
+    // This is to make the navbar stick after scrolling a few pixels
+    $(window).scroll(function(){
+        if ($(window).scrollTop() > 224)
+            $('#navbar-links').addClass('fixed-navbar');
+        if ($(window).scrollTop() < 224)
+            $('#navbar-links').removeClass('fixed-navbar');
+    });
+
+    $("#news").hover(function(){
+        //alert("h");
+        $("marquee").stop();
+    },function(){
+        $("marquee").attr('scrollamount',5);
+    });
+
+});

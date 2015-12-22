@@ -5,6 +5,8 @@
 $pink:  #3f2e55;
 $dark-grey: #2d2d2d;
 $royal-blue: #337ba7;
+$cream: #f39c12;
+$brown: #a07e46;
 
 /** Overrides Bootstrap's default styles using less
 	Customize bootstrap and then load it
@@ -12,14 +14,14 @@ $royal-blue: #337ba7;
 
 /** Navbar **/
 $navbar-default-bg: #fff;
-$navbar-height: 70px;
-$navbar-default-link-color: #111;
-$navbar-default-link-hover-color: $pink;
+$navbar-height: 60px;
+$navbar-default-link-color: #eee;
+$navbar-default-link-hover-color: $cream;
 $navbar-default-link-hover-bg: transparent;
-$navbar-default-link-active-bg: #fff;
+$navbar-default-link-active-bg: $cream;
 $navbar-default-brand-color: $pink;
 $navbar-default-border: #fff;
-$navbar-default-toggle-icon-bar-bg: $pink;
+$navbar-default-toggle-icon-bar-bg: $cream;
 $navbar-default-link-active-color: $pink;
 
 /** Dropwdown **/
@@ -47,7 +49,9 @@ body{
 	font-family: Cabin, sans-serif;
 	overflow-x: hidden;
 	font-size: 1.5em;
-  	padding-top: 100px;
+	padding-top: 20px;
+	background: whitesmoke;
+		//background: $cream;
 	//background: url("ceg.jpg") top center no-repeat;
 }
 /** Media queries for past winners**/
@@ -80,8 +84,15 @@ a, a:hover{
 }
 
 /** styles for quicklinks **/
+/**.quicklinks{
+	position: fixed;
+}**/
+.quicklinks{
+	background: $pink;
+	margin-top: -1px;
+}
 .center-links{
-	margin-left: 15%;
+	margin-left: 27%;
 }
 .center-links li{
 	font-weight: bold;
@@ -93,7 +104,7 @@ a, a:hover{
 	border-bottom-right-radius: 35%;
 	background: $pink;
 	font-size: 16px;
-	color: #f39c12;
+	color: $cream;
 	border-top-left-radius: 30px;
 	border-bottom-left-radius: 30px;
 
@@ -110,6 +121,10 @@ a, a:hover{
   .carousel-control:right{
     background-image: none;
     background-repeat: no-repeat;
+}
+
+.carousel-control{
+	color: #ccc;
 }
 /* Styles for past performance of teams */
 .circle{
@@ -285,6 +300,8 @@ th{
 	background: $pink;
 	border-top-left-radius: 20%;
 	border-bottom-right-radius: 20%;
+	border-top-right-radius: 6%;
+	border-bottom-left-radius: 6%;
 	color: #fff;
 }
 /** Reports **/
@@ -367,11 +384,10 @@ td,th{
 }
 /* Leaderboard */
 .leaderboard tr:nth-child(even){
-	background: $pink;
-	color: #fff;
+	background: #f2f2f2;
 }
 .leaderboard tr:hover td:first-child{
-	border-left: 3px solid #337ab7;
+	border-left: 3px solid #666;
 }
 .leaderboard th{
 	background: #999;
@@ -420,8 +436,9 @@ td,th{
 .ridge-border{
 	border-bottom: 1px solid ridge;
 }
-.liveScoreArea panel-heading{
+#liveScoreArea .panel-heading{
 	color: #fff;
+	background: #aaa;
 }
 .comment, #commentary{
 	font-size: 130%;
@@ -458,4 +475,128 @@ td,th{
 .list-heading{
 	background: $dark-grey;
 	color: #fff;
+}
+#myCarousel{
+	border: 1px solid #aaa;
+	&:hover
+	{
+		box-shadow: 2px 4px 2px #ccc;
+	}
+}
+
+/** styles for headings **/
+.column-heading{
+	display:inline-block;
+	width: 30%;
+	height:35px;
+	line-height: 35px;
+	border-left: 5px solid #e00023;
+	text-align: center;
+	color: #eee;
+	background: #aaa;
+}
+/** for top row **/
+.left-border{
+	height: 165px;
+	line-height: 165px;
+	//border-left: 1px solid #aaa;
+}
+.main-title{
+	color: $cream;
+	font-size: 18px;
+}
+.social-area{
+	margin-top:165px;
+	height:40px;
+	line-height: 40px;
+	background: #2A3F9C url("linkit.png") 0 0 no-repeat;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	a{
+		margin-left: 5%;
+	}
+}
+.text-white{
+	color: #fff;
+}
+a.text-white:hover{
+	color: $cream;
+}
+/** navbar stickiness **/
+.fixed-navbar{
+	position:fixed;
+    z-index:100;
+    width:90%;
+   top:0;
+   }
+
+   /** experimentation **/
+   #ahllogo{
+	   -webkit-animation: bounceIn 5s infinite;
+	   -moz-o-animation: bounceIn 5s infinite;
+	   -o-animation: bounceIn 5s infinite;
+	   animation: bounceIn 5s infinite;
+   }
+   #ahllogo:hover{
+	   animation-play-state: paused;
+   }
+      @-webkit-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
+      @-moz-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
+      @-o-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
+   @keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
+/*****/
+
+
+/** Live score styles**/
+#liveScoreArea{
+	height: 100%;
+}
+.match-button{
+	background: #e00023;
+	height:40px;
+	font-size: 17px;
+	&:hover{
+		color: darken(#e00023,5%);
+		background: #eee;
+	}
+}
+/** Carousel experimentation **/
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+/** first-row **/
+.first-row{
+	margin-left: 2%;
+}
+.set-down{
+	margin-top: 1%;
 }
