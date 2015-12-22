@@ -1,16 +1,18 @@
-<div class="container">
-    <h2 class="report-title"><%= report.caption %></h2>
-    <div class="text-italic text-light-grey report-time">
-        Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2 class="report-title"><%= report.caption %></h2>
+        <div class="text-italic text-light-grey report-time">
+            Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago
+        </div>
     </div>
+<div class="col-xs-12">
     <div class="well report-well">
         <div class="media">
             <div class="media-body">
-                <p class="space"></p>
                 <p class="report">
                     <%= (simple_format(report.article)) %>
                 </p>
-                <p class="space"></p>
             </div> <!-- /media-body -->
 
             <div class="media-right media-middle">
@@ -18,4 +20,5 @@
             </div>
          </div>
     </div> <!-- end of well -->
-</div>
+</div> <!-- /second column -->
+</div> <!-- /row -->
