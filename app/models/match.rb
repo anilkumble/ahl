@@ -14,6 +14,8 @@ class Match < ActiveRecord::Base
 	validates :date, presence: true
 	validates :team1_id, presence: true
 	validates :team2_id, presence: true
+	## don't uncomment the below two lines since the validations would fire up in other forms
+	#validates :trump_card, presence: true, numericality: true
 	#validates :man_of_the_match, presence: true, numericality: true
 
 	def first_team

@@ -35,6 +35,12 @@ before_action :authenticate, except:[:index,:show]
       end
 
       @final_score = @match.live_scores.last
+      if @match.result != -2 and @match.trump_card
+          @budding_player = Player.find(@match.trump_card)
+     else
+         @budding_player = nil
+      end
+
   end
 
   def edit

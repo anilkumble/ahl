@@ -11,20 +11,19 @@ $brown: #a07e46;
 /** Overrides Bootstrap's default styles using less
 	Customize bootstrap and then load it
  **/
-
 /** Navbar **/
 $navbar-default-bg: #fff;
 $navbar-height: 60px;
-$navbar-default-link-color: #eee;
+$navbar-default-link-color: $pink;
 $navbar-default-link-hover-color: $cream;
 $navbar-default-link-hover-bg: transparent;
-$navbar-default-link-active-bg: $cream;
+$navbar-default-link-active-bg: $pink;
 $navbar-default-brand-color: $pink;
 $navbar-default-border: #fff;
 $navbar-default-toggle-icon-bar-bg: $cream;
-$navbar-default-link-active-color: $pink;
+$navbar-default-link-active-color: $cream;
 
-/** Dropwdown **/
+/** Dropdown **/
 $dropdown-link-color: #333;
 $dropdown-link-hover-color: #fff;
 $dropdown-link-hover-bg: $pink;
@@ -50,7 +49,7 @@ body{
 	overflow-x: hidden;
 	font-size: 1.5em;
 	padding-top: 20px;
-	background: whitesmoke;
+	background: rgba(63,46,85,0.2);
 		//background: $cream;
 	//background: url("ceg.jpg") top center no-repeat;
 }
@@ -84,15 +83,18 @@ a, a:hover{
 }
 
 /** styles for quicklinks **/
-/**.quicklinks{
-	position: fixed;
-}**/
 .quicklinks{
 	background: $pink;
 	margin-top: -1px;
 }
+.quicklinks{
+	background: $pink;
+	//background: linear-gradient($pink, rgba(63,46,85,0.7) 50%, $pink);
+	background: rgba(255,255,255,0.8);
+}
 .center-links{
-	margin-left: 27%;
+	margin-left: 20%;
+	//background: #f00;
 }
 .center-links li{
 	font-weight: bold;
@@ -295,7 +297,7 @@ th{
 {
 	font-size: 1.4em;
 	font-weight: bold;
-	color: $pink !important;
+	color: #fff !important;
 }
 /* Carousel  */
 .carousel .item {
@@ -357,7 +359,7 @@ td,th{
 	margin-right: 5px;
 }
 .players-table tr:nth-child(even){
-	background: #aaa;
+	background: #eee;
 }
 .players-table tr:hover td:first-child{
 	border-left: 5px solid $royal-blue;
@@ -403,7 +405,7 @@ td,th{
 	border-left: 3px solid #666;
 }
 .leaderboard th{
-	background: #999;
+	background: #aaa;
 	color: floralwhite;
 }
 /***/
@@ -453,6 +455,12 @@ td,th{
 	color: #fff;
 	background: #aaa;
 }
+.live-score-heading{
+	height: 50px;
+}
+.live-score-heading h3{
+	margin-top: 0px;
+}
 .comment, #commentary{
 	font-size: 130%;
 }
@@ -465,6 +473,8 @@ td,th{
 /* match jumobtron */
 .match-title{
 	background: #fff;
+	height: 200px;
+	//background: linear-gradient(to right bottom #ffeb36,#41cbe4);
 }
 /* Styles for past winners */
 .past-winners{
@@ -544,12 +554,12 @@ a.text-white:hover{
    }
 
    /** experimentation **/
-   #ahllogo{
+  /* #ahllogo{
 	   -webkit-animation: bounceIn 5s infinite;
 	   -moz-o-animation: bounceIn 5s infinite;
 	   -o-animation: bounceIn 5s infinite;
 	   animation: bounceIn 5s infinite;
-   }
+   }*/
    #ahllogo:hover{
 	   animation-play-state: paused;
    }
@@ -612,4 +622,15 @@ a.text-white:hover{
 }
 .set-down{
 	margin-top: 1%;
+}
+.navbar-brand{
+	margin-top: -6px;
+}
+
+/**news marquee **/
+#news-marquee{
+	border: 2px solid #f00;
+}
+.down{
+	margin-top: 100px;
 }

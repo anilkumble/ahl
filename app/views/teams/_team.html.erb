@@ -1,6 +1,7 @@
 <table class="table table-condensed table-responsive table-striped players-table">
     <thead>
         <tr>
+            <th></th>
             <th>Name</th>
             <th>Age</th>
             <th>Position</th>
@@ -20,6 +21,7 @@
     <tbody>
         <% team.players.each do |player| %>
         <tr>
+            <td> <%= image_tag player.photo, height: 35, class: "img-rounded" %> </td>
             <td><%= player.name %></td>
             <td><%= player.age %></td>
             <td><%= player.position %></td>

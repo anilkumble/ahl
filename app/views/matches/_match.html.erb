@@ -5,28 +5,37 @@
                 <div class="well match">
                     <div class="row">
                         <div class="col-xs-2">
-                            <%= image_tag match.first_team.logo, width: "50", height: "35" %>
+                            <%= image_tag match.first_team.logo, width: "45", height: "35" %>
                         </div>
 
                         <div class="col-xs-3">
-                            <%= match.first_team.name %>
+                            <span class="down">
+                                <%= match.first_team.name %>
+                            </span>
                         </div>
 
-                        <div class="col-xs-2">
-                            Vs
+                        <div class="col-xs-1">
+                            <span class="down">
+                                Vs
+                            </span>
                         </div>
 
                         <div class="col-xs-3">
-                            <%= match.opponent_team.name %>
+                            <span class="down">
+                                <%= match.opponent_team.name %>
+                            </span>
                         </div>
 
                         <div class="col-xs-2">
                             <%= image_tag match.opponent_team.logo, width: "50", height: "35" %>
                         </div>
 
+                        <div class="col-xs-1">
                             <div class="date">
                                 <%= match.date.strftime("%b %d") %>
                             </div>
+                        </div>
+
                     </div> <!-- end of row -->
                 </div> <!-- /well -->
             <% end %>

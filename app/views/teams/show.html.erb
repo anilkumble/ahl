@@ -22,9 +22,9 @@
 			</div>
 		</div>
 
-		<div class="col-xs-12 col-sm-2">
+		<div class="col-xs-12 col-xs-offset-2 col-sm-2 col-sm-offset-0">
 				<p class="space"></p>
-				<h3 class="text-center">Position [2015]</h3>
+				<h3>Position - 2015</h3>
 				<div class="team-points">
 					<%= @team.id %>
 				</div>
@@ -155,7 +155,7 @@
 
 		<!-- Pie charts -->
 		<div class="col-xs-12 col-sm-5 col-sm-offset-1">
-				<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"], library: {backgroundColor: "whitesmoke"}) %>
+				<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"], library: {backgroundColor: "#ccc"}) %>
 		</div> <!-- /column -->
 
 		<!-- Displays the goal scorers -->

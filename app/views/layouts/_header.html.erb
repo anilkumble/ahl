@@ -1,71 +1,72 @@
 <!-- Code for displaying the ahl logo -->
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="col-xs-4 col-sm-2">
-            <%= link_to image_tag("ahl_logo.jpg", width: "165", height: "165", alt: "AHL logo", id: "ahllogo"), root_path %>
+            <%= link_to image_tag("ahl_logo.jpg", width: "130", height: "130", alt: "AHL logo", id: "ahllogo"), root_path %>
         </div>
 
-        <div class="col-xs-7 col-sm-5 left-border">
+        <div class="col-xs-7 col-sm-4 left-border">
             <%= link_to root_path do %>
             <div class="main-title">ANNA HOCKEY LEAGUE' 16</div>
             <% end %>
-        </div>
+        </div>-->
 
-        <div class="hidden-md hidden-xs hidden-sm col-sm-4 social-area">
+        <!--<div class="hidden-md hidden-xs hidden-sm col-sm-4 social-area">
                 <a class="text-white" href="www.facebook.com">Facebook</a>
                 <a class="text-white" href="www.twitter.com">Twitter</a>
                 <a class="text-white" href="www.youtube.com">Youtube</a>
                 <a class="text-white" href="#">Contact us</a>
-        </div>
-    </div> <!-- /row -->
+        </div>-->
+<!--</div>-->
+<div class="container">
+            <nav class="navbar navbar-default quicklinks" id="navbar-links">
+              <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#links" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <%= link_to root_path, class: "navbar-brand" do %>
+                    <%= image_tag "ahl_logo.png" ,width: 30, height: 30, class: "img-rounded", alt: "AHL logo"%>
+                  <% end %>
+                </div>
 
-
-<nav class="navbar navbar-default quicklinks" id="navbar-links">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#links" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- <%#= link_to "Anna Hockey League",root_path, class: "navbar-brand" %> -->
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="links">
-      <ul class="nav navbar-nav center-links">
-        <li>
-          <%= link_to "HOME", root_path %>
-        </li>
-        <li>
-          <%= link_to "ABOUT", static_pages_about_path %>
-        </li>
-        <li><%= link_to "NEWS", reports_path %></li>
-        <!-- Dropdown for teams -->
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAMS <span class="glyphicon glyphicon-chevron-down"></span></a>
-            <ul class="dropdown-menu">
-              <% teams = Team.all %>
-              <% teams.each do |team| %>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse text-center" id="links">
+                  <ul class="nav navbar-nav center-links">
                     <li>
-                        <%= link_to titlecase(team.name), Team.friendly.find(team.id) %>
+                      <%= link_to "HOME", root_path %>
                     </li>
-              <%end%>
-           </ul>
-       </li>
-        <li>
-            <%= link_to "FIXTURES", matches_path %>
-        </li>
-        <li>
-            <%= link_to "GALLERY", photos_path %>
-        </li>
-        <!--<li><a href="#">STATS</a></li>-->
-      </ul>
+                    <li>
+                      <%= link_to "ABOUT", static_pages_about_path %>
+                    </li>
+                    <li><%= link_to "NEWS", reports_path %></li>
+                    <!-- Dropdown for teams -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TEAMS <span class="glyphicon glyphicon-chevron-down"></span></a>
+                        <ul class="dropdown-menu">
+                          <% teams = Team.all %>
+                          <% teams.each do |team| %>
+                                <li>
+                                    <%= link_to titlecase(team.name), Team.friendly.find(team.id) %>
+                                </li>
+                          <%end%>
+                       </ul>
+                   </li>
+                    <li>
+                        <%= link_to "FIXTURES", matches_path %>
+                    </li>
+                    <li>
+                        <%= link_to "GALLERY", photos_path %>
+                    </li>
+                    <!--<li><a href="#">STATS</a></li>-->
+                  </ul>
 
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
 </div><!-- /container -->

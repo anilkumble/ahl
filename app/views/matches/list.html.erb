@@ -18,6 +18,7 @@
                         <th>Date</th>
                         <th>Result</th>
                         <th>Man of the match</th>
+                        <th> Jungles Award</th>
                         <th colspan="4"></th>
                     </tr>
                 </thead>
@@ -37,8 +38,16 @@
                                     <% player_of_the_match = Player.find(match.man_of_the_match) %>
                                     <%= player_of_the_match.name %>
                                 <% else %>
-                                    <%= "not yet decided" %>
+                                    not yet decided
                                 <% end %>
+                             </td>
+                             <td>
+                                 <% if match.trump_card %>
+                                    <% trump_card =  Player.find(match.trump_card) %>
+                                    <%= trump_card.name %>
+                                <% else %>
+                                    not yet decided
+                                 <% end %>
                              </td>
                              <td> <%= link_to "Goals", match_goals_path(match) , target: "_blank" %> </td>
                              <td> <%= link_to "Live Scores", match_live_scores_path(match), target: "_blank" %></td>
