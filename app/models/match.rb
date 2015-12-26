@@ -5,6 +5,7 @@ class Match < ActiveRecord::Base
 	has_many :goals, dependent: :destroy
 	has_many :live_scores, dependent: :destroy
 	has_many :photos, dependent: :destroy
+	has_one :report
 
 	# Validations
 
@@ -18,6 +19,13 @@ class Match < ActiveRecord::Base
 	#validates :trump_card, presence: true, numericality: true
 	#validates :man_of_the_match, presence: true, numericality: true
 
+
+	# To retrieve the report associated with a match
+	def report
+		Report.where(match_id: self.id)
+	end
+
+	#Retriving the teams of a particular match
 	def first_team
 			Team.find(self.team1_id)
 	end

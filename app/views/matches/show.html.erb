@@ -71,6 +71,15 @@
         </div> <!-- /row -->
     <% end %>
 
+    <!-- row to display the match report -->
+    <% if @man_of_the_match  and @match.report%>
+        <div class="row">
+            <div class="col-xs-12">
+                <%= render @match.report %>
+            </div>
+        </div>
+    <% end %>
+
     <div class="row">
         <p class="space"></p>
         <div class="col-xs-12">

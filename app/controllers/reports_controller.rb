@@ -63,7 +63,7 @@ class ReportsController < ApplicationController
     end
 
     def report_params
-      params.require(:report).permit(:article, :image, :caption)
+      params.require(:report).permit(:article, :image, :caption, :match_id)
     end
 
     def authenticate
