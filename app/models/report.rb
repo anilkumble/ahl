@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+    belongs_to :match
     extend FriendlyId
     friendly_id :caption, use: :slugged
 

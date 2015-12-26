@@ -93,7 +93,7 @@ a, a:hover{
 	background: rgba(255,255,255,0.8);
 }
 .center-links{
-	margin-left: 20%;
+	margin-left: 25%;
 	//background: #f00;
 }
 .center-links li{
@@ -325,6 +325,9 @@ th{
 	-moz-box-shadow: 4px 4px 6px #999;
 	-o-box-shadow: 4px 4px 6px #999;
 	box-shadow: 4px 4px 6px #999;
+	&:hover{
+		border: 1px solid #bbb;
+	}
 }
 .report{
 	background: #E9E9E9;
@@ -334,6 +337,13 @@ th{
 }
 .report-time{
 	margin-bottom: 2%;
+	text-transform: uppercase;
+	font-size: 80%;
+}
+
+.report-title{
+	color: $pink;
+	margin-top: 50px;
 }
 /* Style for team motto */
 #motto{
@@ -392,11 +402,8 @@ td,th{
 	color: #fff;
 	font-size: 250%;
 }
-/* Reports  */
-.report-title{
-	color: $pink;
-	margin-top: 50px;
-}
+
+
 /* Leaderboard */
 .leaderboard tr:nth-child(even){
 	background: #f2f2f2;

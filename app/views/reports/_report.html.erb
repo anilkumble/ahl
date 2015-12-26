@@ -1,24 +1,25 @@
 
 <div class="row">
-    <div class="col-xs-12">
-        <h2 class="report-title"><%= report.caption %></h2>
-        <div class="text-italic text-light-grey report-time">
-            Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago
+        <div class="col-xs-12">
+                <h2 class="report-title"><%= report.caption %></h2>
+                <div class="text-light-grey report-time">
+                    Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago
+                </div>
         </div>
-    </div>
-<div class="col-xs-12">
-    <div class="well report-well">
-        <div class="media">
-            <div class="media-body">
-                <p class="report">
-                    <%= (simple_format(report.article)) %>
-                </p>
-            </div> <!-- /media-body -->
 
-            <div class="media-right media-middle">
-                <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
-            </div>
-         </div>
-    </div> <!-- end of well -->
-</div> <!-- /second column -->
+        <div class="col-xs-12">
+            <div class="well report-well">
+                <div class="media">
+                    <div class="media-body">
+                        <p class="report">
+                            <%= (simple_format(report.article)) %>
+                        </p>
+                    </div> <!-- /media-body -->
+
+                    <div class="media-right media-middle">
+                        <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
+                    </div>
+                 </div>
+            </div> <!-- end of well -->
+        </div> <!-- /second column -->
 </div> <!-- /row -->
