@@ -2,7 +2,7 @@
     <div class="row ridge-bottom">
         <div class="col-xs-12 col-sm-6">
             <div class="row first-row">
-                <h3 class="column-heading">Photos</h3>
+                <!--<h3 class="column-heading">Photos</h3>-->
                 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
                       <!-- Indicators -->
                   <ol class="carousel-indicators">
@@ -43,22 +43,22 @@
                       <div class="col-xs-12 col-sm-12 first-row">
                           <h3 class="column-heading">News</h3>
                           <div id="news">
-                            <marquee direction="up" id="news-marquee">
+                                <ul>
                                   <% @reports.each do |report| %>
-                                        <%= simple_format(report.article[0..130]) %><br>
+                                    <li>
+                                        <%= simple_format(report.article[0..130]) %>
                                         <%= link_to "Read more", report %>
+                                    </li>
                                   <% end %>
-                            </marquee>
+                              </ul>
                         </div>
                       </div> <!-- end of column -->
                 </div>
         </div> <!-- end of first column -->
 
         <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0">
-            <p class="space"></p>
-            <br>
             <div class="panel panel-danger" id="liveScoreArea">
-                <div class="panel-heading text-center">
+                <div class="panel-heading live-score-heading text-center">
                     <h3>Live Score</h3>
                 </div>
                 <% if @live_score %>
@@ -67,26 +67,22 @@
                     <!-- If a match has ended, this will be the template -->
                     <div class="panel-body">
                         <div class="row">
-                        <div class="col-sm-2 col-sm-offset-1">
+                        <div class="col-xs-2">
                             <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
                         </div>
-                        <div class="col-sm-2 set-down">
-                            <%=  short_form @current_match.first_team.name %>&nbsp;&nbsp;
+                        <div class="col-xs-3 set-down">
+                            <%=  @current_match.first_team.name %>
                         </div>
-                        <div class="col-sm-2 set-down">
+                        <div class="col-xs-2 set-down">
                             <span class="text-pink">
-                                &nbsp;&nbsp;<%= 0 %>&nbsp;&nbsp;-
-                            </span>
-
-                            <span class="text-pink">
-                                <%= 0 %>
+                                &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
                             </span>
                         </div>
-                        <div class="col-sm-2 set-down">
-                            <%=  short_form @current_match.opponent_team.name %>
+                        <div class="col-xs-3 set-down">
+                            <%= @current_match.opponent_team.name %>
                         </div>
 
-                        <div class="col-sm-2">
+                        <div class="col-xs-2">
                             <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
                         </div>
                     </div>
@@ -96,22 +92,45 @@
                                 GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
                             <% end %>
                         </div>
-                    </div>
 
+                    </div>
                     <div class="panel-footer">
-                        <marquee>
+                    <div class="comment-marquee">
                             <span id="commentary" class="text-pink">
                                 Match hasn't started yet
                             </span>
-                        </marquee>
+                    </div>
                     </div>
 
                 <% end %>
             </div> <!--  End of panel -->
             <!-- Static images for top scorers -->
             <div class="row">
-                <h2 class="text-center">Top Scorers(2015)</h2>
+                <h2 class="text-center">Top Scorers - 2015</h2>
                 <%= render 'previous_top_scorers' %>
+
+                <div class="col-xs-12">
+                    <h2 class="text-center">Leaderboard</h2>
+                    <table class="table table-responsive table-striped leaderboard">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Team</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% @teams.each do |team| %>
+                                <tr>
+                                    <td> <%= image_tag team.logo, width: "30", height: "20" %></td>
+                                    <td> <%= team.name %> </td>
+                                    <td> <%= team.points %> </td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
             </div> <!-- /nested row -->
 
         </div> <!-- end of second column -->
@@ -121,89 +140,18 @@
 
 
     <div class="row ridge-bottom">
-        <div class="col-xs-12 col-sm-6">
                 <h2 class="text-center">A little about AHL</h2>
+        <div class="col-xs-12 col-sm-6">
                 <div class="jumbotron" id="ahl-intro">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus. Vestibulum lobortis sit amet arcu eget consequat. Aliquam erat volutpat. In condimentum lacus nunc, eget molestie turpis placerat ut. Proin pretium aliquet elit, auctor auctor quam pulvinar at. Vivamus vel interdum urna. Mauris et ante vitae sem aliquet hendrerit sed dictum tellus. Quisque id consequat arcu, ac ornare nibh. Integer eu blandit elit. Cras dapibus quam a erat elementum, eu volutpat lorem laoreet. Aenean fermentum nec turpis dignissim sollicitudin. Nunc consequat lacus id magna lacinia, eget pretium ante euismod. Ut molestie felis sed odio facilisis rhoncus. Suspendisse potenti.
 
                 </div><!-- end of jumbotron -->
         </div>
-
-    <div class="col-xs-12 col-sm-5">
-        <h2 class="text-center">Leaderboard</h2>
-        <table class="table table-responsive table-striped leaderboard">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Team</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% @teams.each do |team| %>
-                    <tr>
-                        <td> <%= image_tag team.logo, width: "30", height: "20" %></td>
-                        <td> <%= team.name %> </td>
-                        <td> <%= team.points %> </td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div>
     </div> <!-- row-->
 
 
 
-    <!-- Row for displaying the top scorers-->
-    <!--<%if @matches_ended > 0 %>
-    <div class="row ridge-border">
-        <p class="space"></p>
-        <div class="col-xs-12 text-center">
-            <h2>Top Scorers</h2>
-            <br>
-        </div>
-
-        <p class="space"></p>
-        <% @top_scorers.each do |top_scorer| %>
-            <div class="col-xs-12 col-sm-3">
-                <div class="panel panel-warning">
-                    <div class="panel-heading text-center">
-                        <span class="text-black"><%= top_scorer.name %></span>
-                        <span class="pull-right font-big"><%= top_scorer.goals_count %></span>
-                    </div>
-
-                    <div class="panel-body">
-                        <%= image_tag top_scorer.photo, class: "img-responsive" %>
-                    </div>
-
-                    <div class="panel-footer text-center">
-                        <%= link_to top_scorer.team, class: "team-link" do %>
-                            <span class="text-pink"><%= top_scorer.team.name %></span>
-                        <% end %>
-                    </div>
-                </div>--> <!--  end of panel -->
-            <!--</div> --><!-- end of column -->
-    <!--    <% end %>
-    </div>--> <!--  End of row -->
-<!--<% end %> -->
-
-    <!--<div class="row">
-        <div class="col-xs-12">
-            <p style="padding-top:50px;"></p>
-            <div class="jumbotron" id="ahl-intro">
-                 <h2 class="text-center text-grey">A little about AHL</h2>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus. Vestibulum lobortis sit amet arcu eget consequat. Aliquam erat volutpat. In condimentum lacus nunc, eget molestie turpis placerat ut. Proin pretium aliquet elit, auctor auctor quam pulvinar at. Vivamus vel interdum urna. Mauris et ante vitae sem aliquet hendrerit sed dictum tellus. Quisque id consequat arcu, ac ornare nibh. Integer eu blandit elit. Cras dapibus quam a erat elementum, eu volutpat lorem laoreet. Aenean fermentum nec turpis dignissim sollicitudin. Nunc consequat lacus id magna lacinia, eget pretium ante euismod. Ut molestie felis sed odio facilisis rhoncus. Suspendisse potenti.
-
-                Maecenas et magna auctor, efficitur leo eu, molestie velit. Proin orci risus, ornare vulputate finibus blandit, vehicula vestibulum nulla. In varius quis elit at consequat. Cras leo ex, consectetur id nunc nec, lobortis tristique tortor. Nullam urna augue, fermentum et varius eu, blandit in nibh. Proin vitae lobortis diam. Donec vitae tincidunt ipsum.
-            </div>--> <!-- end of jumbotron -->
-        <!--</div>--> <!-- end of column -->
-    <!--</div>--> <!--end of a row -->
-
-
-
     <div class="row">
-        <p class="space"></p>
         <div class="col-xs-12 text-center">
             <h2> Past Winners </h2>
             <p class="space">

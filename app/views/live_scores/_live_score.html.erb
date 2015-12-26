@@ -2,7 +2,7 @@
 <div class="panel-body">
     <div class="text-center">
         <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
-        <%=  short_form live_score.match.first_team.name %>&nbsp;&nbsp;
+        <%= live_score.match.first_team.name %>&nbsp;&nbsp;
 
         <span class="text-pink">
             <%= live_score.teamone_goals %>
@@ -11,7 +11,7 @@
         <span class="text-pink">
             <%= live_score.teamtwo_goals%>&nbsp;&nbsp;
         </span>
-        <%=  short_form live_score.match.opponent_team.name %>
+        <%= live_score.match.opponent_team.name %>
         <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
         <div class="text-center">
             <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
@@ -22,7 +22,7 @@
 </div>
 
 <div class="panel-footer">
-    <marquee>
+    <marquee class="comment-marquee">
         <% if live_score %>
             <span id="commentary" class="text-pink"><%= live_score.commentary %></span>
         <%else%>

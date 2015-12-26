@@ -25,12 +25,10 @@ $(document).ready(function(){
         if ($(window).scrollTop() < 224)
             $('#navbar-links').removeClass('fixed-navbar');
     });
-
-    $("#news").hover(function(){
-        //alert("h");
-        $("marquee").stop();
-    },function(){
-        $("marquee").attr('scrollamount',5);
+    $("#news").vTicker({
+        showItems: 5,
+        animation: 'fade',
+        pause: 2000
     });
 
 });
