@@ -25,10 +25,19 @@ $(document).ready(function(){
         if ($(window).scrollTop() < 224)
             $('#navbar-links').removeClass('fixed-navbar');
     });
+
+
+    //For gallery stuff (uses fancybox)
+    $(".fancybox").magnificPopup({
+        type: 'image',
+        gallery: {enabled: true}
+    });
+
+
+    // this is for the news ticker
     $("#news").vTicker({
         showItems: 5,
         animation: 'fade',
         pause: 2000
     });
-
 });
