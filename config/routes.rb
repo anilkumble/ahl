@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch '/end_match/:id' => "matches#end_match"
   get '/end_match/:id' => "matches#end", as: "end_match"
 
+  get '/live_score' => "live_scores#broadcast"
   root 'static_pages#home'
   get 'static_pages/about'
 

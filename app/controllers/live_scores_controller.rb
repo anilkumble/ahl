@@ -1,7 +1,6 @@
 class LiveScoresController < ApplicationController
-  before_action :set_match
+  before_action :set_match, except: [:broadcast]
   before_action :authenticate
-
 
   def index
       @live_scores = @match.live_scores.order(created_at: :desc)
@@ -18,6 +17,13 @@ class LiveScoresController < ApplicationController
         redirect_to match_live_scores_url(@match), alert: "Couldn't update. Fill all the fields and try again"
     end
 
+  end
+
+  def broadcast
+      @current_match =  Match.where(result: -2).first
+      @live_score = @current_match.live_scores.order(created_at: :desc).first
+
+      render :json => @live_score
   end
 
 

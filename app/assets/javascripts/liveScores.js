@@ -1,36 +1,33 @@
-//console.log("Working");
-/*$(document).ready(function(){
-    $("#live_score_submit_button").on("click", function(event){
+console.log("Working");
+console.log($("#live_score_teamone_goals"));
+console.log($("#live_score_teamtwo_goals"));
+$(document).ready(function(){
+    $("#start_broadcast").on("click", function(){
         console.log("in liveScores.js");
-        event.preventDefault();
-
-        // Finds the parent form element for getting the url to submit
-        var form = $(this).parents('form');
-        //console.log(form.serialize());
         // Issuing an synchronous request
-        $.ajax({
-            url: form.attr('action'),
-            type: "POST",
-            data: form.serialize(),
-            dataType: "json",
-            success: function(data){
-                // data is the json object rendered
-                $("tbody").prepend("<tr><td>" + data.teamone_goals + "</td>" +
-                "<td>" + data.teamtwo_goals + "</td>" +
-                "<td>" + data.commentary + "</td>" +
-                 "</tr>");
-                 $("#live_score_teamone_goals").val("");
-                 $("#live_score_teamtwo_goals").val("");
-                 $("#live_score_commentary").val("");
+        setInterval(function(){
+            $.ajax({
+                url: "/live_score.json",
+                type: "GET",
+                dataType: "json",
+                success: function(data){
+                    // data is the json returned
+                    console.log(data);
+                    console.log(data.commentary);
+                    $("#live_score_teamone_goals").text(data.teamone_goals);
+                    $("#live_score_teamtwo_goals").text(data.teamtwo_goals);
+                    $("#commentary").text(data.commentary);
+                    console.log("Updated live_scores")
+                }, // End of success callback
+                error: function(data){
+                    console.log("failed to retrieve json");
+                }
+            });
 
-            }, // End of success callback
-            error: function(data){
-                alert("Couldn't add. Try again");
-            }
-        });
+        },10000);
+
 
     }); // Click listener
 
 
 });
-*/

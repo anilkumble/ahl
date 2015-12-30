@@ -4,11 +4,11 @@
         <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
         <%= live_score.match.first_team.name %>&nbsp;&nbsp;
 
-        <span class="text-pink">
+        <span class="text-pink" id="live_score_teamone_goals">
             <%= live_score.teamone_goals %>
         </span>&nbsp;-&nbsp;
 
-        <span class="text-pink">
+        <span class="text-pink" id="live_score_teamtwo_goals">
             <%= live_score.teamtwo_goals%>&nbsp;&nbsp;
         </span>
         <%= live_score.match.opponent_team.name %>

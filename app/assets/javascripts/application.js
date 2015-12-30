@@ -40,4 +40,16 @@ $(document).ready(function(){
         animation: 'fade',
         pause: 2000
     });
+
+
+    // Jquery masonry
+    $("#image-gallery").masonry({
+        itemSelector: '.gallery',
+        columnWidth: 200
+    })
+
+    // Jquery scrollbox for sponsors
+    $(".sponsors").scrollbox({
+        direction: 'h'
+    });
 });
