@@ -1,24 +1,32 @@
 
 <div class="panel-body">
-    <div class="text-center">
-        <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
-        <%= live_score.match.first_team.name %>&nbsp;&nbsp;
+    <div class="row">
+        <div class="col-xs-2">
+            <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+        </div>
+        <div class="col-xs-3 set-down">
+            <%=  live_score.match.first_team.name %>
+        </div>
+        <div class="col-xs-2 set-down">
+            <span class="text-pink">
+                <%= live_score.teamone_goals %></span>
+                -&nbsp;&nbsp;<%= live_score.teamtwo_goals %>
+            </span>
+        </div>
+        <div class="col-xs-3 set-down">
+            <%= live_score.match.opponent_team.name %>
+        </div>
 
-        <span class="text-pink" id="live_score_teamone_goals">
-            <%= live_score.teamone_goals %>
-        </span>&nbsp;-&nbsp;
-
-        <span class="text-pink" id="live_score_teamtwo_goals">
-            <%= live_score.teamtwo_goals%>&nbsp;&nbsp;
-        </span>
-        <%= live_score.match.opponent_team.name %>
-        <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+        <div class="col-xs-2">
+            <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+        </div>
+    </div>
+<br>
         <div class="text-center">
             <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
                 GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
             <% end %>
         </div>
-    </div>
 </div>
 
 <div class="panel-footer">
