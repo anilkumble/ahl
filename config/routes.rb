@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 get '/goals' => 'goals#index'
 get '/all_matches' => 'matches#list'
 get '/all_reports' => 'reports#list'
+get '/all_photos' => 'photos#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

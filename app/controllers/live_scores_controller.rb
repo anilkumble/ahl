@@ -45,7 +45,7 @@ class LiveScoresController < ApplicationController
 
     def authenticate
         authenticate_or_request_with_http_basic("Trespassers will be prosecuted") do |username, password|
-           username == "admin" and password == "catchmeifyoucan"
+            username == ENV['USERNAME'] and password == ENV['ADMIN_PASSWORD']
        end
     end
 
