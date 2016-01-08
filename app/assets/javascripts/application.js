@@ -41,9 +41,9 @@ $(document).ready(function(){
 
     // this is for the news ticker
     $("#news").vTicker({
-        showItems: 5,
         animation: 'fade',
-        pause: 2000
+        showItems: 5,
+        pause: 1500
     });
 
 
