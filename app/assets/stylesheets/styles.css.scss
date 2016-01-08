@@ -3,6 +3,7 @@
 
 /** Colors **/
 $pink:  #3f2e55;
+$light-green: #4caf50;
 $dark-grey: #2d2d2d;
 $royal-blue: #337ba7;
 $cream: #f39c12;
@@ -14,10 +15,10 @@ $brown: #a07e46;
 /** Navbar **/
 $navbar-default-bg: #000;
 $navbar-height: 60px;
-$navbar-default-link-color: $pink;
+$navbar-default-link-color: #fff;
 $navbar-default-link-hover-color: $cream;
 $navbar-default-link-hover-bg: transparent;
-$navbar-default-link-active-bg: $pink;
+$navbar-default-link-active-bg: $light-green;
 $navbar-default-brand-color: $pink;
 $navbar-default-border: #fff;
 $navbar-default-toggle-icon-bar-bg: $cream;
@@ -48,7 +49,7 @@ body{
 	font-family: Cabin, sans-serif;
 	overflow-x: hidden;
 	font-size: 1.5em;
-	padding-top: 20px;
+	//padding-top: 20px;
 	background: rgba(63,46,85,0.2);
 	background: image-url("back.png");
 }
@@ -83,20 +84,16 @@ a, a:hover{
 
 /** styles for quicklinks **/
 .quicklinks{
-	background: $pink;
-	margin-top: -1px;
-}
-.quicklinks{
-	background: $pink;
-	//background: linear-gradient($pink, rgba(63,46,85,0.7) 50%, $pink);
+	//background: linear-gradient($pink, rgba(63,46,85,0.7) 50%, $pink)
 	background: rgba(255,255,255,0.8);
+	background: $light-green;
 }
 .center-links{
-	margin-left: 25%;
+	margin-left: 10%;
 	//background: #f00;
 }
 .center-links li{
-	font-weight: bold;
+	font-size: 130%;
 }
 
 /* AHL Banner*/
@@ -119,9 +116,16 @@ a, a:hover{
     left: auto;
     right: 0px;
   }
-  .carousel-control:right{
+  .carousel-control.right, .carousel-control.left{
     background-image: none;
+	background-color: transparent;
     background-repeat: no-repeat;
+}
+.green-back{
+	color: #aaa;
+	&:hover{
+		color: $light-green;
+	}
 }
 
 .carousel-control{
@@ -215,7 +219,7 @@ a, a:hover{
 .circle-logo{
 	width: 35px;
 	height: 35px;
-	background: #e00023;
+	background: $light-green;
 	text-align: center;
 	border-radius:100%;
 	transition: -webkit-transform 0.7s ease-out 0.2s;
@@ -416,8 +420,7 @@ td,th{
 	border-left: 3px solid #666;
 }
 .leaderboard th{
-	background: #aaa;
-	color: floralwhite;
+	background: transparent;
 }
 /***/
 .versus{
@@ -521,13 +524,13 @@ td,th{
 /** styles for headings **/
 .column-heading{
 	display:inline-block;
-	width: 30%;
+	width: 50%;
 	height:35px;
 	line-height: 35px;
 	border-left: 5px solid #e00023;
 	text-align: center;
 	color: #eee;
-	background: #aaa;
+	background: $light-green;
 }
 /** for top row **/
 .left-border{
@@ -539,7 +542,7 @@ td,th{
 	color: $cream;
 	font-size: 18px;
 }
-.social-area{
+/*.social-area{
 	margin-top:165px;
 	height:40px;
 	line-height: 40px;
@@ -549,7 +552,7 @@ td,th{
 	a{
 		margin-left: 5%;
 	}
-}
+}*/
 .text-white{
 	color: #fff;
 }
@@ -565,15 +568,15 @@ a.text-white:hover{
    }
 
    /** experimentation **/
-  /* #ahllogo{
+  .past-winners{
 	   -webkit-animation: bounceIn 5s infinite;
 	   -moz-o-animation: bounceIn 5s infinite;
 	   -o-animation: bounceIn 5s infinite;
 	   animation: bounceIn 5s infinite;
-   }*/
-   #ahllogo:hover{
-	   animation-play-state: paused;
    }
+   /*#ahllogo:hover{
+	   animation-play-state: paused;
+   }*/
       @-webkit-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
       @-moz-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
       @-o-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
@@ -649,4 +652,21 @@ a.text-white:hover{
 /** Sponsors  **/
 .sponsors ul li{
 	display: inline-block;
+}
+
+/** Dropdown on hover **/
+.dropdown:hover .dropdown-menu{
+	display: block;
+	margin-top:0px;
+}
+/** navbar border **/
+.navbar{
+	border: 0px;
+}
+.center-links li ul li{
+	font-size: 100%;
+}
+
+.full-width{
+	width: 100%;
 }

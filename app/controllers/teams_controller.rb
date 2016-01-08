@@ -1,28 +1,30 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate, except: [:show]
 
   def show
       @other_teams = Team.where.not(id: @team.id)
       @top_scorers = @team.players.order(goals_count: :desc).limit(5)
-      @recent_matches = @team.recent_matches
 
+      # Team's matches
+      @recent_matches = @team.recent_matches
+      @upcoming_matches = @team.upcoming_matches
+
+      # Team stats
       @wins = @team.total_wins(@other_teams)
       @draws = @team.total_draws(@other_teams)
       @losses = @team.total_losses(@other_teams)
   end
 
-  # GET /teams/new
+
   def new
     @team = Team.new
   end
 
-  # GET /teams/1/edit
   def edit
   end
 
-  # POST /teams
-  # POST /teams.json
+
   def create
     @team = Team.new(team_params)
 
@@ -37,8 +39,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /teams/1
-  # PATCH/PUT /teams/1.json
+
   def update
     respond_to do |format|
       if @team.update(team_params)
@@ -51,8 +52,7 @@ class TeamsController < ApplicationController
     end
   end
 
-  # DELETE /teams/1
-  # DELETE /teams/1.json
+
   def destroy
     @team.destroy
     respond_to do |format|
@@ -62,7 +62,6 @@ class TeamsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.friendly.find(params[:id])
     end

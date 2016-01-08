@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/live_score' => "live_scores#broadcast"
   root 'static_pages#home'
-  get 'static_pages/about'
+  get '/about' => "static_pages#about", as: "about"
 
 #for admin
 get '/goals' => 'goals#index'

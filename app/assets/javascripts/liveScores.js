@@ -1,6 +1,6 @@
 console.log("Working");
 console.log($("#live_score_teamone_goals"));
-console.log($("#live_score_teamtwo_goals"));ls
+console.log($("#live_score_teamtwo_goals"));
 $(document).ready(function(){
     $("#start_broadcast").on("click", function(){
         console.log("in liveScores.js");

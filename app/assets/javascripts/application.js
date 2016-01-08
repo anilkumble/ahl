@@ -18,10 +18,15 @@
 
 $(document).ready(function(){
 
+        $('#demo123').scrollbox({
+            direction: 'h'
+        });
+
     // This is to make the navbar stick after scrolling a few pixels
     $(window).scroll(function(){
         if ($(window).scrollTop() > 224)
             $('#navbar-links').addClass('fixed-navbar');
+            $('#navbar-links').addClass('full-width');
         if ($(window).scrollTop() < 224)
             $('#navbar-links').removeClass('fixed-navbar');
     });
@@ -51,5 +56,7 @@ $(document).ready(function(){
     // Jquery scrollbox for sponsors
     $(".sponsors").scrollbox({
         direction: 'h'
+
     });
+
 });
