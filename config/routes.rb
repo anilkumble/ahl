@@ -14,13 +14,15 @@ Rails.application.routes.draw do
   patch '/end_match/:id' => "matches#end_match"
   get '/end_match/:id' => "matches#end", as: "end_match"
 
+  get '/live_score' => "live_scores#broadcast"
   root 'static_pages#home'
-  get 'static_pages/about'
+  get '/about' => "static_pages#about", as: "about"
 
 #for admin
 get '/goals' => 'goals#index'
 get '/all_matches' => 'matches#list'
 get '/all_reports' => 'reports#list'
+get '/all_photos' => 'photos#list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

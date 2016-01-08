@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223202615) do
+ActiveRecord::Schema.define(version: 20160102105237) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20151223202615) do
     t.integer  "red_cards",    limit: 4,   default: 0
     t.string   "photo",        limit: 255, default: "unknown.jpg"
     t.integer  "goals_count",  limit: 4,   default: 0
+    t.string   "gender",       limit: 255
   end
 
   create_table "reports", force: :cascade do |t|

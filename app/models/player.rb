@@ -12,6 +12,7 @@ class Player < ActiveRecord::Base
 	validates :red_cards, presence: true, numericality: true
 	validates :yellow_cards, presence: true, numericality: true
 	validates :photo, presence: true
+	validates :gender, presence: true, inclusion: {in: ['m', 'f']}
 
 	def goals
 		Goal.where(player_id: self.id).count

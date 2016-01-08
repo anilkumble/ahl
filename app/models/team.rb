@@ -31,6 +31,10 @@ class Team < ActiveRecord::Base
 		Match.where("(team1_id=? OR team2_id=?) AND result<>?",self.id, self.id,-2).order(id: :desc).limit(4)
 	end
 
+	# Upcoming matches for teams
+	def upcoming_matches
+		Match.where("(team1_id=? OR team2_id=?) AND result=?", self.id,self.id, -2).limit(4)
+	end
 	# Returns the goals scored by versus team versus opponent
 	# Used for goals scored  and goals against
 

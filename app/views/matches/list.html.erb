@@ -7,6 +7,8 @@
                 <div class="alert alert-danger"> <%= alert %> </div>
             <% end %>
 
+             <button id="start_broadcast" class="btn btn-danger btn-lg pull-right"> Start broadcast</button>
+
             <%= link_to 'New Match', new_match_path , class: "btn btn-primary", target: "_blank"%><br>
 
             <table class="table table-striped table-condensed table-hover table-responsive">
@@ -19,7 +21,7 @@
                         <th>Result</th>
                         <th>Man of the match</th>
                         <th> Jungles Award</th>
-                        <th colspan="4"></th>
+                        <th colspan="5"></th>
                     </tr>
                 </thead>
 
@@ -51,9 +53,7 @@
                              </td>
                              <td> <%= link_to "Goals", match_goals_path(match) , target: "_blank" %> </td>
                              <td> <%= link_to "Live Scores", match_live_scores_path(match), target: "_blank" %></td>
-                             <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>
-
-                             <td><%= link_to "Edit", edit_match_path(match), target: "_blank" %></td>
+                             <td> <%= link_to "Update result", end_match_path(match), target: "_blank" %></td>                             <td><%= link_to "Edit", edit_match_path(match), target: "_blank" %></td>
                              <td><%= link_to "Delete", match, method: :delete, data: {confirm: "Are you sure?"} %></td>
                         </tr>
                     <% end %>

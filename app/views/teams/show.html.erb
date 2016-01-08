@@ -75,8 +75,16 @@
 				<% end %>
 		</div> <!-- /column -->
 
-		<div class="col-xs-12 col-sm-4">
-
+		<!-- Upcoming matches -->
+		<div class="col-xs-12 col-sm-6">
+			<ul class="list-group">
+				<li class="list-heading list-group-item"> Upcoming matches</li>
+				<% @upcoming_matches.each do |match| %>
+				<li class="list-group-item">
+					<%= render match %>
+				</li>
+				<% end %>
+			</ul>
 		</div>
 
 		<div class="col-xs-12 col-sm-4">
@@ -154,8 +162,8 @@
 		</div> <!-- End of column -->
 
 		<!-- Pie charts -->
-		<div class="col-xs-12 col-sm-5 col-sm-offset-1">
-				<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"], library: {backgroundColor: "#ccc"}) %>
+		<div class="col-xs-12 col-sm-5 col-sm-offset-1 pie-chart">
+				<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"], library: {backgroundColor: "#fff"}) %>
 		</div> <!-- /column -->
 
 		<!-- Displays the goal scorers -->
