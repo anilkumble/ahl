@@ -43,7 +43,7 @@
 
 	<!-- This row displays the recent performance -->
 	<% if @recent_matches.length > 0%>
-	<div class="row">
+	<div class="row ridge-border">
 		<p class="space"></p>
 		<div class="col-xs-12 col-sm-4">
 			<h3>Recent Performance</h3>
@@ -77,14 +77,10 @@
 
 		<!-- Upcoming matches -->
 		<div class="col-xs-12 col-sm-6">
-			<ul class="list-group">
-				<li class="list-heading list-group-item"> Upcoming matches</li>
+			<h3 class="text-center"> Upcoming matches </h3>
 				<% @upcoming_matches.each do |match| %>
-				<li class="list-group-item">
-					<%= render match %>
-				</li>
+					<%= render match, names: [short_form(match.first_team.name), short_form(match.opponent_team.name)]%>
 				<% end %>
-			</ul>
 		</div>
 
 		<div class="col-xs-12 col-sm-4">
@@ -168,6 +164,7 @@
 
 		<!-- Displays the goal scorers -->
 		<div class="col-xs-12 col-sm-4 col-sm-offset-1">
+			<p class="space"></p>
 			<ul class="list-group">
 				<li class="list-heading list-group-item"> Top Scorers</li>
 				<% @top_scorers.each do |top_scorer|%>
