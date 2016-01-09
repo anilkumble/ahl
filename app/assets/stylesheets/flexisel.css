@@ -66,25 +66,3 @@ display:none;
     margin-left: auto;
     margin-right: auto;
 }
-
-/*** Navigation ***/
-
-.nbs-flexisel-nav-left,
-.nbs-flexisel-nav-right {
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    cursor: pointer;
-    z-index: 100;
-    opacity: 0.5;
-}
-
-.nbs-flexisel-nav-left {
-    left: 10px;
-    background: url(../images/button-previous.png) no-repeat;
-}
-
-.nbs-flexisel-nav-right {
-    right: 5px;
-    background: url(../images/button-next.png) no-repeat;
-}
