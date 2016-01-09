@@ -43,6 +43,7 @@ $footer-height: 200px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
 	box-sizing: border-box;
 }
 body{
@@ -109,6 +110,7 @@ a, a:hover{
 	-webkit-animation: slidein 1s linear 0s infinite alternate;
 	-moz-animation: slidein 1s linear 0s infinite alternate;
 	-o-animation: slidein 1s linear 0s infinite alternate;
+	-ms-animation: slidein 1s linear 0s alternate;
 	animation: slidein 1s linear 0s alternate;
 }
 /** This is to remove the black gradient in the right control of the carousel **/
@@ -225,12 +227,14 @@ a, a:hover{
 	transition: -webkit-transform 0.7s ease-out 0.2s;
 	transition: -moz-transform 0.7s ease-out 0.2s;
 	transition: -o-transform 0.7s ease-out 0.2s;
+	transition: -ms-transform 0.7s ease-out 0.2s;
 	transition: transform 0.7s ease-out 0.2s;
 }
 .circle-logo:hover{
 	-webkit-transform: rotate(360deg);
 	-moz-transform: rotate(360deg);
 	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
 	transform: rotate(360deg);
 }
 .circle-logo i{
@@ -329,6 +333,7 @@ th{
 	-webkit-box-shadow: 4px 4px 6px #999;
 	-moz-box-shadow: 4px 4px 6px #999;
 	-o-box-shadow: 4px 4px 6px #999;
+	-ms-box-shadow: 4px 4px 6px #999;
 	box-shadow: 4px 4px 6px #999;
 	&:hover{
 		border: 1px solid #bbb;
@@ -482,6 +487,7 @@ td,th{
 @-webkit-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
    @-moz-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }   }
      @-o-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
+	 @-ms-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
         @keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
 
 /* match jumobtron */
@@ -572,6 +578,7 @@ a.text-white:hover{
 	   -webkit-animation: bounceIn 5s infinite;
 	   -moz-o-animation: bounceIn 5s infinite;
 	   -o-animation: bounceIn 5s infinite;
+	   -ms-animation: bounceIn 5s infinite;
 	   animation: bounceIn 5s infinite;
    }
    /*#ahllogo:hover{
@@ -660,4 +667,38 @@ a.text-white:hover{
 
 .full-width{
 	width: 100%;
+}
+
+/** League details in home page **/
+.league-details{
+	text-align: center;
+	font-size: 150%;
+}
+.trophy, .matches, .stars-left, .stars-right{
+	color: $light-green;
+}
+.fa-rotate{
+	-webkit-transform: rotate(-30deg);
+	-moz-transform: rotate(-30deg);
+	-ms-transform: rotate(-30deg);
+	-o-transform: rotate(-30deg);
+	transform: rotate(-30deg);
+}
+.stars-left, .stars-right{
+	display: inline-block;
+}
+.fa-rotate-thirty{
+	-webkit-transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	-o-transform: rotate(30deg);
+	transform: rotate(30deg);
+}
+.rotate{
+	width: 13%;
+	-webkit-transform: rotate(-30deg);
+	-moz-transform: rotate(-30deg);
+	-ms-transform:rotate(-30deg);
+	-o-transform: rotate(-30deg);
+	transform: rotate(-30deg);
 }
