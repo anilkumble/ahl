@@ -702,3 +702,20 @@ a.text-white:hover{
 	-o-transform: rotate(-30deg);
 	transform: rotate(-30deg);
 }
+/** Bootstrap pagination **/
+div.pagination{
+	transform: scale(1.5);
+}
+ul.pagination a{
+	color: #999;
+	transition: all 0.7s;
+}
+ul.pagination a:hover{
+	color: #fff;
+	background:$light-green;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
+	background: $light-green;
+	border-color: #fff;
+}

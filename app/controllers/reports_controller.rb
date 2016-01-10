@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   before_action :authenticate, except: [:show, :index]
 
   def index
-    @reports = Report.all.order(created_at: :desc)
+    @reports = Report.paginate(page: params[:page], per_page: 2).order(created_at: :desc)
   end
 
   def list

@@ -1,5 +1,21 @@
 <div class="container">
     <h1 class="text-center">Articles</h1>
     <p class="space"></p>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="pagination">
+                <%= will_paginate @reports,renderer: BootstrapPagination::Rails %>
+            </div>
+        </div> <!-- /column -->
+    </div>
+
     <%= render @reports %>
+
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <div class="pagination">
+                <%= will_paginate @reports,renderer: BootstrapPagination::Rails %>
+            </div>
+        </div> <!-- /column -->
+    </div>
 </div>
