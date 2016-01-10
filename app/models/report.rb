@@ -6,4 +6,7 @@ class Report < ActiveRecord::Base
     validates :article, presence: true
     validates :image, presence: true
     validates :caption, presence: true
+
+    # for pagination
+    self.per_page = 5
 end
