@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
 
   def show
       @other_teams = Team.where.not(id: @team.id)
-      @top_scorers = @team.players.order(goals_count: :desc).limit(5)
+      @top_scorers = @team.players.order(goals_count: :desc).limit(4)
 
       # Team's matches
       @recent_matches = @team.recent_matches

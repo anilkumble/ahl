@@ -64,7 +64,7 @@ body{
 
 /** ridge borders **/
 .ridge-bottom{
-	border-bottom: 1px ridge;
+	border-bottom: 1px ridge rgba(255,255,255,0.1);
 }
 /* headings  */
 h2{
@@ -718,4 +718,12 @@ ul.pagination a:hover{
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
 	background: $light-green;
 	border-color: #fff;
+}
+/** Styles for team name in team show page **/
+.team-name{
+	font-size: 60px;
+}
+/** Text shadow (experimental)**/
+.text-shadow {
+	text-shadow: -3px 3px 0px $light-green;
 }
