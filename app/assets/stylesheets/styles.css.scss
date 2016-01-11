@@ -537,6 +537,12 @@ td,th{
 	text-align: center;
 	color: #eee;
 	background: $light-green;
+	transition: border 0.3s ease-in 0.2s, transform 0.5s linear 0.2s;
+	&:hover{
+		border-right: 5px solid #e00023;
+		-webkit-transform: translate(20px);
+		transform: translate(20px);
+	}
 }
 /** for top row **/
 .left-border{
