@@ -5,6 +5,8 @@ before_action :authenticate, except:[:index,:show]
 
   def index
   	@matches = Match.all
+    @ended_matches = Match.where.not(result: -2)
+    @new_matches = Match.where(result: -2)
   end
 
   def new

@@ -34,6 +34,10 @@ class Match < ActiveRecord::Base
 			Team.find(self.team2_id)
 	end
 
+	def ended?
+		self.result != -2
+	end
+
 	def winner
 		result = self.result
 		if result != -2

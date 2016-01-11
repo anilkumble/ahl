@@ -2,7 +2,7 @@
 
 
 /** Colors **/
-$pink:  #3f2e55;
+$purple:  #3f2e55;
 $light-green: #4caf50;
 $dark-grey: #2d2d2d;
 $royal-blue: #337ba7;
@@ -16,20 +16,20 @@ $brown: #a07e46;
 $navbar-default-bg: #000;
 $navbar-height: 60px;
 $navbar-default-link-color: #fff;
-$navbar-default-link-hover-color: $cream;
+$navbar-default-link-hover-color: $purple;
 $navbar-default-link-hover-bg: transparent;
 $navbar-default-link-active-bg: $light-green;
-$navbar-default-brand-color: $pink;
+$navbar-default-brand-color: $purple;
 $navbar-default-border: #fff;
-$navbar-default-toggle-icon-bar-bg: $cream;
-$navbar-default-link-active-color: $cream;
+$navbar-default-toggle-icon-bar-bg: $purple;
+$navbar-default-link-active-color: $purple;
 
 /** Dropdown **/
 $dropdown-link-color: #333;
 $dropdown-link-hover-color: #fff;
-$dropdown-link-hover-bg: $pink;
-$dropdown-link-active-color: $pink;
-$dropdown-caret-color: $pink;
+$dropdown-link-hover-bg: $purple;
+$dropdown-link-active-color: $purple;
+$dropdown-caret-color: $purple;
 
 @import 'bootstrap';
 $footer-height: 200px;
@@ -85,7 +85,7 @@ a, a:hover{
 
 /** styles for quicklinks **/
 .quicklinks{
-	//background: linear-gradient($pink, rgba(63,46,85,0.7) 50%, $pink)
+	//background: linear-gradient($purple, rgba(63,46,85,0.7) 50%, $purple)
 	background: rgba(255,255,255,0.8);
 	background: $light-green;
 }
@@ -101,7 +101,7 @@ a, a:hover{
 .container .banner{
 	border-top-right-radius: 35%;
 	border-bottom-right-radius: 35%;
-	background: $pink;
+	background: $purple;
 	font-size: 16px;
 	color: $cream;
 	border-top-left-radius: 30px;
@@ -251,7 +251,7 @@ th{
 	font-size: 1.2em;
 }
 .stats-table thead tr{
-	color: $pink;
+	color: $purple;
 }
 
 /** Cards **/
@@ -321,7 +321,7 @@ th{
 }
 /* ahl intro in home page  */
 #ahl-intro{
-	background: $pink;
+	background: $purple;
 	border-top-left-radius: 15%;
 	border-bottom-right-radius: 15%;
 	border-top-right-radius: 10px;
@@ -352,12 +352,12 @@ th{
 }
 
 .report-title{
-	color: $pink;
+	color: $purple;
 	margin-top: 50px;
 }
 /* Style for team motto */
 #motto{
-	background: $pink;
+	background: $purple;
 	color: #fff;
 	text-align: center;
 	span
@@ -390,7 +390,7 @@ td,th{
 }
 .match-fixture:hover{
 	text-decoration: none;
-	color: $pink;
+	color: $purple;
 }
 .date{
 	text-align: right;
@@ -429,7 +429,7 @@ td,th{
 }
 /***/
 .versus{
-	color: $pink;
+	color: $purple;
 	text-align: center;
 	height: 150px;
 	line-height: 150px;
@@ -440,7 +440,7 @@ td,th{
 }
 /* text colors */
 .text-pink{
-		color: $pink;
+		color: $purple;
 }
 .text-grey{
 	color: #ddd;
@@ -454,7 +454,7 @@ td,th{
 }
 /* styles for panel danger */
 .panel-danger .panel-heading{
-	background: $pink;
+	background: $purple;
 	color: #eee;
 }
 
@@ -498,7 +498,7 @@ td,th{
 }
 /* Styles for past winners */
 .past-winners{
-	border: 10px solid $pink;
+	border: 10px solid $purple;
 }
 .past-winners img{
 	height: 116px;
@@ -726,4 +726,25 @@ ul.pagination a:hover{
 /** Text shadow (experimental)**/
 .text-shadow {
 	text-shadow: -3px 3px 0px $light-green;
+}
+/** Matches index page
+	tabs
+**/
+.nav-pills li{
+	text-transform: uppercase;
+	a{
+		color: $light-green;
+		font-size: 140%;
+		transition: all 0.6s linear 0.2s;
+	}
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
+	color: #fff;
+	background: $light-green;
+	border-radius: 4px;
+}
+
+.no-matches{
+	font-size: 180%;
+	color: #999;
 }

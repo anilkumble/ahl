@@ -1,10 +1,56 @@
 <div class="container">
-    <h1 class="text-primary text-center">Fixtures</h1><hr>
+    <h1 class="text-center">Fixtures</h1>
+    <p class="space"></p>
     <div class="container">
         <div class="row">
-            <% @matches.each do |match| %>
-                <%= render match, names: [match.first_team.name, match.opponent_team.name] %>
-            <% end %>
+            <!-- beginning -->
+            <div class="col-xs-6 col-xs-offset-4">
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#upcoming" aria-controls="upcoming" role="tab" data-toggle="tab">Upcoming</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#ended" aria-controls="ended" role="tab" data-toggle="tab">Ended</a>
+                    </li>
+                </ul>
+                <p class="space"></p>
+            </div>
+  <!-- Tab panes -->
+
+              <div class="tab-content">
+
+
+                <div role="tabpanel" class="tab-pane fade in active" id="all">
+                    <% @matches.each do |match| %>
+                        <%= render match, names: [match.first_team.name, match.opponent_team.name] %>
+                    <% end %>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="upcoming">
+                    <% @new_matches.each do |match| %>
+                        <%= render match, names: [match.first_team.name, match.opponent_team.name] %>
+                    <% end %>
+                    <% if @new_matches.length == 0 %>
+                        <span class="no-matches">
+                            All matches have ended
+                        </span>
+                    <% end %>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="ended">
+                    <% @ended_matches.each do |match| %>
+                        <%= render match, names: [match.first_team.name, match.opponent_team.name] %>
+                    <% end %>
+                    <% if @ended_matches.length == 0 %>
+                        <span class="no-matches"> Matches have not taken place</span>
+                    <% end %>
+                </div>
+
+                </div> <!-- /tab-content -->
         </div> <!-- /row -->
+
     </div>  <!-- /inner-container -->
 </div> <!-- /outer-container -->
