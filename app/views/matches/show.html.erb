@@ -22,6 +22,10 @@
     </div> <!-- /row -->
 </div>  <!-- /jumbotron -->
 
+        <div class="text-center match-date">
+                <%= @match.date.strftime("%B %d") %>
+                <p class="space"></p>
+        </div>
 
     <!-- Space for man of the match -->
     <% if @man_of_the_match %>

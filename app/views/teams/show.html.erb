@@ -44,11 +44,12 @@
 
 <div class="row ridge-bottom">
 	<!-- This row displays the recent performance -->
-	<% if @recent_matches.length > 0%>
-		<div class="col-xs-12 col-sm-4">
+	<% if @recent_matches.length > 0 %>
+		<div class="col-xs-12 col-sm-6">
 			<p class="space"></p>
 			<h3 class="text-center">Recent Performance</h3>
-			<br>
+			<p class="space"></p>
+
 				<% @recent_matches.each do |match| %>
 						<% result = team_status(match, @team) %>
 						<% opponent = match.first_team %>
@@ -58,24 +59,35 @@
 						<!-- Look at application_helper.rb -->
 						<div class="col-xs-3">
 							<% if result == "W"%>
-								<div class="circle green-circle" data-toggle="tooltip" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
-									W
-								</div>
+								<%= link_to match, remote: true  do %>
+									<div class="circle green-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
+										W
+									</div>
+								<% end %>
 
 							<% elsif result == "D" %>
-								<div class="circle yellow-circle" data-toggle="tooltip" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
-									D
-								</div>
+								<%= link_to match, remote: true  do %>
+									<div class="circle yellow-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
+										D
+									</div>
+								<% end %>
 
 							<% elsif result == "L" %>
-								<div class="circle red-circle" data-toggle="tooltip" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
-									L
-								</div>
+								<%= link_to match, remote: true  do %>
+									<div class="circle red-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
+										L
+									</div>
+								<% end %>
+
 							<% end %>
 						</div>
 				<% end %>
-		</div> <!-- /column -->
 
+				<!-- This div updates the result of a match using AJAX -->
+				<div id="result">
+
+				</div>
+		</div> <!-- /column -->
 		<!-- Leave space if no recent matches are there -->
 		<% else %>
 		<div class="col-xs-12 col-sm-3">
@@ -86,6 +98,7 @@
 
 		<!-- Upcoming matches -->
 		<div class="col-xs-12 col-sm-6">
+			<p class="space"></p>
 			<h3 class="text-center"> Upcoming matches </h3>
 				<% @upcoming_matches.each do |match| %>
 					<%= render match, names: [short_form(match.first_team.name), short_form(match.opponent_team.name)]%>

@@ -110,8 +110,8 @@ a, a:hover{
 	-webkit-animation: slidein 1s linear 0s infinite alternate;
 	-moz-animation: slidein 1s linear 0s infinite alternate;
 	-o-animation: slidein 1s linear 0s infinite alternate;
-	-ms-animation: slidein 1s linear 0s alternate;
-	animation: slidein 1s linear 0s alternate;
+	-ms-animation: slidein 1s linear 0s infinite alternate;
+	animation: slidein 1s linear 0s infinite alternate;
 }
 /** This is to remove the black gradient in the right control of the carousel **/
 .carousel-control.right{
@@ -140,9 +140,14 @@ a, a:hover{
     border-radius: 60%;
     display: inline-block;
     text-align: center;
-    color: #ffffff;
+    color: #fff;
     vertical-align: middle;
     line-height: 40px;
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
 	&:hover{
 		cursor: pointer;
 	}
@@ -158,6 +163,7 @@ a, a:hover{
 	background: #f4d03f;
 }
 
+/**  Team points **/
 .team-points{
 	text-align: center;
 	width: 150px;
@@ -307,6 +313,14 @@ th{
 	font-size: 1.4em;
 	font-weight: bold;
 	color: #fff !important;
+	-webkit-animation: slidein 2s linear 0s infinite alternate;
+	-moz-animation: slidein 2s linear 0s infinite alternate;
+	-o-animation: slidein 2s linear 0s infinite alternate;
+	-ms-animation: slidein 2s linear 0s infinite alternate;
+	animation: slidein 2s linear 0s infinite alternate;
+	&:hover{
+		animation-play-state: paused;
+	}
 }
 /* Carousel  */
 .carousel .item {
@@ -387,16 +401,23 @@ td,th{
 /* Fixtures styles */
 .match-fixture{
 	color: #2d2d2d;
-}
-.match-fixture:hover{
+	&:hover{
 	text-decoration: none;
 	color: $purple;
+	}
+}
+.match:hover{
+	border: 1px solid #ccc;
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
 }
 .date{
 	text-align: right;
 	color: #777;
 }
-
 /* styles for player modal */
 .player-name-header{
 	background: #e00023;
@@ -415,14 +436,20 @@ td,th{
 		cursor: pointer;
 	}
 }
-
+.clear{
+	clear: both;
+}
 
 /* Leaderboard */
+.table-striped > tbody > tr:nth-of-type(odd){
+	background: rgba(255,255,255,0.2);
+}
+
 .leaderboard tr:nth-child(even){
-	background: #f2f2f2;
+	background: rgba(255,255,255,0.4);
 }
 .leaderboard tr:hover td:first-child{
-	border-left: 3px solid #666;
+	border-left: 3px solid $light-green;
 }
 .leaderboard th{
 	background: transparent;
@@ -484,17 +511,23 @@ td,th{
 	font-size: 130%;
 }
 /** animations (experimental) **/
-@-webkit-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
-   @-moz-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }   }
-     @-o-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
-	 @-ms-keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
-        @keyframes slidein { from { margin-left:-50%;margin-top:-20%;color: red; } to { margin-left:0%;margin-top: 0%;color: #fff; }  }
+@-webkit-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
+   @-moz-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }   }
+     @-o-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
+	 @-ms-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
+        @keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
 
 /* match jumobtron */
 .match-title{
 	background: #fff;
 	height: 200px;
 	//background: linear-gradient(to right bottom #ffeb36,#41cbe4);
+}
+
+.match-date{
+	font-size: 150%;
+    text-transform: uppercase;
+    opacity: 0.4;
 }
 /* Styles for past winners */
 .past-winners{
@@ -537,10 +570,18 @@ td,th{
 	text-align: center;
 	color: #eee;
 	background: $light-green;
-	transition: border 0.3s ease-in 0.2s, transform 0.5s linear 0.2s;
+	transition: border 0.3s ease-in 0.2s, -webkit-transform 0.5s linear 0.2s;
+	 transition: -moz-transform 0.5s linear 0.2s;
+	 transition: -o-transform 0.5s linear 0.2s;
+	 transition: -ms-transform 0.5s linear 0.2s;
+	 transition: transform 0.5s linear 0.2s;
+
 	&:hover{
 		border-right: 5px solid #e00023;
 		-webkit-transform: translate(20px);
+		-moz-transform: translate(20px);
+		-o-transform: translate(20px);
+		-ms-transform: translate(20px);
 		transform: translate(20px);
 	}
 }
@@ -654,10 +695,6 @@ a.text-white:hover{
 #news-marquee{
 	border: 2px solid #f00;
 }
-.down{
-	margin-top: 100px;
-}
-
 /** Dropdown on hover **/
 .dropdown:hover .dropdown-menu{
 	display: block;
@@ -728,6 +765,7 @@ ul.pagination a:hover{
 /** Styles for team name in team show page **/
 .team-name{
 	font-size: 60px;
+	font-weight: bold;
 }
 /** Text shadow (experimental)**/
 .text-shadow {
@@ -749,8 +787,13 @@ ul.pagination a:hover{
 	background: $light-green;
 	border-radius: 4px;
 }
-
 .no-matches{
 	font-size: 180%;
 	color: #999;
+}
+/** Styles for recent performance in team show page **/
+#result{
+	position: relative;
+	margin-top: 30%;
+	background: #f00;
 }

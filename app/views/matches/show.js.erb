@@ -1,0 +1,2 @@
+$("#result").html("<%= j(render @match, names: [short_form(@match.first_team.name), short_form(@match.opponent_team.name)]) %>");
+$("#result").fadeIn("slow");

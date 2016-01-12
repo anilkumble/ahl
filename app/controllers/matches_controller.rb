@@ -43,6 +43,11 @@ before_action :authenticate, except:[:index,:show]
          @budding_player = nil
       end
 
+      respond_to do |format|
+        format.html
+        format.js
+      end
+
   end
 
   def edit
