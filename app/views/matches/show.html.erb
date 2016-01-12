@@ -1,37 +1,35 @@
 <div class="container">
-    <!--<div class="row">
-        <p class="space"></p>
-        <div class="col-xs-12">
-            <h2 class="text-primary text-center">Match&nbsp;<%= @match.id %></h2>
-        </div>
-    </div>--> <!--end of row -->
+    <div class="jumbotron match-title">
+        <div class="row">
+            <div class="col-xs-5 col-sm-2 col-sm-offset-3 team-photo">
+                <%= image_tag @first_team.logo, class: "img-responsive" %>
+            </div>
 
-<div class="jumbotron match-title">
-    <div class="row">
-        <div class="col-xs-5 col-sm-2 col-sm-offset-3 team-photo">
-            <%= image_tag @first_team.logo, class: "img-responsive" %>
-        </div>
+            <div class="col-xs-2 versus text-big">
+                Versus
+            </div>
 
-        <div class="col-xs-2 versus text-big">
-            Versus
-        </div>
-
-        <div class="col-xs-5 col-sm-2 team-photo">
-            <%= image_tag @opponent_team.logo, class: "img-responsive" %>
-        </div>
-    </div> <!-- /row -->
-</div>  <!-- /jumbotron -->
+            <div class="col-xs-5 col-sm-2 team-photo">
+                <%= image_tag @opponent_team.logo, class: "img-responsive" %>
+            </div>
+        </div> <!-- /row -->
+    </div>  <!-- /jumbotron -->
 
         <div class="text-center match-date">
                 <%= @match.date.strftime("%B %d") %>
                 <p class="space"></p>
         </div>
 
+        <div class="row">
+            <% if @match.ended? %>
+                <%= render @match, names: [@match.first_team.name, @match.opponent_team.name] %>
+            <% end %>
+        </div>
     <!-- Space for man of the match -->
     <% if @man_of_the_match %>
         <div class="row">
             <p class="space"></p>
-            <div class="col-xs-3 col-sm-2">
+            <div class="col-xs-6 col-sm-3 col-sm-offset-3">
                 <div class="panel panel-danger">
     				<div class="panel-heading text-center text-danger">
     					<h4>Man of the match</h4>
@@ -48,30 +46,23 @@
     			</div> <!-- /panel -->
             </div> <!-- /column -->
 
-            <div class="col-xs-9 col-sm-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet diam id magna pharetra porta. Suspendisse tortor erat, malesuada eget vehicula ac, facilisis ut eros. Aliquam consequat sem id posuere maximus. Mauris tempus massa a leo tempus fringilla. Donec id mattis dui. Morbi id varius elit. In nec finibus turpis, id lacinia erat. Phasellus in nisl nisl.
-            </div>
-
-            <div class="col-xs-9 col-sm-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet diam id magna pharetra porta. Suspendisse tortor erat, malesuada eget vehicula ac, facilisis ut eros. Aliquam consequat sem id posuere maximus. Mauris tempus massa a leo tempus fringilla. Donec id mattis dui. Morbi id varius elit. In nec finibus turpis, id lacinia erat. Phasellus in nisl nisl.
-            </div>
-
-                <div class="col-xs-3 col-sm-2">
+                <div class="col-xs-6 col-sm-3">
                     <div class="panel panel-danger">
                         <div class="panel-heading text-center text-danger">
                             <h4>Budding Player</h4>
                         </div>
 
                         <div class="panel-body">
-                            <%= image_tag @man_of_the_match.photo, class: "img-responsive" %>
+                            <%= image_tag @budding_player.photo, class: "img-responsive" %>
                         </div>
 
                         <div class="panel-footer text-center text-pink">
-                            <%= @man_of_the_match.name %>
+                            <%= @budding_player.name %>
                         </div>
 
-                    </div> <!-- /panel -->
-            </div> <!-- /column -->
+                    </div><!-- /panel -->
+            <!--</div>--> <!-- /column -->
+
         </div> <!-- /row -->
     <% end %>
 
@@ -137,7 +128,7 @@
         </div>
 
         <div class="hidden-xs col-sm-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet diam id magna pharetra porta. Suspendisse tortor erat, malesuada eget vehicula ac, facilisis ut eros. Aliquam consequat sem id posuere maximus. Mauris tempus massa a leo tempus fringilla. Donec id mattis dui. Morbi id varius elit. In nec finibus turpis, id lacinia erat. Phasellus in nisl nisl.
+            <%= @match.first_team.description %>
         </div>
         <div class="col-xs-5 col-xs-offset-2 col-sm-2 col-sm-offset-0">
             <%= image_tag @opponent_team_captain.photo, class: "img-responsive"%><br>
@@ -146,7 +137,7 @@
             </div>
         </div> <!-- end of column -->
         <div class="hidden-xs col-sm-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet diam id magna pharetra porta. Suspendisse tortor erat, malesuada eget vehicula ac, facilisis ut eros. Aliquam consequat sem id posuere maximus. Mauris tempus massa a leo tempus fringilla. Donec id mattis dui. Morbi id varius elit. In nec finibus turpis, id lacinia erat. Phasellus in nisl nisl.
+            <%= @match.opponent_team.description %>
         </div>
     </div> <!-- end of row -->
 
