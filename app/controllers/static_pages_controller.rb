@@ -6,8 +6,12 @@ class StaticPagesController < ApplicationController
       @current_match = Match.where(result: -2).first
       @live_score = @current_match.live_scores.last
 
-      @top_scorers = Player.order("goals_count desc").limit(4)
-      @matches_ended = Match.where("result <> -2").count
+      @top_scorers = Player.order("goals_count desc").limit(3)
+      @matches_ended = Match.where.not(result: -2).count
+
+      #static content
+      @previous_top_scorers = Player.all.sample(3)
+
   end
 
   def about

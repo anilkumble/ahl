@@ -1,25 +1,25 @@
 <% players = [{name: "Sunil", goals: 20, team: "Ruffianz"},
-            {name: "Velmurugan", goals: 16, team: "Warriors"},
-            {name: "Ramkrishnan", goals: 12, team: "Warriors"}
-    ] %>
+                {name: "Giri", goals: 16, team: "Ruffianz"},
+                {name: "Vijay", goals: 11, team: "Warriors"}]
+%>
 
 <% players.each do |player| %>
-<div class="col-xs-12 col-sm-4">
-    <div class="panel panel-warning">
-        <div class="panel-heading text-center">
-            <span class="text-black"><%= player[:name] %></span>
-            <span class="pull-right"><%= player[:goals] %></span>
-        </div>
-
-        <div class="panel-body">
-            <%= image_tag "unknown.jpg", class: "img-responsive" %>
-        </div>
-
-        <div class="panel-footer text-center">
-            <div class="team-link">
-                <span class="text-pink"><%= player[:team] %></span>
+    <div class="col-xs-12 col-sm-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading text-center">
+                <span class="text-black"><%= player[:name] %></span>
+                <span class="badge pull-right"><%= player[:goals] %></span>
             </div>
-        </div> <!-- /panel footer -->
-    </div> <!--  end of panel -->
-</div>
+
+            <div class="panel-body">
+                <%= image_tag "unknown.jpg", class: "img-responsive" %>
+            </div>
+
+            <div class="panel-footer text-center">
+                <div class="team-link">
+                    <span class="text-pink"><%= player[:team] %></span>
+                </div>
+            </div> <!-- /panel footer -->
+        </div> <!--  end of panel -->
+    </div>
 <% end %>

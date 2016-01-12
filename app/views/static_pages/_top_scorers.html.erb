@@ -1,0 +1,20 @@
+<% players.each do |player| %>
+<div class="col-xs-12 col-sm-4">
+    <div class="panel panel-warning">
+        <div class="panel-heading text-center">
+            <span class="text-black"><%= first_name player.name %></span>
+            <span class="badge pull-right"><%= player.goals %></span>
+        </div>
+
+        <div class="panel-body">
+            <%= image_tag "unknown.jpg", class: "img-responsive" %>
+        </div>
+
+        <div class="panel-footer text-center">
+            <div class="team-link">
+                <span class="text-pink"><%= short_form player.team.name %></span>
+            </div>
+        </div> <!-- /panel footer -->
+    </div> <!--  end of panel -->
+</div>
+<% end %>
