@@ -104,22 +104,8 @@
             </div> <!--  End of panel -->
             <!-- Static images for top scorers -->
             <div class="row">
-                <div class="col-xs-12">
-                    <% if @matches_ended > 2 %>
-                    <h3 class="column-heading">Top Scorers</h3>
-                    <% else %>
-                    <h3 class="column-heading">Top Scorers - 2015</h3>
-                    <% end %>
-                    <p class="space"></p>
-                </div>
-                    <!-- Top scorers of 2015 and 2016 -->
-                    <% if @matches_ended > 0 %>
-                        <%= render 'top_scorers', players: @top_scorers %>
-                    <% else %>
-                        <%= render 'previous_top_scorers' %>
-                    <% end %>
 
-
+                <!-- Leaderboard -->
                 <div class="col-xs-12">
                     <h3 class="column-heading">Leaderboard</h3>
                     <table class="table table-responsive table-striped leaderboard">
@@ -142,6 +128,25 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!--  Top scorers -->
+                <div class="col-xs-12">
+                    <% if @matches_ended > 2 %>
+                    <h3 class="column-heading">Top Scorers</h3>
+                    <% else %>
+                    <h3 class="column-heading">Top Scorers - 2015</h3>
+                    <% end %>
+                    <p class="space"></p>
+                </div>
+                    <!-- Top scorers of 2015 and 2016 -->
+                    <% if @matches_ended > 0 %>
+                        <%= render 'top_scorers', players: @top_scorers %>
+                    <% else %>
+                        <%= render 'previous_top_scorers' %>
+                    <% end %>
+
+
+
             </div> <!-- /nested row -->
 
         </div> <!-- end of second column -->
@@ -186,7 +191,7 @@
             <div class="league-details">
                 <p><i class="fa fa-trophy fa-4x trophy"></i>&nbsp;</p>
                 <p>6 Teams </p>
-                <p>6<i class="fa fa-circle matches"></i></span>&nbsp; Matches</p>
+                <p>6<!--<i class="fa fa-circle matches"></i></span>-->0&nbsp; Matches</p>
                 <p>3 months of action</p>
             </div>
             <div class="stars-right">

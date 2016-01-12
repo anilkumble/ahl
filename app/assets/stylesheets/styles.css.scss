@@ -16,6 +16,7 @@ $brown: #a07e46;
 $navbar-default-bg: #000;
 $navbar-height: 60px;
 $navbar-default-link-color: #fff;
+$navbar-default-link-active-color: $purple;
 $navbar-default-link-hover-color: $purple;
 $navbar-default-link-hover-bg: transparent;
 $navbar-default-link-active-bg: $light-green;
@@ -511,11 +512,11 @@ td,th{
 	font-size: 130%;
 }
 /** animations (experimental) **/
-@-webkit-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
-   @-moz-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }   }
-     @-o-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
-	 @-ms-keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
-        @keyframes slidein { from { margin-left:-50%; } to { margin-left:0%; }  }
+@-webkit-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
+   @-moz-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }   }
+     @-o-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
+	 @-ms-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
+        @keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
 
 /* match jumobtron */
 .match-title{
@@ -745,6 +746,12 @@ a.text-white:hover{
 	-o-transform: rotate(-30deg);
 	transform: rotate(-30deg);
 }
+
+/**  animations (experimental)**/
+.fa-star{
+	animation: bounceIn 1s alternate infinite;
+}
+
 /** Bootstrap pagination **/
 div.pagination{
 	transform: scale(1.5);
