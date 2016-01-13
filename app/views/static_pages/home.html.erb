@@ -42,12 +42,13 @@
                   <div class="row">
                       <div class="col-xs-12 col-sm-12 first-row">
                           <h3 class="column-heading">Articles</h3>
+                          <p class="space"></p>
                           <div id="news">
                                 <ul>
                                   <% @reports.each do |report| %>
                                     <li>
-                                        <%= simple_format(report.article[0..130]) %>
-                                        <%= link_to "Read more", report %>
+                                        <%= report.caption %>
+                                        <p><%= link_to "Read more", report %></p>
                                     </li>
                                   <% end %>
                               </ul>
@@ -56,7 +57,7 @@
                 </div>
         </div> <!-- end of first column -->
 
-        <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-0">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1">
                 <h3 class="column-heading">Live Score</h3>
             <div class="panel panel-danger" id="liveScoreArea">
                 <% if @live_score %>
@@ -120,7 +121,7 @@
                         <tbody>
                             <% @teams.each do |team| %>
                                 <tr>
-                                    <td> <%= image_tag team.logo, width: "30", height: "20" %></td>
+                                    <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
                                     <td> <%= team.name %> </td>
                                     <td> <%= team.points %> </td>
                                 </tr>
@@ -160,9 +161,12 @@
                 <p class="space"></p>
         <div class="col-xs-12 col-sm-6">
                 <div class="jumbotron" id="ahl-intro">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus. Vestibulum lobortis sit amet arcu eget consequat. Aliquam erat volutpat. In condimentum lacus nunc, eget molestie turpis placerat ut. Proin pretium aliquet elit, auctor auctor quam pulvinar at. Vivamus vel interdum urna. Mauris et ante vitae sem aliquet hendrerit sed dictum tellus. Quisque id consequat arcu, ac ornare nibh. Integer eu blandit elit. Cras dapibus quam a erat elementum, eu volutpat lorem laoreet. Aenean fermentum nec turpis dignissim sollicitudin. Nunc consequat lacus id magna lacinia, eget pretium ante euismod. Ut molestie felis sed odio facilisis rhoncus. Suspendisse potenti.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget dapibus risus, at hendrerit metus.
-                    <span class="glyphicon glyphicon-cup"></span>Cup
+                    <p>
+                    <b>Rethinking everything</b> is our tagline of AHL '16. We are stronger than ever before with the inception of women's hockey team in our university. AHL '16 comprises of 6 teams which are named Sizzling Shooterz(Blue), Deadly Dribblerz(Violet), Crouching Griffinz(Green), Yo Yo Yakz(Yellow), Rising Warriorz(White) and Roaring Ruffianz(Red). The league consist of 4 levels and each level has 15 matches. The league comprises of 45 matches for men and 15 matches for women.  A match is divided into 5 rounds, each of 10 minutes totalling 50 minutes of action.
+                    </p>
+                    <p>
+                    Our official partners are <a href="http://www.redblacktree.com">RedBlackTree Techonologies</a>, <a href="http://www.swissgarnier.com">Swiss Garnier Life Sciences</a>and <a href="http://www.licindia.in">Life Insurance of Corporation</a>. We are proud to say that they are giving constant support to promote Field Hockey and to run AHL'16 in grand manner.
+                    </p>
                 </div><!-- end of jumbotron -->
         </div> <!-- /column -->
 
@@ -191,7 +195,7 @@
             <div class="league-details">
                 <p><i class="fa fa-trophy fa-4x trophy"></i>&nbsp;</p>
                 <p>6 Teams </p>
-                <p>6<!--<i class="fa fa-circle matches"></i></span>-->0&nbsp; Matches</p>
+                <p>60&nbsp; Matches</p>
                 <p>3 months of action</p>
             </div>
             <div class="stars-right">
@@ -226,6 +230,17 @@
         <%= render 'past_winners' %>
     </div> <!-- end of row -->
 
+    <!-- Promo video -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <p class="space"></p>
+            <p class="space"></p>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/jV5DD_qsdew"></iframe>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <p class="space"></p>
         <div class="col-xs-12 text-center">
@@ -248,16 +263,6 @@
             <li>
                 <%= image_tag "dcb.png", class: "img-responsive"%>
             </li>
-
-            <li>
-                <%= image_tag "axis.png", class: "img-responsive"%>
-            </li>
-
-            <li>
-                <%= image_tag "indian.png", class: "img-responsive"%>
-            </li>
-
-
     </ul>
     </div> <!--row -->
 </div>
