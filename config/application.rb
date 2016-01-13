@@ -23,8 +23,5 @@ module Ahlonesix
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-
-    user_name = "ahlmmxvi"
-    pass_word = "catchmeifyoucaN"
   end
 end
