@@ -342,6 +342,16 @@ th{
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	color: #fff;
+	p{
+	font-size: 15px;
+	a{
+		color: #4caf50;
+		font-weight: bold;
+	&:hover, &:focus{
+			text-decoration: none;
+		}
+	}
+	}
 }
 /** Reports **/
 .report{
@@ -808,4 +818,8 @@ ul.pagination a:hover{
 /** About page **/
 .about{
 	font-size: 120%;
+}
+.coming_soon{
+	font-size: 140%;
+	font-weight: bold;
 }
