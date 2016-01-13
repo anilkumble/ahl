@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('ready page:load', function(event) {
 
         $('#demo123').scrollbox({
             direction: 'h'
@@ -51,16 +51,13 @@ $(document).ready(function(){
     $("#image-gallery").masonry({
         itemSelector: '.gallery',
         columnWidth: 200
-    })
+    });
 
     // Jquery scrollbox for sponsors
     $(".sponsors").scrollbox({
         direction: 'h'
 
     });
-
-});
-$(window).load(function(){
     $("#sponsors").flexisel({
         visibleItems: 4,
         autoPlay: true,
@@ -83,4 +80,10 @@ $(window).load(function(){
       }
     }
     });
-})
+    displayFlexisel();
+});
+function displayFlexisel(){
+$(window).load(function(){
+
+});
+}
