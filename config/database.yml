@@ -51,5 +51,5 @@ test:
 production:
   <<: *default
   database: ahlonesix_production
-  username: ahlonesix
+  username: admin
   password: <%= ENV['AHLONESIX_DATABASE_PASSWORD'] %>
