@@ -344,7 +344,7 @@ th{
 	color: #fff;
 }
 /** Reports **/
-.report-well{
+.report{
 	-webkit-box-shadow: 4px 4px 6px #999;
 	-moz-box-shadow: 4px 4px 6px #999;
 	-o-box-shadow: 4px 4px 6px #999;
@@ -803,4 +803,9 @@ ul.pagination a:hover{
 	position: relative;
 	margin-top: 30%;
 	background: #f00;
+}
+
+/** About page **/
+.about{
+	font-size: 120%;
 }

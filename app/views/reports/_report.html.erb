@@ -6,22 +6,30 @@
                 </div>
         </div>
 
-        <div class="col-xs-12">
-            <div class="well report-well">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 report">
+            <%= (simple_format(report.article)) %>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-4 col-sm-offset-3">
+            <p class="space"></p>
+            <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
+        </div>
+            <!--<div class="well report-well">
                 <div class="media">
                     <div class="media-body">
                         <p class="report">
                             <%= (simple_format(report.article)) %>
                         </p>
-                    </div> <!-- /media-body -->
+                    </div>--> <!-- /media-body -->
 
-                    <div class="media-right media-middle hidden-xs">
+                    <!--<div class="media-right media-middle hidden-xs">
                         <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
                     </div>
                  </div>
-            </div> <!-- end of well -->
-            <div class="hidden-sm hidden-md hidden-lg">
+            </div> --><!-- end of well -->
+            <!--<div class="hidden-sm hidden-md hidden-lg">
                 <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
             </div>
-        </div> <!-- /second column -->
+        </div>--> <!-- /second column -->
 </div> <!-- /row -->
