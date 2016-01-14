@@ -45,9 +45,9 @@ Report.create!([
 
 #Matches
 Match.destroy_all
-#CSV.foreach("fixtures.csv", headers: true) do |row|
-#    Match.create!(row.to_hash)
-#end
+CSV.foreach("fixtures.csv", headers: true) do |row|
+    Match.create!(row.to_hash)
+end
 
 
 #Photos
