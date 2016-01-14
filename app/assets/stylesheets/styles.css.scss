@@ -633,11 +633,11 @@ a.text-white:hover{
 
    /** experimentation **/
   .past-winners{
-	   -webkit-animation: bounceIn 5s infinite;
-	   -moz-o-animation: bounceIn 5s infinite;
-	   -o-animation: bounceIn 5s infinite;
-	   -ms-animation: bounceIn 5s infinite;
-	   animation: bounceIn 5s infinite;
+	   -webkit-animation: bounceIn 5s;
+	   -moz-o-animation: bounceIn 5s;
+	   -o-animation: bounceIn 5s;
+	   -ms-animation: bounceIn 5s;
+	   animation: bounceIn 5s;
    }
    /*#ahllogo:hover{
 	   animation-play-state: paused;
