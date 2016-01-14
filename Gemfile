@@ -32,7 +32,7 @@ group :development do
 end
 
 gem 'puma'
-
+gem 'dotenv-rails'
 group :development, :test do
   gem 'byebug'
 

@@ -47,9 +47,9 @@ test:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
-#<%= ENV['AHLONESIX_DATABASE_PASSWORD'] %>
+#
 production:
   <<: *default
   database: ahlonesix_production
   username: root
-  password: thisisAHL16
+  password: <%= ENV['AHLONESIX_DATABASE_PASSWORD'] %>
