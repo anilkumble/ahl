@@ -1,6 +1,6 @@
-<% players = [{name: "Sunil", goals: 20, team: "Ruffianz"},
-                {name: "Giri", goals: 16, team: "Ruffianz"},
-                {name: "Vijay", goals: 11, team: "Warriors"}]
+<% players = [{name: "Sunil", goals: 20, team: "Ruffianz", image: "unknown.jpg"},
+                {name: "Giri", goals: 16, team: "Ruffianz", image: "unknown.jpg"},
+                {name: "Vijay", goals: 11, team: "Warriors", image: "vijay.jpg"}]
 %>
 
 <% players.each do |player| %>
@@ -12,7 +12,7 @@
             </div>
 
             <div class="panel-body">
-                <%= image_tag "unknown.jpg", class: "img-responsive" %>
+                <%= image_tag player[:image], class: "img-responsive" %>
             </div>
 
             <div class="panel-footer text-center">
