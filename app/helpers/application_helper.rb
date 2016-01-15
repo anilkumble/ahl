@@ -1,4 +1,5 @@
 module ApplicationHelper
+    #For titlecasing the team name
     def titlecase team_name
         words = team_name.split(" ")
         titlecased_string = ""
@@ -6,6 +7,24 @@ module ApplicationHelper
             titlecased_string = titlecased_string + word.capitalize + " "
         end
         titlecased_string
+    end
+
+    #For position of team in 2015
+    def position team_id
+        case team_id
+            when 1
+                return 2
+            when 2
+                return 1
+            when 3
+                return 3
+            when 4
+                return 4
+            when 5
+                return 6
+            when 6
+                return 5
+        end
     end
 
     # Used to display the recent performance
@@ -29,4 +48,6 @@ module ApplicationHelper
             end
         end
     end
+
+
 end

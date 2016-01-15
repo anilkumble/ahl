@@ -35,19 +35,28 @@
                         <%= render match, names: [match.first_team.name, match.opponent_team.name] %>
                     <% end %>
                     <% if @new_matches.length == 0 %>
-                        <p class="no-matches">
-                            All matches have ended
-                        </p>
+                        <div class="no-matches">
+                            <p class="space"></p>
+                            <p>All matches have ended</p>
+                        </div>
                     <% end %>
                 </div>
 
                 <div role="tabpanel" class="tab-pane fade" id="ended">
+
+                    <!-- If no matches have taken place -->
+                    <% if @ended_matches.length == 0 %>
+                        <div class="no-matches text-center">
+                            <p class="space"></p>
+                            <p>Matches have not taken place</p>
+                        </div>
+                    <% end %>
+
+                    <!-- Ended matches -->
                     <% @ended_matches.each do |match| %>
                         <%= render match, names: [match.first_team.name, match.opponent_team.name] %>
                     <% end %>
-                    <% if @ended_matches.length == 0 %>
-                        <p class="no-matches"> Matches have not taken place</p>
-                    <% end %>
+
                 </div>
 
                 </div> <!-- /tab-content -->

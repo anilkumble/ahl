@@ -170,7 +170,7 @@ a, a:hover{
 	width: 150px;
 	height:150px;
 	line-height: 150px;
-	font-size: 24px;
+	font-size: 500%;
 	border-radius: 50%;
 	margin-left: 15%;
 	margin-top: 10%;
@@ -751,6 +751,9 @@ a.text-white:hover{
 	display: block;
 	margin-top:0px;
 }
+.dropdown-menu > li > a:hover{
+	font-size: 120%;
+}
 /** navbar border **/
 .navbar{
 	border: 0px;
@@ -848,6 +851,7 @@ ul.pagination a:hover{
 .no-matches{
 	font-size: 180%;
 	color: #999;
+	float: left;
 }
 /** Styles for recent performance in team show page **/
 #result{
