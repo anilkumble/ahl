@@ -358,6 +358,7 @@ th{
 }
 /** Reports **/
 .report-container{
+	padding-bottom: 20px;
 	-webkit-box-shadow: 4px 4px 6px #999;
 	-moz-box-shadow: 4px 4px 6px #999;
 	-o-box-shadow: 4px 4px 6px #999;
@@ -822,6 +823,7 @@ ul.pagination a:hover{
 .team-name{
 	font-size: 60px;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 /** Text shadow (experimental)**/
 .text-shadow {
