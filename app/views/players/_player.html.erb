@@ -12,7 +12,7 @@
         <div class="modal-body">
                 <%= image_tag @player.photo, width: "30%" , class: "img-responsive img-thumbnail player-modal-image" %>
 
-                <div class="caption"><br>
+                <div class="caption">
 
                   <dl class="dl-horizontal player-info">
                       <dt>Team</dt>
@@ -23,6 +23,15 @@
 
                       <dt>Goals</dt>
                       <dd><%= @player.goals %></dd>
+
+                      <dt>Cards</dt>
+                      <dd>
+                          <span class="text-green">
+                              Green</span>&nbsp;<%= @player.green_cards%>,&nbsp;
+                              <span class="text-yellow">Yellow</span>
+                      <%= @player.yellow_cards%>,&nbsp;
+                      <span class="text-red">Red</span>&nbsp;<%= @player.red_cards%></dd>
+
                   </dl>
 
               </div> <!-- caption -->

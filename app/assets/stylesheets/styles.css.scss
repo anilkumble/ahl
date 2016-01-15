@@ -444,15 +444,27 @@ td,th{
 }
 .player-info{
 	margin-left: 20%;
+	margin-top: 10px;
 }
 .player-modal-image{
 	margin-left: 35%;
 }
+.text-green{
+	color: $light-green;
+}
+.text-yellow{
+	color: #eecc00;
+}
+.text-red{
+	color: #e00023;
+}
 .grey-x{
-	color: #fff;
+	color: #ddd;
 	font-size: 250%;
 	&:hover{
+		color: #fff;
 		cursor: pointer;
+		font-weight: bold;
 	}
 }
 .clear{
