@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row ridge-bottom">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6">
             <div class="row first-row">
                 <h3 class="column-heading">Snapshots</h3>
                 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -48,7 +48,8 @@
                                   <% @reports.each do |report| %>
                                     <li>
                                         <%= report.caption %>
-                                        <p><%= link_to "Read more", report %></p>
+                                        <p><%= link_to "Read more", report %><p>
+                                        <br>
                                     </li>
                                   <% end %>
                               </ul>
@@ -244,7 +245,7 @@
 
     <div class="row">
         <p class="space"></p>
-        <div class="col-xs-12 text-center">
+        <div class="col-xs-12 text-center sponsors-container">
             <h2>Our Sponsors</h2>
             <p class="space"></p>
         </div>
