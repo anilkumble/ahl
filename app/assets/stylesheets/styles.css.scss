@@ -599,7 +599,7 @@ td,th{
 	}
 
 	.carousel .item {
-	  height: 270px;
+	  height: 230px;
 	}
 
 	.item img {
@@ -607,7 +607,7 @@ td,th{
 	    top: 0;
 	    left: 0;
 		width: 100%;
-	    min-height: 270px;
+	    min-height: 230px;
 	}
 }
 /* Goalscorers on the teams page */
@@ -638,14 +638,24 @@ td,th{
 	 transition: -o-transform 0.5s linear 0.2s;
 	 transition: -ms-transform 0.5s linear 0.2s;
 	 transition: transform 0.5s linear 0.2s;
-
+	 transition: all 0.5s linear 0.2s;
+	 border-top-right-radius: 25px;
+	 border-top-left-radius: 10px;
+	 border-bottom-right-radius: 25px;
+	 border-bottom-left-radius: 5px;
 	&:hover{
 		border-right: 5px solid #e00023;
+		border-top-right-radius: 0px;
+   	 	border-top-left-radius: 0px;
+   	 	border-bottom-right-radius: 0px;
+   	 	border-bottom-left-radius: 0px;
 		-webkit-transform: translate(20px);
 		-moz-transform: translate(20px);
 		-o-transform: translate(20px);
 		-ms-transform: translate(20px);
 		transform: translate(20px);
+		transform-origin: top left 0px;
+    	transform: matrix3d(1, 0, 0, 0, 0, 0, -1, 0.00166, 0, 1, 0, 0, 0, 0, 0, 1);
 	}
 }
 /** for top row **/
