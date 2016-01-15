@@ -332,8 +332,11 @@ th{
     position: absolute;
     top: 0;
     left: 0;
+	width: 100%;
     min-height: 350px;
 }
+
+
 /* ahl intro in home page  */
 #ahl-intro{
 	background: $purple;
@@ -354,7 +357,7 @@ th{
 	}
 }
 /** Reports **/
-.report{
+.report-container{
 	-webkit-box-shadow: 4px 4px 6px #999;
 	-moz-box-shadow: 4px 4px 6px #999;
 	-o-box-shadow: 4px 4px 6px #999;
@@ -553,9 +556,41 @@ td,th{
 	}
 }
 
+// For mobile devices
 @media (max-width: 768px){
 	.bottom-row .single-photo{
 		width: 192.5px;
+	}
+	#ahl-intro
+	{
+		background: transparent;
+		color: #111;
+		p{
+			font-size: 110%;
+			a{
+				font-size: 130%;
+			}
+		}
+	}
+
+	.navbar-brand{
+		animation: none;
+	}
+	/* Top scorers in home page */
+	.column-heading#top-scorers{
+		width: 70%;
+	}
+
+	.carousel .item {
+	  height: 270px;
+	}
+
+	.item img {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+		width: 100%;
+	    min-height: 270px;
 	}
 }
 /* Goalscorers on the teams page */
@@ -696,9 +731,9 @@ a.text-white:hover{
 }
 
 /** first-row **/
-.first-row{
+/*.first-row{
 	margin-left: 2%;
-}
+}*/
 .set-down{
 	margin-top: 1%;
 }
@@ -822,4 +857,8 @@ ul.pagination a:hover{
 .coming_soon{
 	font-size: 140%;
 	font-weight: bold;
+}
+.previous_top_scorers  > .panel-heading, .previous_top_scorers > .panel-footer{
+	height: 50%;
+	//line-height: 30px;
 }
