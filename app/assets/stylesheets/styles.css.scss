@@ -384,6 +384,15 @@ th{
 	font-size: 80%;
 }
 
+.btn-green{
+	background: $light-green;
+	color: #ddd;
+	transition: background 0.5s linear 0.2s, color 0.5s ease-out 0.2s;
+	&:hover{
+		background: darken($light-green,20);
+		color: #fff;
+	}
+}
 .report-title{
 	color: $purple;
 	margin-top: 50px;
@@ -487,10 +496,14 @@ td,th{
 }
 /***/
 .versus{
-	color: $purple;
+	color: #eee;
 	text-align: center;
-	height: 150px;
-	line-height: 150px;
+	height: 109px;
+	line-height: 109px;
+	font-size: 200%;
+	text-shadow: -1px 1px 0px #999;
+	text-transform: uppercase;
+
 }
 
 #player-modal modal-header, #player-modal modal-body, #player-modal modal-footer{
@@ -538,6 +551,13 @@ td,th{
 .live-score-heading h3{
 	margin-top: 0px;
 }
+.live-scores{
+	height: 500px;
+	overflow-y: scroll;
+}
+.man-of-the-match-panel-heading{
+	background: $light-green;
+}
 .comment, #commentary{
 	font-size: 130%;
 }
@@ -552,13 +572,14 @@ td,th{
 .match-title{
 	background: #fff;
 	height: 200px;
-	//background: linear-gradient(to right bottom #ffeb36,#41cbe4);
+	background: linear-gradient(30deg, #555, #333);
 }
 
 .match-date{
 	font-size: 150%;
     text-transform: uppercase;
     opacity: 0.4;
+	color: #aaa;
 }
 /* Styles for past winners */
 .past-winners{

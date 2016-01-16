@@ -5,12 +5,18 @@
         <div class="col-xs-12">
                 <h2 class="report-title"><%= report.caption %></h2>
                 <div class="text-light-grey report-time">
-                    Written&nbsp;<%= time_ago_in_words(report.updated_at) %> ago
+                    Written&nbsp;<%= report.updated_at.strftime("%B %d, %Y") %>
                 </div>
         </div>
 
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 report">
             <%= image_tag report.image, alt: "Image missing", width: "500", class: "media-object" %>
-            <%= simple_format (report.article) %>
+            <%= article %>
+
+            <% if article != simple_format(report.article) %>
+                <%= link_to report, class: "btn btn-green" do %>
+                    Read More&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+                <% end %>
+            <% end %>
         </div>
 </div> <!-- /row -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115233209) do
+ActiveRecord::Schema.define(version: 20160116035542) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20160115233209) do
     t.integer  "team2_id",         limit: 4
     t.date     "date"
     t.integer  "result",           limit: 4, default: -2
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.integer  "man_of_the_match", limit: 4
     t.integer  "trump_card",       limit: 4
+    t.boolean  "running",          limit: 1, default: false
   end
 
   create_table "photos", force: :cascade do |t|

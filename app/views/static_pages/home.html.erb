@@ -141,7 +141,7 @@
                     <p class="space"></p>
                 </div>
                     <!-- Top scorers of 2015 and 2016 -->
-                    <% if @matches_ended > 0 %>
+                    <% if @matches_ended > 2 %>
                         <%= render 'top_scorers', players: @top_scorers %>
                     <% else %>
                         <%= render 'previous_top_scorers' %>

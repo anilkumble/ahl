@@ -1,11 +1,11 @@
 <div class="container">
     <div class="jumbotron match-title">
         <div class="row">
-            <div class="col-xs-5 col-sm-2 col-sm-offset-3 team-photo">
+            <div class="col-xs-5 col-sm-2 col-sm-offset-3">
                 <%= image_tag @first_team.logo, class: "img-responsive" %>
             </div>
 
-            <div class="col-xs-2 versus text-big">
+            <div class="col-xs-2 versus">
                 Versus
             </div>
 
@@ -13,12 +13,14 @@
                 <%= image_tag @opponent_team.logo, class: "img-responsive" %>
             </div>
         </div> <!-- /row -->
-    </div>  <!-- /jumbotron -->
 
-        <div class="text-center match-date">
+        <div class="match-date pull-right">
                 <%= @match.date.strftime("%B %d") %>
                 <p class="space"></p>
         </div>
+    </div>  <!-- /jumbotron -->
+
+
 
         <div class="row">
             <% if @match.ended? %>
@@ -30,9 +32,9 @@
         <div class="row">
             <p class="space"></p>
             <div class="col-xs-6 col-sm-3 col-sm-offset-3">
-                <div class="panel panel-danger">
-    				<div class="panel-heading text-center text-danger">
-    					<h4>Man of the match</h4>
+                <div class="panel">
+    				<div class="panel-heading text-center man-of-the-match-panel-heading">
+    					<h4 class="text-white">Man of the match</h4>
     				</div>
 
     				<div class="panel-body">
@@ -49,7 +51,7 @@
                 <div class="col-xs-6 col-sm-3">
                     <div class="panel panel-danger">
                         <div class="panel-heading text-center text-danger">
-                            <h4>Budding Player</h4>
+                            <h4>Budding player</h4>
                         </div>
 
                         <div class="panel-body">
@@ -61,7 +63,7 @@
                         </div>
 
                     </div><!-- /panel -->
-            <!--</div>--> <!-- /column -->
+            </div><!-- /column -->
 
         </div> <!-- /row -->
     <% end %>
@@ -77,8 +79,8 @@
 
     <div class="row">
         <p class="space"></p>
-        <div class="col-xs-12">
-            <h3 class="text-primary text-center">Live Commentary</h3>
+        <div class="col-xs-12 live-scores">
+            <h3 class="text-center">Live Commentary</h3>
             <p class="space"></p>
             <!--Live scores to be displayed here -->
             <% if @live_scores.count == 0 %>
