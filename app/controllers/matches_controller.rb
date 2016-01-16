@@ -46,6 +46,7 @@ before_action :authenticate, except:[:index,:show]
       respond_to do |format|
         format.html
         format.js
+        format.json
       end
 
   end
@@ -67,7 +68,7 @@ before_action :authenticate, except:[:index,:show]
 
      # Only update if the result hasn't been updated yet
      if result_updated == -2
-         if @match.update(result: match_params[:result],man_of_the_match: match_params[:man_of_the_match])
+         if @match.update(result: match_params[:result],man_of_the_match: match_params[:man_of_the_match], trump_card: match_params[:trump_card])
              ## 1 refers to first team's win, -1 refers to first team's loss , 0 refers to draw
 
              if @match.result == 1
@@ -127,7 +128,7 @@ before_action :authenticate, except:[:index,:show]
   end
 
   def match_params
-      params.require(:match).permit(:team1_id, :team2_id,:date,:result,:man_of_the_match)
+      params.require(:match).permit(:team1_id, :team2_id,:date,:result,:man_of_the_match, :trump_card, :running)
   end
 
 end

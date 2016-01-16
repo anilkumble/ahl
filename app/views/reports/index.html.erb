@@ -9,7 +9,9 @@
         </div> <!-- /column -->
     </div>
 
-    <%= render @reports %>
+    <% @reports.each do |report| %>
+        <%= render report, article: simple_format(report.article[0..700] + "...") %>
+    <% end %>
 
     <div class="row">
         <div class="col-xs-12 text-center">

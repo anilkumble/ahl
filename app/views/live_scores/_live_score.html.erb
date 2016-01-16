@@ -7,9 +7,10 @@
             <%=  live_score.match.first_team.name %>
         </div>
         <div class="col-xs-2 set-down">
-            <span class="text-pink">
+            <span class="text-pink" id="teamone_score">
                 <%= live_score.teamone_goals %></span>
-                -&nbsp;&nbsp;<%= live_score.teamtwo_goals %>
+                -&nbsp;
+            <span class="text-pink" id="teamtwo_score"><%= live_score.teamtwo_goals %>
             </span>
         </div>
         <div class="col-xs-3 set-down">

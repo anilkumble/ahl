@@ -39,6 +39,13 @@
     <%= f.date_select :date, class: "form-control" %>
 </div>
 
+<% if @match.persisted? %>
+    <div class="form-group">
+        <%= f.check_box :running %>
+        <%= f.label :running, "Match started" %>
+    </div>
+<% end %>
+
  <div class="form-group">
     <%= f.submit class: "btn btn-danger"%>
 </div>
