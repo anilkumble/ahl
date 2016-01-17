@@ -918,3 +918,7 @@ ul.pagination a:hover{
 .short-box{
 	width: 40%;
 }
+/** Style for navbar links **/
+.navbar-default .navbar-nav > li > a::first-letter{
+	font-weight: bold;
+}
