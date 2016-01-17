@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :players
   resources :photos
   resources :reports
-  resources :teams, except:[:index]
+  resources :teams
 
   resources :matches do
       resources :live_scores, only: [:index, :create, :destroy]

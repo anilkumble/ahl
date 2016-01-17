@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, except: [:show]
+  before_action :authenticate, except: [:show, :index]
 
   def show
       @other_teams = Team.where.not(id: @team.id)
@@ -16,6 +16,13 @@ class TeamsController < ApplicationController
       @losses = @team.total_losses(@other_teams)
   end
 
+  def index
+      @teams = Team.all
+      respond_to do |format|
+          format.json
+      end
+
+  end
 
   def new
     @team = Team.new
