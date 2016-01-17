@@ -883,6 +883,11 @@ ul.pagination a:hover{
 	font-weight: bold;
 	text-transform: uppercase;
 }
+
+.top-scorer-team > .panel-body > .img-responsive{
+	height: 200px;
+	margin:0 auto;
+}
 /** Text shadow (experimental)**/
 .text-shadow {
 	text-shadow: -3px 3px 0px $light-green;
