@@ -919,6 +919,17 @@ ul.pagination a:hover{
 .about{
 	font-size: 120%;
 }
+#about li a{
+	font-size: 110%;
+}
+
+#rules li{
+	margin-top: 10px;
+}
+
+li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
+	color: $light-green;
+}
 .coming_soon{
 	font-size: 140%;
 	font-weight: bold;
