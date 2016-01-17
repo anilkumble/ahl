@@ -117,7 +117,7 @@ before_action :authenticate, except:[:index,:show]
 
   private
   def set_match
-     @match = Match.find(params[:id])
+     @match = Match.friendly.find(params[:id])
   end
 
   def authenticate

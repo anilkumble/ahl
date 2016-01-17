@@ -1,5 +1,11 @@
 class Match < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :match_url, use: :slugged
 
+	# returns readable format of url
+	def match_url
+		self.first_team.name + " vs " + self.opponent_team.name + " " + self.date.strftime("%b %d")
+	end
 	# Associations
 	has_many :teams
 	has_many :goals, dependent: :destroy

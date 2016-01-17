@@ -69,10 +69,10 @@
     <% end %>
 
     <!-- row to display the match report -->
-    <% if @man_of_the_match  and @match.report%>
+    <% if @man_of_the_match  and @match.report[0] %>
         <div class="row">
             <div class="col-xs-12">
-                <%= render @match.report %>
+                <%= render @match.report, article: simple_format(@match.report[0].article) %>
             </div>
         </div>
     <% end %>
@@ -80,12 +80,12 @@
     <div class="row">
         <p class="space"></p>
         <div class="col-xs-12 live-scores">
-            <h3 class="text-center">Live Commentary</h3>
+            <h1 class="text-center">Live Commentary</h1>
             <p class="space"></p>
             <!--Live scores to be displayed here -->
             <% if @live_scores.count == 0 %>
                 <div class="text-center">
-                    <em>Match hasn't started yet</em>
+                    <span class="text-pink no-match">Match hasn't started yet</span>
                 </div>
             <% end %>
             <% @live_scores.each do |live_score| %>
@@ -94,7 +94,7 @@
                             <div class="row">
                                 <div class="col-xs-3 col-sm-4 col-sm-offset-1">
                                     <%= image_tag live_score.match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
-                                    <%= live_score.match.first_team.name %>
+                                    <span class="team-names"><%= live_score.match.first_team.name %></span>
                                 </div>
 
                                 <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-0">
@@ -105,7 +105,7 @@
                                 </div>
 
                                 <div class="col-xs-3 col-sm-4">
-                                        <%= live_score.match.opponent_team.name %>
+                                        <span class="team-names"><%= live_score.match.opponent_team.name %></span>
                                         <%= image_tag live_score.match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
                                 </div>
                             </div> <!-- end of row -->
