@@ -637,6 +637,11 @@ td,th{
 		width: 100%;
 	    min-height: 230px;
 	}
+
+	/** setting tap targets on links clearer for mobiles  **/
+	.navbar-default .navbar-nav > li > a, .dropdown-menu > li > a{
+		padding-bottom: 20px;
+	}
 }
 /* Goalscorers on the teams page */
 .list-heading{
