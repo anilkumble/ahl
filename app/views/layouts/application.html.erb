@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta name="keywords" content="ahl, ahl16, ahl 2016, anna hockey league, anna hockey league 2016, anna university hockey">
-    <meta name="description" content="Anna Hockey League is a hockey league conducted by the students and alumnis of College of Engineering Guindy every year to promote hockey">
+    <meta name="description" content="Anna Hockey League is a hockey league conducted by the students and alumni of College of Engineering Guindy every year to promote hockey">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AHL'16</title>
     <link rel="icon" href="<%= image_path('logo.ico') %>" >
@@ -16,5 +16,27 @@
         <%= render 'layouts/footer' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+        <!-- Script to setup Facebook SDK -->
+        <div id="fb-root"></div>
+        <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1672848076306658',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
 </body>
 </html>
