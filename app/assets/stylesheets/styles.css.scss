@@ -592,7 +592,7 @@ td,th{
 .past-winners{
 	border: 10px solid $purple;
 }
-.past-winners img{
+.past-winners a img{
 	height: 116px;
 }
 @media (min-width: 768px){
@@ -737,10 +737,10 @@ a.text-white:hover{
    /*#ahllogo:hover{
 	   animation-play-state: paused;
    }*/
-      @-webkit-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
-      @-moz-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
-      @-o-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
-   @keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 1;}100% {transform: scale(1); } }
+      @-webkit-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 0.5;}100% {transform: scale(1); } }
+      @-moz-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 0.5;}100% {transform: scale(1); } }
+      @-o-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 0.5;}100% {transform: scale(1); } }
+   @keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 0.5;}100% {transform: scale(1); } }
 /*****/
 
 
@@ -857,7 +857,7 @@ a.text-white:hover{
 
 /**  animations (experimental)**/
 .fa-star{
-	animation: bounceIn 1s alternate infinite;
+	animation: bounceIn 2s alternate infinite;
 }
 
 /** Bootstrap pagination **/
