@@ -16,14 +16,13 @@
 			  		<%= image_tag @team.logo, width: "150", class: "img-responsive img-thumbnail media-object" %>
 				</div>
 
-				<div class="media-body">
+				<div class="media-body team-description">
 					<%= @team.description %>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-xs-12 col-xs-offset-2 col-sm-2 col-sm-offset-0">
-				<p class="space"></p>
 				<h3>Position - 2015</h3>
 				<div class="team-points">
 					<%= position @team.id %>
