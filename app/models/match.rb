@@ -4,7 +4,12 @@ class Match < ActiveRecord::Base
 
 	# returns readable format of url
 	def match_url
-		self.first_team.name + " vs " + self.opponent_team.name + " " + self.date.strftime("%b %d")
+		self.first_team.name + " vs " + self.opponent_team.name + " " + self.time.strftime("%b %d")
+	end
+
+
+	def should_generate_new_friendly_id?
+		
 	end
 	# Associations
 	has_many :teams
@@ -18,7 +23,6 @@ class Match < ActiveRecord::Base
 	validates :result, presence: true, inclusion: {in: [-2, -1, 0, 1]}
 	validate :different_teams
 	#validate :wrong_player
-	validates :date, presence: true
 	validates :team1_id, presence: true
 	validates :team2_id, presence: true
 	## don't uncomment the below two lines since the validations would fire up in other forms

@@ -128,7 +128,7 @@ before_action :authenticate, except:[:index,:show]
   end
 
   def match_params
-      params.require(:match).permit(:team1_id, :team2_id,:date,:result,:man_of_the_match, :trump_card, :running)
+      params.require(:match).permit(:team1_id, :team2_id,:time, :result, :man_of_the_match, :trump_card, :running)
   end
 
 end
