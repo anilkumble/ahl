@@ -956,3 +956,6 @@ li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
 .navbar-default .navbar-nav > li > a::first-letter{
 	font-weight: bold;
 }
+.link-active{
+	color: $purple;
+}
