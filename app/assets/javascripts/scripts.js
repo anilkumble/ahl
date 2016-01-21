@@ -8,10 +8,10 @@ $(document).on('ready page:load', function(event) {
 
     // This is to make the navbar stick after scrolling a few pixels
     $(window).scroll(function(){
-        if ($(window).scrollTop() > 224)
+        if ($(window).scrollTop() > 100)
             $('#navbar-links').addClass('fixed-navbar');
             $('#navbar-links').addClass('full-width');
-        if ($(window).scrollTop() < 224)
+        if ($(window).scrollTop() < 100)
             $('#navbar-links').removeClass('fixed-navbar');
     });
 
