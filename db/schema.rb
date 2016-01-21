@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117191238) do
+ActiveRecord::Schema.define(version: 20160121001507) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20160117191238) do
   create_table "matches", force: :cascade do |t|
     t.integer  "team1_id",         limit: 4
     t.integer  "team2_id",         limit: 4
-    t.date     "date"
     t.integer  "result",           limit: 4,   default: -2
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -54,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160117191238) do
     t.integer  "trump_card",       limit: 4
     t.boolean  "running",          limit: 1,   default: false
     t.string   "slug",             limit: 255
+    t.datetime "time"
   end
 
   add_index "matches", ["slug"], name: "index_matches_on_slug", unique: true, using: :btree

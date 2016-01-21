@@ -44,7 +44,7 @@
 <div class="row ridge-bottom">
 	<!-- This row displays the recent performance -->
 	<% if @recent_matches.length > 0 %>
-		<div class="col-xs-12 col-sm-6">
+		<div class="col-xs-12 col-sm-6 recent">
 			<p class="space"></p>
 			<h3 class="text-center">Recent Performance</h3>
 			<p class="space"></p>
@@ -84,7 +84,7 @@
 
 				<!-- This div updates the result of a match using AJAX -->
 				<div id="result">
-
+					<%= render @recent_matches[0], names: [@recent_matches[0].first_team.name, @recent_matches[0].opponent_team.name] %>
 				</div>
 		</div> <!-- /column -->
 		<!-- Leave space if no recent matches are there -->
