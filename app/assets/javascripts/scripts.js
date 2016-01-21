@@ -27,7 +27,7 @@ $(document).on('ready page:load', function(event) {
     $("#news").vTicker({
         animation: 'fade',
         showItems: 5,
-        pause: 1500
+        pause: 2000
     });
 
 
@@ -46,7 +46,7 @@ $(document).on('ready page:load', function(event) {
         visibleItems: 4,
         autoPlay: true,
         pauseOnHover: true,
-        autoPlaySpeed: 2000,
+        autoPlaySpeed: 3000,
         clone: true,
         enableResponsiveBreakpoints: true,
         responsiveBreakpoints: {
