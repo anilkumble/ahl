@@ -959,3 +959,11 @@ li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
 .link-active{
 	color: $purple;
 }
+/** navbar brand **/
+.navbar-brand span{
+	margin-left: 5px;
+}
+.navbar-brand > .navbar-logo{
+	display: inline-block;
+	margin-top: -7px;
+}
