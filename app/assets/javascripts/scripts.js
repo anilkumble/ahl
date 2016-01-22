@@ -27,7 +27,7 @@ $(document).on('ready page:load', function(event) {
     $("#news").vTicker({
         animation: 'fade',
         showItems: 5,
-        pause: 2000
+        speed: 200
     });
 
 
