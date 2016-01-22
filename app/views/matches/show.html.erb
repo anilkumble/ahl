@@ -5,8 +5,12 @@
                 <%= image_tag @first_team.logo, class: "img-responsive" %>
             </div>
 
-            <div class="col-xs-2 versus">
+            <div class="col-xs-2 hidden-xs versus">
                 Versus
+            </div>
+
+            <div class="col-xs-2 hidden-sm hidden-md hidden-lg versus">
+                    VS
             </div>
 
             <div class="col-xs-5 col-sm-2 team-photo">
@@ -14,10 +18,10 @@
             </div>
         </div> <!-- /row -->
 
-        <!--<div class="match-date pull-right">
-                <%#= @match.time.strftime("%B %d") %>
+        <div class="match-date pull-right">
+                <span class="glyphicon glyphicon-calendar"></span>&nbsp;&nbsp;<%= @match.time.strftime("%B %d") %>
                 <p class="space"></p>
-        </div>-->
+        </div>
     </div>  <!-- /jumbotron -->
 
 
