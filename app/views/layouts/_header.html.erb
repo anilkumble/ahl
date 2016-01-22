@@ -8,7 +8,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <%= link_to "Anna Hockey League", root_path, class: "navbar-brand" %>
+       <%= link_to root_path, class: "navbar-brand" do%>
+        <%= image_tag "ahl_logo.png",width: "25", height: "25", alt: "ahl logo", class: "navbar-logo"%>
+        <span>Anna Hockey League '16</span>
+       <% end %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
