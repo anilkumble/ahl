@@ -97,7 +97,8 @@
                     <div class="panel-footer">
                     <div class="comment-marquee text-center">
                             <span class="text-pink">
-                                Match hasn't started yet
+                                Match scheduled at&nbsp;<span class="glyphicon glyphicon-time"></span>&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
+                                <%= @current_match.time.strftime("%b %e") %>
                             </span>
                     </div>
                     </div>

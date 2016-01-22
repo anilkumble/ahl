@@ -579,14 +579,16 @@ td,th{
 .match-title{
 	background: #fff;
 	height: 200px;
-	background: linear-gradient(30deg, #555, #999);
+	background: linear-gradient(30deg, #777, #aaa);
 }
 
 .match-date{
 	font-size: 150%;
     text-transform: uppercase;
-    opacity: 0.4;
-	color: #aaa;
+	color: #e00023;
+}
+.text-black{
+	color: #F8F991;
 }
 /* Styles for past winners */
 .past-winners{

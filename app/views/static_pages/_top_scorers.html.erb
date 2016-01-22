@@ -12,7 +12,9 @@
 
         <div class="panel-footer text-center">
             <div class="team-link">
-                <span class="text-pink"><%= short_form player.team.name %></span>
+                <%= link_to player.team do %>
+                    <span class="text-pink"><%= short_form player.team.name %></span>
+                <% end %>
             </div>
         </div> <!-- /panel footer -->
     </div> <!--  end of panel -->
