@@ -121,7 +121,7 @@ $(document).on('ready page:load', function(event) {
 
                 } //success object
             }); //ajax
-        }, 30000);
+        }, 20000);
 
     }
 
