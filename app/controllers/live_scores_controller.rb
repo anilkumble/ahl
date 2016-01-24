@@ -36,7 +36,7 @@ class LiveScoresController < ApplicationController
 
   private
     def set_match
-        @match = Match.find(params[:match_id])
+        @match = Match.friendly.find(params[:match_id])
     end
 
     def live_score_params
