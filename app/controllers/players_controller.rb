@@ -68,7 +68,7 @@ class PlayersController < ApplicationController
 
     #Dont allow any other parameters
     def player_params
-      params.require(:player).permit(:name, :age, :team_id, :position, :goals_count, :red_cards, :green_cards, :yellow_cards, :photo)
+      params.require(:player).permit(:name, :age, :team_id, :position, :gender, :goals_count, :red_cards, :green_cards, :yellow_cards, :photo)
     end
 
     def authenticate
