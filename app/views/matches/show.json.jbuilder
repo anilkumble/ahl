@@ -6,3 +6,4 @@ json.running @match.running
 json.report @match.report[0]
 json.man_of_the_match @match.man_of_the_match
 json.budding_player @match.trump_card
+json.live_scores @match.live_scores.reverse
