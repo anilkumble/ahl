@@ -116,6 +116,7 @@
                             <tr>
                                 <th></th>
                                 <th>Team</th>
+                                <th>Matches</th>
                                 <th>Points</th>
                             </tr>
                         </thead>
@@ -125,6 +126,7 @@
                                 <tr>
                                     <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
                                     <td> <%= team.name %> </td>
+                                    <td> <%= team.matches_played %> </td>
                                     <td> <%= team.points %> </td>
                                 </tr>
                             <% end %>
