@@ -1,9 +1,14 @@
 class PhotosController < ApplicationController
-  before_action :authenticate, except: [:index,:show]
+  before_action :authenticate, except: [:index,:show,:all]
+  before_action :set_match, except: [:all]
   before_action :set_photo, only:[:show, :edit, :update, :destroy]
 
   def index
-    @photos = Photo.all.order(created_at: :desc)
+    @photos = @match.photos.all.order(created_at: :desc)
+  end
+
+  def all
+      @matches = Match.where(id: Photo.pluck(:match_id).uniq)
   end
 
   def list
@@ -18,7 +23,7 @@ class PhotosController < ApplicationController
   end
 
   def new
-    @photo = Photo.new
+    @photo = @match.photos.new
   end
 
 
@@ -27,11 +32,11 @@ class PhotosController < ApplicationController
 
 
   def create
-    @photo = Photo.new(photo_params)
+    @photo = @match.photos.new(photo_params)
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to all_photos_url, notice: 'Photo was successfully created.' }
+        format.html { redirect_to new_photo_url, notice: 'Photo was successfully created.' }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }
@@ -44,7 +49,7 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to all_photos_url, notice: 'Photo was successfully updated.' }
+        format.html { redirect_to new_photo_url, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @photo }
       else
         format.html { render :edit }
@@ -72,6 +77,10 @@ class PhotosController < ApplicationController
 
     def set_photo
       @photo = Photo.find(params[:id])
+    end
+
+    def set_match
+        @match = Match.friendly.find(params[:match_id])
     end
 
     def photo_params

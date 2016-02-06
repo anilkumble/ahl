@@ -9,7 +9,7 @@ class Match < ActiveRecord::Base
 
 
 	def should_generate_new_friendly_id?
-		
+
 	end
 	# Associations
 	has_many :teams
