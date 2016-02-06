@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   end
 
   def all
-      @matches = Match.where(id: Photo.pluck(:match_id).reverse.uniq)
+      @matches = Match.where(id: Photo.pluck(:match_id).uniq.reverse)
   end
 
   def list
