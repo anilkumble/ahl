@@ -37,6 +37,10 @@ $(document).on('ready page:load', function(event) {
         columnWidth: 200
     });
 
+    $("#gallery-first").masonry({
+        itemSelector: '.gallery-photo',
+        columnWidth: 200
+    });
     // Jquery scrollbox for sponsors
     $(".sponsors").scrollbox({
         direction: 'h'
