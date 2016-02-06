@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <% @matches.each do |match|  %>
-        <div class="col-xs-12 col-sm-4">
-                <div class="thumbnail">
+        <div class="col-xs-12 col-sm-4" id="image-gallery">
+                <div class="thumbnail gallery">
                     <%= link_to image_tag(match.photos.first.photo_url, class: "img-responsive"), match_photos_path(match) %>
                         <div class="caption text-center">
                             <% first_team = Team.find(match.team1_id) %>
