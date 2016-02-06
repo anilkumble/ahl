@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
   resources :players
-  resources :photos
   resources :reports
   resources :teams
-
+  get '/photos' => 'photos#all'
   resources :matches do
       resources :live_scores, only: [:index, :create, :destroy]
       resources :goals, only: [:index, :create, :destroy]
+      resources :photos
   end
 
   #for updating match results

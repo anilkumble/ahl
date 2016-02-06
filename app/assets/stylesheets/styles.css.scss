@@ -535,6 +535,13 @@ td,th{
 	width: 40%;
 }
 /* Gallery styles  */
+.team-name-gallery{
+	text-transform: uppercase;
+}
+.photo-count{
+	color: #999;
+	text-transform: lowercase;
+}
 .gallery img{
 	max-height:200px;
 	max-width: 300px;
