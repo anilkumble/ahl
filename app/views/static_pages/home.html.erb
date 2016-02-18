@@ -54,16 +54,14 @@
                                   <% end %>
                               </ul>
                           </div>-->
-                          <div class="news-container">
+                          <div id="news-container" class="transitions-enabled">
                               <% @reports.each do |report| %>
-                                <%= link_to report do %>
-                                    <div class="col-xs-6 report-box">
-                                        <%=image_tag report.image, alt: "Report#{report.id} image" %>
-                                        <div class="panel-footer">
-                                            <%= report.caption %>
-                                        </div>
+                              <%= link_to report do %>
+                                    <div class="col-xs-5 report-box">
+                                        <%=image_tag report.image, alt: "Report#{report.id} image"%>
+                                        <div class="panel-footer"><%= report.caption %></div>
                                     </div>
-                                <% end %> <!--/ link_to -->
+                              <% end %> <!--/ link_to -->
                               <% end %>
                           </div> <!-- /end of news-container -->
                       </div> <!-- end of column -->

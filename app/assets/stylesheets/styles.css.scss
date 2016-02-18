@@ -1,6 +1,5 @@
 @import 'bootstrap-sprockets';
 
-
 /** Colors **/
 $purple:  #3f2e55;
 $light-green: #4caf50;
@@ -360,15 +359,18 @@ th{
 
 /* Report in home page*/
 .report-box{
-	margin-top: 20px;
+	margin: 10px;
+	width: 270px;
+	float: left;
+	img{
+		max-width: 100%;
+    }
 }
-.report-box img{
-	max-width: 100%;
-}
+.report-box > .panel-footer{
 
+}
 /** news **/
-.news-container{
-	background: #fff;
+#news-container{
 	a{
 		color: #111;
 	}

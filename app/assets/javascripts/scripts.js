@@ -22,20 +22,21 @@ $(document).on('ready page:load', function(event) {
         gallery: {enabled: true}
     });
 
-
-    // this is for the news ticker
-    $("#news").vTicker({
-        animation: 'fade',
-        showItems: 5,
-        speed: 200
-    });
-
-
     // Jquery masonry
     $("#image-gallery").masonry({
         itemSelector: '.gallery',
         columnWidth: 200
     });
+
+    //Jquery masonry for news-articles
+    var container = $("#news-container");
+    container.imagesLoaded(function(){
+    container.masonry({
+            itemSelector: '.report-box',
+            columnWidth: 270
+        });
+    });
+
 
     // Jquery scrollbox for sponsors
     $(".sponsors").scrollbox({
