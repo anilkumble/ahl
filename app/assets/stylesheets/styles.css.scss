@@ -357,6 +357,23 @@ th{
 	}
 }
 /** Reports **/
+
+/* Report in home page*/
+.report-box{
+	margin-top: 20px;
+}
+.report-box img{
+	max-width: 100%;
+}
+
+/** news **/
+.news-container{
+	background: #fff;
+	a{
+		color: #111;
+	}
+}
+/*****/
 .report-container{
 	padding-bottom: 20px;
 	-webkit-box-shadow: 4px 4px 6px #999;
