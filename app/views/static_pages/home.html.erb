@@ -43,7 +43,7 @@
                       <div class="col-xs-12 col-sm-12 first-row">
                           <h2 class="column-heading short-box">Articles</h2>
                           <p class="space"></p>
-                          <div id="news">
+                          <!--<div id="news">
                                 <ul>
                                   <% @reports.each do |report| %>
                                     <li>
@@ -53,7 +53,19 @@
                                     </li>
                                   <% end %>
                               </ul>
-                        </div>
+                          </div>-->
+                          <div class="news-container">
+                              <% @reports.each do |report| %>
+                                <%= link_to report do %>
+                                    <div class="col-xs-6 report-box">
+                                        <%=image_tag report.image, alt: "Report#{report.id} image" %>
+                                        <div class="panel-footer">
+                                            <%= report.caption %>
+                                        </div>
+                                    </div>
+                                <% end %> <!--/ link_to -->
+                              <% end %>
+                          </div> <!-- /end of news-container -->
                       </div> <!-- end of column -->
                 </div>
         </div> <!-- end of first column -->
@@ -161,6 +173,7 @@
 
 
     <div class="row ridge-bottom">
+                <p class="space"></p>
                 <h2 class="text-center">A little about AHL</h2>
                 <p class="space"></p>
 

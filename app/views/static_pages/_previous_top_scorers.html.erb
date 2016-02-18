@@ -5,16 +5,14 @@
 
 <% players.each do |player| %>
     <div class="col-xs-12 col-sm-4">
-        <div class="panel panel-warning previous_top_scorers">
-            <div class="panel-heading text-center">
-                <span class="text-black"><%= player[:name] %></span>
-            </div>
+        <div class="panel panel-warning">
 
             <div class="panel-body">
                 <%= image_tag player[:image], class: "img-responsive" %>
             </div>
 
             <div class="panel-footer text-center">
+                <span class="text-black"><%= player[:name] %></span>
                 <div class="team-link">
                     <span class="text-pink"><%= pluralize(player[:goals], "goal") %></span>
                 </div>
