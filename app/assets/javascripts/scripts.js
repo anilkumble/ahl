@@ -22,15 +22,6 @@ $(document).on('ready page:load', function(event) {
         gallery: {enabled: true}
     });
 
-
-    // this is for the news ticker
-    $("#news").vTicker({
-        animation: 'fade',
-        showItems: 5,
-        speed: 200
-    });
-
-
     // Jquery masonry
     $("#image-gallery").masonry({
         itemSelector: '.gallery',
@@ -42,11 +33,7 @@ $(document).on('ready page:load', function(event) {
         columnWidth: 200,
         isFitWidth: true
     });
-    // Jquery scrollbox for sponsors
-    $(".sponsors").scrollbox({
-        direction: 'h'
 
-    });
     $("#sponsors").flexisel({
         visibleItems: 4,
         autoPlay: true,
