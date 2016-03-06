@@ -18,7 +18,7 @@ class PhotosControllerTest < ActionController::TestCase
 
   test "should create photo" do
     assert_difference('Photo.count') do
-      post :create, photo: { match_id: @photo.match_id, photo_url: @photo.image }
+      post :create, photo: { match_id: @photo.match_id, photo_url: @photo.photo_url }
     end
 
     assert_redirected_to photo_path(assigns(:photo))
