@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-sm-4" id="image-gallery">
     <div class="thumbnail gallery">
-        <%= link_to image_tag(photo.photo_url, class: "img-responsive"),image_path(photo.photo_url), class: "fancybox" %>
+        <%= link_to image_tag(photo.image, class: "img-responsive"),image_path(photo.image), class: "fancybox" %>
         <% if photo.match %>
             <div class="caption text-center">
                 <% first_team = Team.find(photo.match.team1_id) %>

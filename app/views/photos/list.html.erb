@@ -22,7 +22,7 @@
           <tr>
             <td><%= photo.id %></td>
             <td><%= photo.match_id %></td>
-            <td><%= photo.photo_url %></td>
+            <td><%= photo.image %></td>
             <td><%= link_to 'Edit', edit_match_photo_path(photo.match, photo), target: "_blank" %></td>
             <td><%= link_to 'Destroy', match_photo_path(photo.match, photo), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
