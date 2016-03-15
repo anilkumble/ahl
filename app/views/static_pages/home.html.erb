@@ -71,7 +71,8 @@
         </div> <!-- end of first column -->
 
         <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-                <h2 class="column-heading">Live Score</h2>
+          <% if @current_match %>
+            <h2 class="column-heading">Live Score</h2>
             <div class="panel panel-danger" id="liveScoreArea">
                 <% if @live_score %>
                     <%= render @live_score %>
@@ -117,9 +118,34 @@
 
                 <% end %>
             </div> <!--  End of panel -->
-            <!-- Static images for top scorers -->
-            <div class="row">
 
+            <% else %>
+              <h2 class="column-heading">Announcement</h2>
+              <div class="panel panel-danger" id="liveScoreArea">
+                  <!-- If a match has ended, this will be the template -->
+                  <div class="panel-body">
+                    <div class="row text-center">
+                        <h3>Tournament has ended</h3><br>
+                        <div class="text-center">
+                          <%= link_to matches_path, class: "btn btn-block btn-danger match-button" do%>
+                            CHECK OUT THE RESULTS&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+                          <% end %>
+                        </div>
+
+                    </div> <!-- /row-->
+                  </div> <!-- /panel-body -->
+
+                  <div class="panel-footer">
+                    <div class="comment-marquee text-center">
+                      Valediction will take place on 26th March
+                    </div>
+                  </div>
+              </div> <!--  End of panel -->
+            <% end %> <!-- end of if block -->
+
+
+
+            <div class="row">
                 <!-- Leaderboard -->
                 <div class="col-xs-12">
                     <h2 class="column-heading">Leaderboard</h2>
