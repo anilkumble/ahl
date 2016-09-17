@@ -22,18 +22,6 @@ $(document).on('ready page:load', function(event) {
         gallery: {enabled: true}
     });
 
-    // Jquery masonry
-    $("#image-gallery").masonry({
-        itemSelector: '.gallery',
-        columnWidth: 200
-    });
-
-    $("#gallery-first").masonry({
-        itemSelector: '.gallery-photo',
-        columnWidth: 200,
-        isFitWidth: true
-    });
-
     $("#sponsors").flexisel({
         visibleItems: 4,
         autoPlay: true,

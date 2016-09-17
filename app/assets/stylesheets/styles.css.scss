@@ -560,8 +560,8 @@ td,th{
 	text-transform: lowercase;
 }
 .gallery img{
-	max-height:200px;
-	max-width: 300px;
+	min-height:200px;
+	min-width: 300px;
 }
 .ridge-border{
 	border-bottom: 1px solid ridge;
