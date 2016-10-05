@@ -37,8 +37,8 @@ $footer-height: 200px;
 
 /** Adding the required font files so that it works locally**/
 @font-face{
-	font-family: "Cabin";
-	src: font-url('Cabin-Regular.ttf') format('truetype');
+	font-family: 'Geomanist';
+	src: font-url('GeomanistRegular.otf') format('truetype');
 }
 *{
 	-webkit-box-sizing: border-box;
@@ -48,7 +48,7 @@ $footer-height: 200px;
 	box-sizing: border-box;
 }
 body{
-	font-family: Cabin, sans-serif;
+	font-family: 'Geomanist', sans-serif;
 	overflow-x: hidden;
 	font-size: 1.5em;
 	//padding-top: 20px;
