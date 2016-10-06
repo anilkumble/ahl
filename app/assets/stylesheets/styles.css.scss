@@ -1,11 +1,18 @@
-@import 'bootstrap-sprockets';
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten") !default;
+// $secondary-color: color("yellow", "lighten-1") !default;
+@import 'materialize';
 
+/** Materialize colors **/
+$light-blue: #487BF6;
+$black: #000;
+$white: #fff;
 
 /** Colors **/
 $purple:  #3f2e55;
 $light-green: #4caf50;
 $dark-grey: #2d2d2d;
-$royal-blue: #337ba7;
+$royal-blue: #337ba2;
 $cream: #f39c12;
 $brown: #a07e46;
 
@@ -13,7 +20,7 @@ $brown: #a07e46;
 	Customize bootstrap and then load it
  **/
 /** Navbar **/
-$navbar-default-bg: #000;
+// $navbar-default-bg: #000;
 $navbar-height: 60px;
 $navbar-default-link-color: #fff;
 $navbar-default-link-active-color: $purple;
@@ -32,10 +39,9 @@ $dropdown-link-hover-bg: $purple;
 $dropdown-link-active-color: $purple;
 $dropdown-caret-color: $purple;
 
-@import 'bootstrap';
 $footer-height: 200px;
 
-/** Adding the required font files so that it works locally**/
+
 @font-face{
 	font-family: 'Geomanist';
 	src: font-url('GeomanistRegular.otf') format('truetype');
@@ -55,14 +61,53 @@ body{
 	background: rgba(63,46,85,0.2);
 	background: image-url("back.png");
 }
+
+/** Navbar styles **/
+nav {
+  background: $light-blue;
+  .brand-logo {
+    font-size: 0.9em;
+    padding-left: 10px;
+    text-transform: uppercase;
+  }
+  ul a {
+    font-size: 1.1rem;
+    transition: color 0.2s, background 0.3s;
+  }
+}
+#teams-dropdown-default > li > a:hover, #teams-dropdown-mobile > li > a:hover {
+  background: $light-blue;
+  color: $white;
+}
+.dropdown-content li > a {
+  color: $light-blue;
+}
+.side-nav > li {
+  background: $light-blue;
+  > a {
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+// Positioning the button and link in mobile devices
+@media only screen and (max-width: 992px) {
+  nav .brand-logo.left {
+    left: 5rem;
+  }
+  nav .button-collapse {
+    margin-left: 0.5em;
+  }
+}
+
+/** End of navbar styles **/
 /** Media queries for past winners**/
 @media (min-width: 768px){
 	.bottom-row{
 		margin-left: 16%;
 	}
 }
-
-
 /** ridge borders **/
 .ridge-bottom{
 	border-bottom: 1px ridge rgba(255,255,255,0.1);

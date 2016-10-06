@@ -1,0 +1,19 @@
+<li> <%= link_to "Home", root_path %>    </li>
+<li> <%= link_to "About", about_path %>  </li>
+<li> <%= link_to "News", reports_path %> </li>
+
+<!-- Dropdown content for teams -->
+<ul id="teams-dropdown-<%= id %>" class="dropdown-content">
+  <% Team.all.each do |team| %>
+    <li> <%= link_to titlecase(team.name), Team.friendly.find(team.id) %> </li>
+  <%end%>
+</ul>
+
+<li>
+  <a class="dropdown-button" href="#" data-hover="true" data-beloworigin="true" 
+    data-activates="teams-dropdown-<%= id %>" data-constrainwidth=" false"> Teams
+  </a>
+</li>
+
+<li> <%= link_to "Fixtures", matches_path %> </li>
+<li> <%= link_to "Gallery", photos_path %> </li>

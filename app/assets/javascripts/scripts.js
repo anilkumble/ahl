@@ -1,19 +1,22 @@
 $(document).on('ready page:load', function(event) {
+  
+  // Navbar mobile menu
+  $(".button-collapse").sideNav();
 
-        $('[data-toggle = "tooltip"]').tooltip();
+  $('[data-toggle = "tooltip"]').tooltip();
 
-        $('#demo123').scrollbox({
-            direction: 'h'
-        });
+  $('#demo123').scrollbox({
+      direction: 'h'
+  });
 
-    // This is to make the navbar stick after scrolling a few pixels
-    $(window).scroll(function(){
-        if ($(window).scrollTop() > 100)
-            $('#navbar-links').addClass('fixed-navbar');
-            $('#navbar-links').addClass('full-width');
-        if ($(window).scrollTop() < 100)
-            $('#navbar-links').removeClass('fixed-navbar');
-    });
+  // This is to make the navbar stick after scrolling a few pixels
+  $(window).scroll(function(){
+      if ($(window).scrollTop() > 100)
+          $('#navbar-links').addClass('fixed-navbar');
+          $('#navbar-links').addClass('full-width');
+      if ($(window).scrollTop() < 100)
+          $('#navbar-links').removeClass('fixed-navbar');
+  });
 
 
     //For gallery stuff (uses fancybox)
