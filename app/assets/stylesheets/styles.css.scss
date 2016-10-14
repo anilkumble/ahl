@@ -37,8 +37,8 @@ $footer-height: 200px;
 
 /** Adding the required font files so that it works locally**/
 @font-face{
-	font-family: "Cabin";
-	src: font-url('Cabin-Regular.ttf') format('truetype');
+	font-family: 'Geomanist';
+	src: font-url('GeomanistRegular.otf') format('truetype');
 }
 *{
 	-webkit-box-sizing: border-box;
@@ -48,7 +48,7 @@ $footer-height: 200px;
 	box-sizing: border-box;
 }
 body{
-	font-family: Cabin, sans-serif;
+	font-family: 'Geomanist', sans-serif;
 	overflow-x: hidden;
 	font-size: 1.5em;
 	//padding-top: 20px;
@@ -338,23 +338,25 @@ th{
 
 
 /* ahl intro in home page  */
-#ahl-intro{
-	background: $purple;
-	border-top-left-radius: 15%;
-	border-bottom-right-radius: 15%;
-	border-top-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	color: #fff;
-	p{
-	font-size: 15px;
-	a{
-		color: #4caf50;
-		font-weight: bold;
-	&:hover, &:focus{
-			text-decoration: none;
-		}
-	}
-	}
+#ahl-intro {
+  background: #fff;
+  color: #222;
+  line-height: 2em;
+  p {
+    font-size: 18px;
+    a {
+      color: #4caf50;
+      font-weight: bold;
+      &:hover, &:focus{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.trailer {
+  background: #fff;
+  margin-top: 30px;
 }
 /** Reports **/
 
