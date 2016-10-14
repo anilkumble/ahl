@@ -1,235 +1,232 @@
 <div class="modal fade" id="player-modal">
 </div>
 <div class="container">
-	<div class="row row-content">
-		<div class="col-xs-12">
-			<div class="text-center">
-				<span class="text-shadow team-name"><%= @team.name %></span>
-			</div>
-		</div>
+  <div class="row row-content">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <span class="text-shadow team-name"><%= @team.name %></span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-sm-offset-1">
+      <p class="space"></p>
+      <div class="media">
+        <div class="media-left media-middle">
+          <%= image_tag @team.logo, width: "150", class: "img-responsive img-thumbnail media-object" %>
+        </div>
+
+        <div class="media-body team-description">
+          <%= @team.description %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-xs-offset-2 col-sm-2 col-sm-offset-0">
+      <h3>Position - 2016</h3>
+      <div class="team-points"> <%= past_position(@team.name) %> </div>
+    </div> <!-- /column -->
+  </div> <!-- / first row -->
 
 
-		<div class="col-xs-12 col-sm-8 col-sm-offset-1">
-			<p class="space"></p>
-			<div class="media">
-				<div class="media-left media-middle">
-			  		<%= image_tag @team.logo, width: "150", class: "img-responsive img-thumbnail media-object" %>
-				</div>
-
-				<div class="media-body team-description">
-					<%= @team.description %>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-xs-12 col-xs-offset-2 col-sm-2 col-sm-offset-0">
-				<h3>Position - 2015</h3>
-				<div class="team-points">
-					<%= position @team.id %>
-				</div>
-		</div> <!-- /column -->
-	</div> <!-- / first row -->
-
-
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-			<div class="well well-sm" id="motto">
-				<blockquote>
-					<span><%= @team.motto %></span>
-				</blockquote>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <div class="well well-sm" id="motto">
+        <blockquote>
+          <span><%= @team.motto %></span>
+        </blockquote>
+      </div>
+    </div>
+  </div>
 
 <div class="row ridge-bottom">
-	<!-- This row displays the recent performance -->
-	<% if @recent_matches.length > 0 %>
-		<div class="col-xs-12 col-sm-6 recent">
-			<p class="space"></p>
-			<h3 class="text-center">Recent Performance</h3>
-			<p class="space"></p>
+  <!-- This row displays the recent performance -->
+  <% if @recent_matches.length > 0 %>
+    <div class="col-xs-12 col-sm-6 recent">
+      <p class="space"></p>
+      <h3 class="text-center">Recent Performance</h3>
+      <p class="space"></p>
 
-				<% @recent_matches.each do |match| %>
-						<% result = team_status(match, @team) %>
-						<% opponent = match.first_team %>
-						<% if opponent == @team %>
-							<% opponent = match.opponent_team %>
-						<% end %>
-						<!-- Look at application_helper.rb -->
-						<div class="col-xs-3">
-							<% if result == "W"%>
-								<%= link_to match, remote: true  do %>
-									<div class="circle green-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
-										W
-									</div>
-								<% end %>
+        <% @recent_matches.each do |match| %>
+            <% result = team_status(match, @team) %>
+            <% opponent = match.first_team %>
+            <% if opponent == @team %>
+              <% opponent = match.opponent_team %>
+            <% end %>
+            <!-- Look at application_helper.rb -->
+            <div class="col-xs-3">
+              <% if result == "W"%>
+                <%= link_to match, remote: true  do %>
+                  <div class="circle green-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
+                    W
+                  </div>
+                <% end %>
 
-							<% elsif result == "D" %>
-								<%= link_to match, remote: true  do %>
-									<div class="circle yellow-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
-										D
-									</div>
-								<% end %>
+              <% elsif result == "D" %>
+                <%= link_to match, remote: true  do %>
+                  <div class="circle yellow-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
+                    D
+                  </div>
+                <% end %>
 
-							<% elsif result == "L" %>
-								<%= link_to match, remote: true  do %>
-									<div class="circle red-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
-										L
-									</div>
-								<% end %>
+              <% elsif result == "L" %>
+                <%= link_to match, remote: true  do %>
+                  <div class="circle red-circle" data-toggle="tooltip" data-animation="true" title="<%= "Vs #{titlecase(opponent.name)}"%>" data-placement="bottom">
+                    L
+                  </div>
+                <% end %>
 
-							<% end %>
-						</div>
-				<% end %>
+              <% end %>
+            </div>
+        <% end %>
 
-				<!-- This div updates the result of a match using AJAX -->
-				<div id="result">
-					<%= render @recent_matches[0], names: [@recent_matches[0].first_team.name, @recent_matches[0].opponent_team.name] %>
-				</div>
-		</div> <!-- /column -->
-		<!-- Leave space if no recent matches are there -->
-		<% else %>
-		<div class="col-xs-12 col-sm-3">
+        <!-- This div updates the result of a match using AJAX -->
+        <div id="result">
+          <%= render @recent_matches[0], names: [@recent_matches[0].first_team.name, @recent_matches[0].opponent_team.name] %>
+        </div>
+    </div> <!-- /column -->
+    <!-- Leave space if no recent matches are there -->
+    <% else %>
+    <div class="col-xs-12 col-sm-3">
 
-		</div>
-		<% end %>
+    </div>
+    <% end %>
 
 
-		<!-- Upcoming matches -->
-		<div class="col-xs-12 col-sm-6">
-			<p class="space"></p>
-			<h3 class="text-center"> Upcoming matches </h3>
-				<% @upcoming_matches.each do |match| %>
-					<%= render match, names: [short_form(match.first_team.name), short_form(match.opponent_team.name)]%>
-				<% end %>
-		</div>
+    <!-- Upcoming matches -->
+    <div class="col-xs-12 col-sm-6">
+      <p class="space"></p>
+      <h3 class="text-center"> Upcoming matches </h3>
+        <% @upcoming_matches.each do |match| %>
+          <%= render match, names: [short_form(match.first_team.name), short_form(match.opponent_team.name)]%>
+        <% end %>
+    </div>
 
-		<div class="col-xs-12 col-sm-2">
-		</div>
-	</div> <!-- /row -->
+    <div class="col-xs-12 col-sm-2">
+    </div>
+  </div> <!-- /row -->
 
 
 <!-- This row is for the team squad -->
-	<div class="row row-content">
-		<p class="space"></p>
-		<div class="col-xs-12 col-sm-6">
-			<h3 class="text-center">Squad</h3><br>
-			<% @team.players.each do |player| %>
-				<div class="col-xs-6 col-sm-2">
-					<% if player.id == @team.captain %>
-						<div class="thumbnail player-image captain-image">
-					<% else %>
-						<div class="thumbnail player-image">
-					<% end %>
-						<%=link_to image_tag(player.photo), player_path(player) , remote: true %>
-					</div>
-				</div> <!--End of inner column -->
-			<% end %>
-		</div> <!--End of outer column -->
+  <div class="row row-content">
+    <p class="space"></p>
+    <div class="col-xs-12 col-sm-6">
+      <h3 class="text-center">Squad</h3><br>
+      <% @team.players.each do |player| %>
+        <div class="col-xs-6 col-sm-2">
+          <% if player.id == @team.captain %>
+            <div class="thumbnail player-image captain-image">
+          <% else %>
+            <div class="thumbnail player-image">
+          <% end %>
+            <%=link_to image_tag(player.photo), player_path(player) , remote: true %>
+          </div>
+        </div> <!--End of inner column -->
+      <% end %>
+    </div> <!--End of outer column -->
 
 
-		<!-- Start of stats -->
-		<div class="col-xs-12 col-sm-6">
-			<table class="table table-condensed table-responsive table-striped stats-table" id="stats-table">
-				<thead>
-					<tr>
-						<th>Team / Stats</th>
-						<th>P</th>
-						<th>W</th>
-						<th>D</th>
-						<th>L</th>
-						<th>GS</th>
-						<th>GA</th>
-					</tr>
-				</thead>
+    <!-- Start of stats -->
+    <div class="col-xs-12 col-sm-6">
+      <table class="table table-condensed table-responsive table-striped stats-table" id="stats-table">
+        <thead>
+          <tr>
+            <th>Team / Stats</th>
+            <th>P</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GS</th>
+            <th>GA</th>
+          </tr>
+        </thead>
 
-				<tbody>
-					<% @other_teams.each do |opponent_team| %>
-					<tr>
-						<th> <%= opponent_team.name %> </th>
-						<td><%= @team.matches(opponent_team.id).length %></td>
-						<!-- Figure out how to display Wins, Draws and losses -->
-						<td> <%= @team.wins_count opponent_team.id %></td>
-						<td> <%= @team.draws_count opponent_team.id %> </td>
-						<td> <%= @team.losses_count opponent_team.id %></td>
-						<td><%= @team.goals_scored opponent_team.id %></td>
-						<td><%= opponent_team.goals_scored @team.id %></td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
+        <tbody>
+          <% @other_teams.each do |opponent_team| %>
+          <tr>
+            <th> <%= opponent_team.name %> </th>
+            <td><%= @team.matches(opponent_team.id).length %></td>
+            <!-- Figure out how to display Wins, Draws and losses -->
+            <td> <%= @team.wins_count opponent_team.id %></td>
+            <td> <%= @team.draws_count opponent_team.id %> </td>
+            <td> <%= @team.losses_count opponent_team.id %></td>
+            <td><%= @team.goals_scored opponent_team.id %></td>
+            <td><%= opponent_team.goals_scored @team.id %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-			<div class="well well-sm abbreviations text-center">
-				<span class="text-pink">P-</span>&nbsp;Played&nbsp;
-				<span class="text-pink">W-</span>&nbsp;Wins&nbsp;
-				<span class="text-pink">D-</span>&nbsp;Draws&nbsp;
-				<span class="text-pink">L-</span>&nbsp;Losses&nbsp;
-				<span class="text-pink">GS-</span>&nbsp;Goals Scored&nbsp;
-				<span class="text-pink">GA-</span>&nbsp;Goals Against&nbsp;
+      <div class="well well-sm abbreviations text-center">
+        <span class="text-pink">P-</span>&nbsp;Played&nbsp;
+        <span class="text-pink">W-</span>&nbsp;Wins&nbsp;
+        <span class="text-pink">D-</span>&nbsp;Draws&nbsp;
+        <span class="text-pink">L-</span>&nbsp;Losses&nbsp;
+        <span class="text-pink">GS-</span>&nbsp;Goals Scored&nbsp;
+        <span class="text-pink">GA-</span>&nbsp;Goals Against&nbsp;
 
-			</div>
-	</div><!--End of second column -->
-	</div> <!--End of second row  -->
-
-
-	<div class="row row-content">
-
-		<div class="col-xs-12 col-sm-6">
-			<%= render @team %>
-		</div> <!-- End of column -->
-
-		<!-- Pie charts -->
-		<% if @recent_matches.length > 0 %>
-			<div class="col-xs-12 col-sm-5 col-sm-offset-1 pie-chart">
-				<h3 class="text-center">Stats</h3>
-					<%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"], library: {backgroundColor: "#fff"}) %>
-			</div> <!-- /column -->
+      </div>
+  </div><!--End of second column -->
+  </div> <!--End of second row  -->
 
 
-		<!-- Displays the goal scorers -->
-			<% top_scorer = @top_scorers.first %>
+  <div class="row row-content">
 
-			<!-- Displays the top scorer's photo -->
-			<div class="col-xs-12 col-sm-4 col-sm-offset-1">
-				<p class="space"></p>
-				<div class="panel panel-danger top-scorer-team">
-					<div class="panel-heading text-center">
-						<h3>Top scorer</h3>
-					</div>
-					<div class="panel-body">
-						<%= image_tag top_scorer.photo, class: "img-responsive" %>
-					</div>
+    <div class="col-xs-12 col-sm-6">
+      <%= render @team %>
+    </div> <!-- End of column -->
 
-					<div class="panel-footer text-center text-pink">
-						<%= top_scorer.name %>
-					</div>
-				</div>
-			</div>
-		<% end %>
+    <!-- Pie charts -->
+    <% if @recent_matches.length > 0 %>
+      <div class="col-xs-12 col-sm-5 col-sm-offset-1 pie-chart">
+        <h3 class="text-center">Stats</h3>
+          <%= pie_chart({"Wins": @wins, "Losses": @losses, "Draws": @draws}, colors: ["#26A65B", "#e00010", "#f1c40f"], library: {backgroundColor: "#fff"}) %>
+      </div> <!-- /column -->
 
 
-	</div> <!-- End of third row -->
+    <!-- Displays the goal scorers -->
+      <% top_scorer = @top_scorers.first %>
 
-	<!--<div class="row">
-		<div class="col-xs-12 col-sm-6">
-		</div>
+      <!-- Displays the top scorer's photo -->
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <p class="space"></p>
+        <div class="panel panel-danger top-scorer-team">
+          <div class="panel-heading text-center">
+            <h3>Top scorer</h3>
+          </div>
+          <div class="panel-body">
+            <%= image_tag top_scorer.photo, class: "img-responsive" %>
+          </div>
 
-		<% if @recent_matches.length > 0 %>
-			<div class="col-xs-12 col-sm-4 col-sm-offset-1">
-				<p class="space"></p>
-				<ul class="list-group">
-					<li class="list-heading list-group-item"> Top Scorers</li>
-					<% @top_scorers.each do |top_scorer|%>
-					<li class="list-group-item"><%= top_scorer.name %>
-						<span class="pull-right text-pink">
-							<%= top_scorer.goals_count %>
-						</span>
-					</li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-	</div> -->
+          <div class="panel-footer text-center text-pink">
+            <%= top_scorer.name %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+  </div> <!-- End of third row -->
+
+  <!--<div class="row">
+    <div class="col-xs-12 col-sm-6">
+    </div>
+
+    <% if @recent_matches.length > 0 %>
+      <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+        <p class="space"></p>
+        <ul class="list-group">
+          <li class="list-heading list-group-item"> Top Scorers</li>
+          <% @top_scorers.each do |top_scorer|%>
+          <li class="list-group-item"><%= top_scorer.name %>
+            <span class="pull-right text-pink">
+              <%= top_scorer.goals_count %>
+            </span>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div> -->
 
 
 </div> <!-- /container -->
