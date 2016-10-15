@@ -10,7 +10,7 @@ $cream: #f39c12;
 $brown: #a07e46;
 
 /** Overrides Bootstrap's default styles using less
-	Customize bootstrap and then load it
+  Customize bootstrap and then load it
  **/
 /** Navbar **/
 $navbar-default-bg: #000;
@@ -37,82 +37,83 @@ $footer-height: 200px;
 
 /** Adding the required font files so that it works locally**/
 @font-face{
-	font-family: 'Geomanist';
-	src: font-url('GeomanistRegular.otf') format('truetype');
+  font-family: 'Geomanist';
+  src: font-url('GeomanistRegular.otf') format('truetype');
 }
 *{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
 body{
-	font-family: 'Geomanist', sans-serif;
-	overflow-x: hidden;
-	font-size: 1.5em;
-	//padding-top: 20px;
-	background: rgba(63,46,85,0.2);
-	background: image-url("back.png");
+  font-family: 'Geomanist', sans-serif;
+  overflow-x: hidden;
+  font-size: 1.5em;
+  //padding-top: 20px;
+  background: rgba(63,46,85,0.2);
+  background: image-url("back.png");
 }
 /** Media queries for past winners**/
 @media (min-width: 768px){
-	.bottom-row{
-		margin-left: 16%;
-	}
+  .bottom-row{
+    margin-left: 16%;
+  }
 }
 
 
 /** ridge borders **/
 .ridge-bottom{
-	border-bottom: 1px ridge rgba(255,255,255,0.1);
+  border-bottom: 1px ridge rgba(255,255,255,0.1);
 }
 /* headings  */
 h2{
-	color: $dark-grey;
+  color: $dark-grey;
+  font-size: 26px;
 }
 .text-big{
-	font-size: 200%;
+  font-size: 200%;
 }
 a, a:hover{
-	text-decoration: none;
+  text-decoration: none;
 }
 .team-link:hover{
-	color: $dark-grey;
+  color: $dark-grey;
 }
 .space{
-	padding-top: 30px;
+  padding-top: 30px;
 }
 
 /** styles for quicklinks **/
 .quicklinks{
-	//background: linear-gradient($purple, rgba(63,46,85,0.7) 50%, $purple)
-	background: rgba(255,255,255,0.8);
-	background: $light-green;
+  //background: linear-gradient($purple, rgba(63,46,85,0.7) 50%, $purple)
+  background: rgba(255,255,255,0.8);
+  background: $light-green;
 }
 .center-links{
-	margin-left: 10%;
-	//background: #f00;
+  margin-left: 10%;
+  //background: #f00;
 }
 .center-links li{
-	font-size: 130%;
+  font-size: 130%;
 }
 
 /* AHL Banner*/
 .container .banner{
-	border-top-right-radius: 35%;
-	border-bottom-right-radius: 35%;
-	background: $purple;
-	font-size: 16px;
-	color: $cream;
-	border-top-left-radius: 30px;
-	border-bottom-left-radius: 30px;
+  border-top-right-radius: 35%;
+  border-bottom-right-radius: 35%;
+  background: $purple;
+  font-size: 16px;
+  color: $cream;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
 
-	-webkit-animation: slidein 1s linear 0s infinite alternate;
-	-moz-animation: slidein 1s linear 0s infinite alternate;
-	-o-animation: slidein 1s linear 0s infinite alternate;
-	-ms-animation: slidein 1s linear 0s infinite alternate;
-	animation: slidein 1s linear 0s infinite alternate;
+  -webkit-animation: slidein 1s linear 0s infinite alternate;
+  -moz-animation: slidein 1s linear 0s infinite alternate;
+  -o-animation: slidein 1s linear 0s infinite alternate;
+  -ms-animation: slidein 1s linear 0s infinite alternate;
+  animation: slidein 1s linear 0s infinite alternate;
 }
 /** This is to remove the black gradient in the right control of the carousel **/
 .carousel-control.right{
@@ -121,22 +122,22 @@ a, a:hover{
   }
   .carousel-control.right, .carousel-control.left{
     background-image: none;
-	background-color: transparent;
+  background-color: transparent;
     background-repeat: no-repeat;
 }
 .green-back{
-	color: #aaa;
-	&:hover{
-		color: $light-green;
-	}
+  color: #aaa;
+  &:hover{
+    color: $light-green;
+  }
 }
 
 .carousel-control{
-	color: #ccc;
+  color: #ccc;
 }
 /* Styles for past performance of teams */
 .circle{
-	width: 42px;
+  width: 42px;
     height: 40px;
     border-radius: 60%;
     display: inline-block;
@@ -144,161 +145,161 @@ a, a:hover{
     color: #fff;
     vertical-align: middle;
     line-height: 40px;
-	-webkit-transform: scale(1.5);
-	-moz-transform: scale(1.5);
-	-o-transform: scale(1.5);
-	-ms-transform: scale(1.5);
-	transform: scale(1.5);
-	&:hover{
-		cursor: pointer;
-	}
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .red-circle{
-	background: #f22613;
+  background: #f22613;
 }
 .green-circle{
-	background: #26c281;
+  background: #26c281;
 }
 .yellow-circle{
-	background: #f4d03f;
+  background: #f4d03f;
 }
 
 /**  Team points **/
 .team-points{
-	text-align: center;
-	width: 150px;
-	height:150px;
-	line-height: 150px;
-	font-size: 500%;
-	border-radius: 50%;
-	margin-left: 15%;
-	margin-top: 10%;
-	background: #e00023;
-	color: #fff;
+  text-align: center;
+  width: 150px;
+  height:150px;
+  line-height: 150px;
+  font-size: 500%;
+  border-radius: 50%;
+  margin-left: 15%;
+  margin-top: 10%;
+  background: #e00023;
+  color: #fff;
 }
 /* row */
 
 .row-content
 {
-	margin-bottom: 5%;
+  margin-bottom: 5%;
 }
 .carousel-control, .carousel-control:hover{
-	text-shadow: none;
+  text-shadow: none;
 }
 .title-style{
-	color: #fff;
-	font-weight: bold;
-	font-size: 26px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 26px;
 }
 .font-big{
-	font-size: 120%;
+  font-size: 120%;
 }
 
 /* Footer */
 .footer-content{
-	margin-top: 50px;
-	background: #2d2d2d;
-	color: #aaa;
-	h3
-	{
-		color: #eee;
-	}
-	a{
-		color: #999;
-	}
+  margin-top: 50px;
+  background: #2d2d2d;
+  color: #aaa;
+  h3
+  {
+    color: #eee;
+  }
+  a{
+    color: #999;
+  }
 }
 @media (min-width: 768px){
-	.footer-content{
-		height:$footer-height;
-	}
+  .footer-content{
+    height:$footer-height;
+  }
 }
 
 .trademark{
-	color: #eee;
-	font-size: 160%;
-	height:$footer-height;
-	line-height: $footer-height;
+  color: #eee;
+  font-size: 160%;
+  height:$footer-height;
+  line-height: $footer-height;
 }
 
 /**For social buttons ***/
 .social-icons a:hover{
-	text-decoration: none;
+  text-decoration: none;
 }
 .circle-logo{
-	width: 35px;
-	height: 35px;
-	background: $light-green;
-	text-align: center;
-	border-radius:100%;
-	transition: -webkit-transform 0.7s ease-out 0.2s;
-	transition: -moz-transform 0.7s ease-out 0.2s;
-	transition: -o-transform 0.7s ease-out 0.2s;
-	transition: -ms-transform 0.7s ease-out 0.2s;
-	transition: transform 0.7s ease-out 0.2s;
+  width: 35px;
+  height: 35px;
+  background: $light-green;
+  text-align: center;
+  border-radius:100%;
+  transition: -webkit-transform 0.7s ease-out 0.2s;
+  transition: -moz-transform 0.7s ease-out 0.2s;
+  transition: -o-transform 0.7s ease-out 0.2s;
+  transition: -ms-transform 0.7s ease-out 0.2s;
+  transition: transform 0.7s ease-out 0.2s;
 }
 .circle-logo:hover{
-	-webkit-transform: rotate(360deg);
-	-moz-transform: rotate(360deg);
-	-o-transform: rotate(360deg);
-	-ms-transform: rotate(360deg);
-	transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 .circle-logo i{
-	line-height: 35px;
-	font-size: 150%;
-	color: #fff;
+  line-height: 35px;
+  font-size: 150%;
+  color: #fff;
 }
 .circle-logo{
-	display: inline-block;
+  display: inline-block;
 }
 /**Stats table **/
 th{
-	font-weight: bold;
-	font-size: 1.2em;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 .stats-table thead tr{
-	color: $purple;
+  color: $purple;
 }
 
 /** Cards **/
 .card{
-	width: 22px;
-	height: 28px;
+  width: 22px;
+  height: 28px;
 }
 #red-card{
-	background: #cc0000;
+  background: #cc0000;
 }
 #green-card
 {
-	background: #26a65b;
+  background: #26a65b;
 }
 #yellow-card
 {
-	background: #f7ca18;
+  background: #f7ca18;
 }
 /****Player gallery **/
 .captain-image{
-	border: 1px solid #ee0000;
+  border: 1px solid #ee0000;
 }
 .player-image{
-	transition: transform 0.6s linear 0.2s;
+  transition: transform 0.6s linear 0.2s;
 }
 .player-image:hover{
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 /** Table styles  **/
 .players-table th{
-	background: #00000e;
-	color: #fff;
+  background: #00000e;
+  color: #fff;
 }
 .stats-table th{
-	background: #eee;
+  background: #eee;
 }
 
 #stats-table tr{
-	padding: 5px 10px;
-	opacity: 0.8;
+  padding: 5px 10px;
+  opacity: 0.8;
 }
 
 #stats-table tr:hover{
@@ -306,22 +307,22 @@ th{
 }
 
 #stats-table tbody tr th{
-	text-align: center;
+  text-align: center;
 }
 /** navbar brand styles **/
 .navbar-brand
 {
-	font-size: 1.4em;
-	font-weight: bold;
-	color: #fff !important;
-	-webkit-animation: slidein 2s linear 0s infinite alternate;
-	-moz-animation: slidein 2s linear 0s infinite alternate;
-	-o-animation: slidein 2s linear 0s infinite alternate;
-	-ms-animation: slidein 2s linear 0s infinite alternate;
-	animation: slidein 2s linear 0s infinite alternate;
-	&:hover{
-		animation-play-state: paused;
-	}
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #fff !important;
+  -webkit-animation: slidein 2s linear 0s infinite alternate;
+  -moz-animation: slidein 2s linear 0s infinite alternate;
+  -o-animation: slidein 2s linear 0s infinite alternate;
+  -ms-animation: slidein 2s linear 0s infinite alternate;
+  animation: slidein 2s linear 0s infinite alternate;
+  &:hover{
+    animation-play-state: paused;
+  }
 }
 /* Carousel  */
 .carousel .item {
@@ -332,7 +333,7 @@ th{
     position: absolute;
     top: 0;
     left: 0;
-	width: 100%;
+  width: 100%;
     min-height: 350px;
 }
 
@@ -362,398 +363,358 @@ th{
 
 /* Report in home page*/
 .report-box{
-	margin-top: 20px;
+  margin-top: 20px;
 }
 .report-box img{
-	max-width: 100%;
+  max-width: 100%;
 }
 
 /** news **/
 .news-container{
-	background: #fff;
-	a{
-		color: #111;
-	}
+  background: #fff;
+  a{
+    color: #111;
+  }
 }
 /*****/
 .report-container{
-	padding-bottom: 20px;
-	-webkit-box-shadow: 4px 4px 6px #999;
-	-moz-box-shadow: 4px 4px 6px #999;
-	-o-box-shadow: 4px 4px 6px #999;
-	-ms-box-shadow: 4px 4px 6px #999;
-	box-shadow: 4px 4px 6px #999;
-	&:hover{
-		border: 1px solid #bbb;
-	}
+  padding-bottom: 20px;
+  -webkit-box-shadow: 4px 4px 6px #999;
+  -moz-box-shadow: 4px 4px 6px #999;
+  -o-box-shadow: 4px 4px 6px #999;
+  -ms-box-shadow: 4px 4px 6px #999;
+  box-shadow: 4px 4px 6px #999;
+  &:hover{
+    border: 1px solid #bbb;
+  }
 }
 .report img{
-	float: right;
-	margin: 20px 0 20px 20px;
+  float: right;
+  margin: 20px 0 20px 20px;
 }
 .report{
-	background: #E9E9E9;
-	line-height: 30px;
+  background: #E9E9E9;
+  line-height: 30px;
 }
 .text-italic{
-	font-style: italic;
+  font-style: italic;
 }
 .report-time{
-	margin-bottom: 2%;
-	text-transform: uppercase;
-	font-size: 80%;
+  margin-bottom: 2%;
+  text-transform: uppercase;
+  font-size: 80%;
 }
 
 .btn-green{
-	background: $light-green;
-	color: #ddd;
-	transition: background 0.5s linear 0.2s, color 0.5s ease-out 0.2s;
-	&:hover{
-		background: darken($light-green,20);
-		color: #fff;
-	}
+  background: $light-green;
+  color: #ddd;
+  transition: background 0.5s linear 0.2s, color 0.5s ease-out 0.2s;
+  &:hover{
+    background: darken($light-green,20);
+    color: #fff;
+  }
 }
 .report-title{
-	color: $purple;
-	margin-top: 50px;
+  color: $purple;
+  margin-top: 50px;
 }
 /* Style for team motto */
 #motto{
-	background: $purple;
-	color: #fff;
-	text-align: center;
-	span
-	{
-		font-size: 120%;
-	}
-	blockquote
-	{
-		margin-top: 2%;
-	}
+  background: $purple;
+  color: #fff;
+  text-align: center;
+  span
+  {
+    font-size: 120%;
+  }
+  blockquote
+  {
+    margin-top: 2%;
+  }
 }
 /* Players table styles
-	Squad
+  Squad
  */
 td,th{
-	text-align: center;
+  text-align: center;
 }
 .players-table td{
-	margin-right: 5px;
+  margin-right: 5px;
 }
 .players-table tr:nth-child(even){
-	background: #eee;
+  background: #eee;
 }
 .players-table tr:hover td:first-child{
-	border-left: 5px solid $royal-blue;
+  border-left: 5px solid $royal-blue;
 }
 /* Fixtures styles */
 .match-fixture{
-	color: #2d2d2d;
-	&:hover{
-	text-decoration: none;
-	color: $purple;
-	}
+  color: #2d2d2d;
+  &:hover{
+  text-decoration: none;
+  color: $purple;
+  }
 }
 .match:hover{
-	border: 1px solid #ccc;
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1);
+  border: 1px solid #ccc;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .date{
-	text-align: right;
-	color: #777;
+  text-align: right;
+  color: #777;
 }
 /* styles for player modal */
 .player-name-header{
-	background: #e00023;
-	color: #fff;
+  background: #e00023;
+  color: #fff;
 }
 .player-info{
-	margin-left: 20%;
-	margin-top: 10px;
+  margin-left: 20%;
+  margin-top: 10px;
 }
 .player-modal-image{
-	margin-left: 35%;
+  margin-left: 35%;
 }
 .text-green{
-	color: $light-green;
+  color: $light-green;
 }
 .text-yellow{
-	color: #eecc00;
+  color: #eecc00;
 }
 .text-red{
-	color: #e00023;
+  color: #e00023;
 }
 .grey-x{
-	color: #ddd;
-	font-size: 250%;
-	&:hover{
-		color: #fff;
-		cursor: pointer;
-		font-weight: bold;
-	}
+  color: #ddd;
+  font-size: 250%;
+  &:hover{
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+  }
 }
 .clear{
-	clear: both;
+  clear: both;
 }
 
 /* Leaderboard */
 .table-striped > tbody > tr:nth-of-type(odd){
-	background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.2);
 }
 
 .leaderboard tr:nth-child(even){
-	background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.4);
 }
 .leaderboard tr:hover td:first-child{
-	border-left: 3px solid $light-green;
+  border-left: 3px solid $light-green;
 }
 .leaderboard th{
-	background: transparent;
+  background: transparent;
 }
 /***/
 .versus{
-	color: #eee;
-	text-align: center;
-	height: 109px;
-	line-height: 109px;
-	font-size: 200%;
-	text-shadow: -1px 1px 0px #999;
-	text-transform: uppercase;
+  color: #eee;
+  text-align: center;
+  height: 109px;
+  line-height: 109px;
+  font-size: 200%;
+  text-shadow: -1px 1px 0px #999;
+  text-transform: uppercase;
 
 }
 
 #player-modal modal-header, #player-modal modal-body, #player-modal modal-footer{
-	width: 80%;
+  width: 80%;
 }
 /* text colors */
 .text-pink{
-		color: $purple;
+    color: $purple;
 }
 .text-grey{
-	color: #ddd;
+  color: #ddd;
 }
 .text-light-grey{
-	color: #777;
+  color: #777;
 }
 /* core style */
 .livescore-style{
-	display: inline-block;
+  display: inline-block;
 }
 /* styles for panel danger */
 .panel-danger .panel-heading{
-	background: $purple;
-	color: #eee;
+  background: $purple;
+  color: #eee;
 }
 
 /* Form elements */
 .form-control{
-	width: 40%;
+  width: 40%;
 }
 /* Gallery styles  */
 .team-name-gallery{
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .photo-count{
-	color: #999;
-	text-transform: lowercase;
+  color: #999;
+  text-transform: lowercase;
 }
 .gallery img{
-	min-height:200px;
-	min-width: 300px;
+  min-height:200px;
+  min-width: 300px;
 }
 .ridge-border{
-	border-bottom: 1px solid ridge;
+  border-bottom: 1px solid ridge;
 }
 #liveScoreArea .panel-heading{
-	color: #fff;
-	background: #aaa;
+  color: #fff;
+  background: #aaa;
 }
 .live-score-heading{
-	height: 50px;
+  height: 50px;
 }
 .live-score-heading h3{
-	margin-top: 0px;
+  margin-top: 0px;
 }
 .live-scores{
-	height: 300px;
-	overflow-y: scroll;
+  height: 300px;
+  overflow-y: scroll;
 }
 .team-names{
-	font-size: 150%;
+  font-size: 150%;
 }
 .no-match{
-	font-style: italic;
-	font-size: 150%;
+  font-style: italic;
+  font-size: 150%;
 }
 .man-of-the-match-panel-heading{
-	background: $light-green;
+  background: $light-green;
 }
 .comment, #commentary{
-	font-size: 130%;
+  font-size: 130%;
 }
 /** animations (experimental) **/
 @-webkit-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
    @-moz-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }   }
      @-o-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
-	 @-ms-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
+   @-ms-keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
         @keyframes slidein { from { margin-left:-30%; } to { margin-left:0%; }  }
 
 /* match jumobtron */
 .match-title{
-	background: #fff;
-	height: 200px;
-	background: linear-gradient(30deg, #777, #aaa);
+  background: #fff;
+  height: 200px;
+  background: linear-gradient(30deg, #777, #aaa);
 }
 
 .match-date{
-	font-size: 150%;
+  font-size: 150%;
     text-transform: uppercase;
-	color: #e00023;
+  color: #e00023;
 }
 .text-black{
-	color: #000;
+  color: #000;
 }
 /* Styles for past winners */
 .past-winners{
-	border: 10px solid $purple;
+  border: 10px solid $purple;
 }
 .past-winners a img{
-	height: 116px;
+  height: 116px;
 }
 @media (min-width: 768px){
-	.bottom-row .single-photo{
-		width: 195px;
-	}
+  .bottom-row .single-photo{
+    width: 195px;
+  }
 }
 
 // For mobile devices
 @media (max-width: 768px){
-	.bottom-row .single-photo{
-		width: 192.5px;
-	}
-	#ahl-intro
-	{
-		background: transparent;
-		color: #111;
-		p{
-			font-size: 110%;
-			a{
-				font-size: 130%;
-			}
-		}
-	}
+  .bottom-row .single-photo{
+    width: 192.5px;
+  }
+  #ahl-intro
+  {
+    background: transparent;
+    color: #111;
+    p{
+      font-size: 110%;
+      a{
+        font-size: 130%;
+      }
+    }
+  }
 
-	.navbar-brand{
-		animation: none;
-	}
-	/* Top scorers in home page */
-	.column-heading#top-scorers{
-		width: 70%;
-	}
+  .navbar-brand{
+    animation: none;
+  }
 
-	.carousel .item {
-	  height: 230px;
-	}
+  .carousel .item {
+    height: 230px;
+  }
 
-	.item img {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-		width: 100%;
-	    min-height: 230px;
-	}
+  .item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    width: 100%;
+      min-height: 230px;
+  }
 
-	/** setting tap targets on links clearer for mobiles  **/
-	.navbar-default .navbar-nav > li > a, .dropdown-menu > li > a{
-		padding-bottom: 20px;
-	}
+  /** setting tap targets on links clearer for mobiles  **/
+  .navbar-default .navbar-nav > li > a, .dropdown-menu > li > a{
+    padding-bottom: 20px;
+  }
 }
 /* Goalscorers on the teams page */
 .team-description{
-	font-size: 130%;
+  font-size: 130%;
 }
 .list-heading{
-	background: $dark-grey;
-	color: #fff;
+  background: $dark-grey;
+  color: #fff;
 }
 #myCarousel{
-	border: 1px solid #aaa;
-	&:hover
-	{
-		box-shadow: 2px 4px 2px #ccc;
-	}
+  border: 1px solid #aaa;
+  &:hover
+  {
+    box-shadow: 2px 4px 2px #ccc;
+  }
 }
 
-/** styles for headings **/
-.column-heading{
-	display:inline-block;
-	width: 50%;
-	height:35px;
-	line-height: 35px;
-	border-left: 5px solid #e00023;
-	text-align: center;
-	color: #eee;
-	font-size: 24px;
-	background: $light-green;
-	transition: border 0.3s ease-in 0.2s, -webkit-transform 0.5s linear 0.2s;
-	 transition: -moz-transform 0.5s linear 0.2s;
-	 transition: -o-transform 0.5s linear 0.2s;
-	 transition: -ms-transform 0.5s linear 0.2s;
-	 transition: transform 0.5s linear 0.2s;
-	 transition: all 0.5s linear 0.2s;
-	 border-top-right-radius: 25px;
-	 border-top-left-radius: 10px;
-	 border-bottom-right-radius: 25px;
-	 border-bottom-left-radius: 5px;
-	&:hover{
-		border-right: 5px solid #e00023;
-		border-top-right-radius: 0px;
-   	 	border-top-left-radius: 0px;
-   	 	border-bottom-right-radius: 0px;
-   	 	border-bottom-left-radius: 0px;
-		-webkit-transform: translate(20px);
-		-moz-transform: translate(20px);
-		-o-transform: translate(20px);
-		-ms-transform: translate(20px);
-		transform: translate(20px);
-		transform-origin: top left 0px;
-    	transform: matrix3d(1, 0, 0, 0, 0, 0, -1, 0.00166, 0, 1, 0, 0, 0, 0, 0, 1);
-	}
-}
 /** for top row **/
 .left-border{
-	height: 165px;
-	line-height: 165px;
-	//border-left: 1px solid #aaa;
+  height: 165px;
+  line-height: 165px;
+  //border-left: 1px solid #aaa;
 }
 .main-title{
-	color: $cream;
-	font-size: 18px;
+  color: $cream;
+  font-size: 18px;
 }
 /*.social-area{
-	margin-top:165px;
-	height:40px;
-	line-height: 40px;
-	background: #2A3F9C url("linkit.png") 0 0 no-repeat;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	a{
-		margin-left: 5%;
-	}
+  margin-top:165px;
+  height:40px;
+  line-height: 40px;
+  background: #2A3F9C url("linkit.png") 0 0 no-repeat;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  a{
+    margin-left: 5%;
+  }
 }*/
 .text-white{
-	color: #fff;
+  color: #fff;
 }
 a.text-white:hover{
-	color: $cream;
+  color: $cream;
 }
 /** navbar stickiness **/
 .fixed-navbar{
-	position:fixed;
+  position:fixed;
     z-index:100;
     width:90%;
    top:0;
@@ -761,14 +722,14 @@ a.text-white:hover{
 
    /** experimentation **/
   .past-winners{
-	   -webkit-animation: bounceIn 5s;
-	   -moz-o-animation: bounceIn 5s;
-	   -o-animation: bounceIn 5s;
-	   -ms-animation: bounceIn 5s;
-	   animation: bounceIn 5s;
+     -webkit-animation: bounceIn 5s;
+     -moz-o-animation: bounceIn 5s;
+     -o-animation: bounceIn 5s;
+     -ms-animation: bounceIn 5s;
+     animation: bounceIn 5s;
    }
    /*#ahllogo:hover{
-	   animation-play-state: paused;
+     animation-play-state: paused;
    }*/
       @-webkit-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 0.5;}100% {transform: scale(1); } }
       @-moz-keyframes bounceIn {0% {transform: scale(0.1);opacity: 0;}50% {transform: scale(1.2);opacity: 0.5;}100% {transform: scale(1); } }
@@ -779,16 +740,16 @@ a.text-white:hover{
 
 /** Live score styles**/
 #liveScoreArea{
-	height: 100%;
+  height: 100%;
 }
 .match-button{
-	background: #e00023;
-	height:40px;
-	font-size: 17px;
-	&:hover{
-		color: darken(#e00023,5%);
-		background: #eee;
-	}
+  background: #e00023;
+  height:40px;
+  font-size: 17px;
+  &:hover{
+    color: darken(#e00023,5%);
+    background: #eee;
+  }
 }
 /** Carousel experimentation **/
 .carousel-fade {
@@ -825,186 +786,183 @@ a.text-white:hover{
 
 /** first-row **/
 /*.first-row{
-	margin-left: 2%;
+  margin-left: 2%;
 }*/
 .set-down{
-	margin-top: 1%;
+  margin-top: 1%;
 }
 /**news marquee **/
 #news-marquee{
-	border: 2px solid #f00;
+  border: 2px solid #f00;
 }
 /** Dropdown on hover **/
 .dropdown:hover .dropdown-menu{
-	display: block;
-	margin-top:0px;
+  display: block;
+  margin-top:0px;
 }
 .dropdown-menu > li > a:hover{
-	font-size: 110%;
+  font-size: 110%;
 }
 /** navbar border **/
 .navbar{
-	border: 0px;
+  border: 0px;
 }
 .center-links li ul li{
-	font-size: 100%;
+  font-size: 100%;
 }
 
 .full-width{
-	width: 100%;
+  width: 100%;
 }
 
 /** League details in home page **/
 .league-details{
-	text-align: center;
-	font-size: 150%;
+  text-align: center;
+  font-size: 150%;
 }
 .trophy, .matches, .stars-left, .stars-right{
-	color: $light-green;
+  color: $light-green;
 }
 .fa-rotate{
-	-webkit-transform: rotate(-30deg);
-	-moz-transform: rotate(-30deg);
-	-ms-transform: rotate(-30deg);
-	-o-transform: rotate(-30deg);
-	transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform: rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
 }
 .stars-left, .stars-right{
-	display: inline-block;
+  display: inline-block;
 }
 .fa-rotate-thirty{
-	-webkit-transform: rotate(30deg);
-	-moz-transform: rotate(30deg);
-	-ms-transform: rotate(30deg);
-	-o-transform: rotate(30deg);
-	transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  transform: rotate(30deg);
 }
 .rotate{
-	width: 13%;
-	-webkit-transform: rotate(-30deg);
-	-moz-transform: rotate(-30deg);
-	-ms-transform:rotate(-30deg);
-	-o-transform: rotate(-30deg);
-	transform: rotate(-30deg);
+  width: 13%;
+  -webkit-transform: rotate(-30deg);
+  -moz-transform: rotate(-30deg);
+  -ms-transform:rotate(-30deg);
+  -o-transform: rotate(-30deg);
+  transform: rotate(-30deg);
 }
 
 /**  animations (experimental)**/
 .fa-star{
-	animation: bounceIn 2s alternate infinite;
+  animation: bounceIn 2s alternate infinite;
 }
 
 /** Bootstrap pagination **/
 div.pagination{
-	transform: scale(1.5);
+  transform: scale(1.5);
 }
 ul.pagination a{
-	color: #999;
-	transition: all 0.7s;
+  color: #999;
+  transition: all 0.7s;
 }
 ul.pagination a:hover{
-	color: #fff;
-	background:$light-green;
+  color: #fff;
+  background:$light-green;
 }
 
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus{
-	background: $light-green;
-	border-color: #fff;
+  background: $light-green;
+  border-color: #fff;
 }
 /** Styles for team name in team show page **/
 .team-name{
-	font-size: 60px;
-	font-weight: bold;
-	text-transform: uppercase;
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .top-scorer-team > .panel-body > .img-responsive{
-	height: 200px;
-	margin:0 auto;
+  height: 200px;
+  margin:0 auto;
 }
 /** Text shadow (experimental)**/
 .text-shadow {
-	text-shadow: -3px 3px 0px $light-green;
+  text-shadow: -3px 3px 0px $light-green;
 }
 /** Matches index page
-	tabs
+  tabs
 **/
 .nav-pills li{
-	text-transform: uppercase;
-	a{
-		color: $light-green;
-		font-size: 140%;
-		transition: all 0.6s linear 0.2s;
-	}
+  text-transform: uppercase;
+  a{
+    color: $light-green;
+    font-size: 140%;
+    transition: all 0.6s linear 0.2s;
+  }
 }
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus{
-	color: #fff;
-	background: $light-green;
-	border-radius: 4px;
+  color: #fff;
+  background: $light-green;
+  border-radius: 4px;
 }
 .no-matches{
-	font-size: 180%;
-	color: #999;
-	float: left;
+  font-size: 180%;
+  color: #999;
+  float: left;
 }
 /** Styles for recent performance in team show page **/
 #result{
-	position: relative;
-	margin-top: 30%;
-	background: #f00;
+  position: relative;
+  margin-top: 30%;
+  background: #f00;
 }
 
 /** About page **/
 .about{
-	font-size: 120%;
+  font-size: 120%;
 }
 #about{
-	letter-spacing: 0.02em;
-	line-height: 30px;
+  letter-spacing: 0.02em;
+  line-height: 30px;
 }
 #about-rules li a{
-	font-size: 110%;
+  font-size: 110%;
 }
 #about, #rules{
-	margin-top: 20px;
-	background: #fff;
-	border: 2px solid #eee;
-	padding-left: 20px;
-	border-radius: 10px;
+  margin-top: 20px;
+  background: #fff;
+  border: 2px solid #eee;
+  padding-left: 20px;
+  border-radius: 10px;
 }
 
 #rules li{
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
-	color: $light-green;
+  color: $light-green;
 }
 .coming_soon{
-	font-size: 140%;
-	font-weight: bold;
+  font-size: 140%;
+  font-weight: bold;
 }
 .previous_top_scorers  > .panel-heading, .previous_top_scorers > .panel-footer{
-	height: 50%;
-	//line-height: 30px;
-}
-.short-box{
-	width: 40%;
+  height: 50%;
+  //line-height: 30px;
 }
 /** Style for navbar links **/
 .navbar-default .navbar-nav > li > a::first-letter{
-	font-weight: bold;
+  font-weight: bold;
 }
 .link-active{
-	color: $purple;
+  color: $purple;
 }
 /** navbar brand **/
 .navbar-brand span{
-	margin-left: 5px;
+  margin-left: 5px;
 }
 .navbar-brand > .navbar-logo{
-	display: inline-block;
-	margin-top: -7px;
+  display: inline-block;
+  margin-top: -7px;
 }
 .navbar-brand{
-	animation: none;
+  animation: none;
 }
