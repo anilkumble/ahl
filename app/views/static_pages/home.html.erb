@@ -1,250 +1,225 @@
 <div class="container">
-    <div class="row ridge-bottom">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
-            <div class="row first-row">
-                <h2 class="column-heading short-box">Snapshots</h2>
-                <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                      <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                  </ol>
+  <div class="row ridge-bottom">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
+      <div class="row first-row">
+        <h2>Snapshots</h2>
+        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+          <!-- Wrapper for slides -->
 
-                      <!-- Wrapper for slides -->
-
-                      <div class="carousel-inner" role="listbox">
-                         <% @photos.each_with_index do |photo, index| %>
-                                <% if index == 0 %>
-                                    <div class="item active">
-                                <% else %>
-                                    <div class="item">
-                                <% end %>
-                                    <%= image_tag photo.photo_url, alt: "match photo" %>
-                                    </div>
-                          <% end %>
-                      </div> <!-- Carousel-inner -->
-
-                      <!-- Controls -->
-                      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left green-back" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-
-                      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right green-back" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                  </div> <!-- end of carousel -->
-                  </div> <!-- nested first row -->
-
-                  <div class="row">
-                      <div class="col-xs-12 col-sm-12 first-row">
-                          <h2 class="column-heading short-box">Articles</h2>
-                          <p class="space"></p>
-                          <!--<div id="news">
-                                <ul>
-                                  <% @reports.each do |report| %>
-                                    <li>
-                                        <%= report.caption %>
-                                        <p><%= link_to "Read more", report %><p>
-                                        <br>
-                                    </li>
-                                  <% end %>
-                              </ul>
-                          </div>-->
-                          <div class="news-container">
-                              <% @reports.each do |report| %>
-                                <%= link_to report do %>
-                                    <div class="col-xs-6 report-box">
-                                        <%=image_tag report.image, alt: "Report#{report.id} image" %>
-                                        <div class="panel-footer">
-                                            <%= report.caption %>
-                                        </div>
-                                    </div>
-                                <% end %> <!--/ link_to -->
-                              <% end %>
-                          </div> <!-- /end of news-container -->
-                      </div> <!-- end of column -->
-                </div>
-        </div> <!-- end of first column -->
-
-        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-          <% if @current_match %>
-            <h2 class="column-heading">Live Score</h2>
-            <div class="panel panel-danger" id="liveScoreArea">
-                <% if @live_score %>
-                    <%= render @live_score %>
-                <% else %>
-                    <!-- If a match has ended, this will be the template -->
-                    <div class="panel-body">
-                        <div class="row">
-                        <div class="col-xs-2">
-                            <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
-                        </div>
-                        <div class="col-xs-3 set-down">
-                            <%=  @current_match.first_team.name %>
-                        </div>
-                        <div class="col-xs-2 set-down">
-                            <span class="text-pink">
-                                &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
-                            </span>
-                        </div>
-                        <div class="col-xs-3 set-down">
-                            <%= @current_match.opponent_team.name %>
-                        </div>
-
-                        <div class="col-xs-2">
-                            <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
-                        </div>
-                    </div>
-                    <br>
-                        <div class="text-center">
-                            <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
-                                GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
-                            <% end %>
-                        </div>
-
-                    </div>
-                    <div class="panel-footer">
-                    <div class="comment-marquee text-center">
-                            <span class="text-pink">
-                                <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
-                                <%= @current_match.time.strftime("%b %e") %>
-                            </span>
-                    </div>
-                    </div>
-
+          <div class="carousel-inner" role="listbox">
+            <% @photos.each_with_index do |photo, index| %>
+              <% if index == 0 %>
+                <div class="item active">
+              <% else %>
+                <div class="item">
                 <% end %>
-            </div> <!--  End of panel -->
+                  <%= image_tag photo.photo_url, alt: "match photo" %>
+                </div>
+              <% end %>
+          </div> <!-- Carousel-inner -->
 
-            <% else %>
-              <h2 class="column-heading">Announcement</h2>
-              <div class="panel panel-danger" id="liveScoreArea">
-                  <!-- If a match has ended, this will be the template -->
-                  <div class="panel-body">
-                    <div class="row text-center">
-                        <h3>Tournament has ended</h3><br>
-                        <div class="text-center">
-                          <%= link_to matches_path, class: "btn btn-block btn-danger match-button" do%>
-                            CHECK OUT THE RESULTS&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
-                          <% end %>
-                        </div>
+          <!-- Controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left green-back" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
 
-                    </div> <!-- /row-->
-                  </div> <!-- /panel-body -->
-              </div> <!--  End of panel -->
-            <% end %> <!-- end of if block -->
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right green-back" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div> <!-- end of carousel -->
+      </div> <!-- nested first row -->
 
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 first-row">
+          <h2>Articles</h2>
+          <p class="space"></p>
+          <div class="news-container">
+            <% @reports.each do |report| %>
+              <%= link_to report do %>
+                <div class="col-xs-6 report-box">
+                  <%=image_tag report.image, alt: "Report#{report.id} image" %>
+                  <div class="panel-footer"> <%= report.caption %> </div>
+                </div>
+              <% end %> <!--/ link_to -->
+            <% end %>
+          </div> <!-- /end of news-container -->
+        </div> <!-- end of column -->
+      </div>
+    </div> <!-- end of first column -->
 
-
-            <div class="row">
-                <!-- Leaderboard -->
-                <div class="col-xs-12">
-                    <h2 class="column-heading">Leaderboard</h2>
-                    <table class="table table-responsive table-striped leaderboard">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Team</th>
-                                <th>Matches</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <% @teams.each do |team| %>
-                                <tr>
-                                    <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
-                                    <td> <%= team.name %> </td>
-                                    <td> <%= team.matches_played %> </td>
-                                    <td> <%= team.points %> </td>
-                                </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+      <% if @current_match %>
+        <h2>Live Score</h2>
+        <div class="panel panel-danger" id="liveScoreArea">
+          <% if @live_score %>
+            <%= render @live_score %>
+          <% else %>
+            <!-- If a match has ended, this will be the template -->
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-2">
+                  <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+                </div>
+                <div class="col-xs-3 set-down">
+                  <%=  @current_match.first_team.name %>
+                </div>
+                <div class="col-xs-2 set-down">
+                  <span class="text-pink">
+                    &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
+                  </span>
+                </div>
+                <div class="col-xs-3 set-down">
+                  <%= @current_match.opponent_team.name %>
                 </div>
 
-                <!--  Top scorers -->
-                <div class="col-xs-12">
-                    <% if @matches_ended > 5 %>
-                    <h2 class="column-heading">Top Scorers</h2>
-                    <% else %>
-                    <h3 class="column-heading" id="top-scorers">Top Scorers - 2015</h3>
-                    <% end %>
-                    <p class="space"></p>
+                <div class="col-xs-2">
+                  <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
                 </div>
-                    <!-- Top scorers of 2015 and 2016 -->
-                    <% if @matches_ended > 5 %>
-                        <%= render 'top_scorers', players: @top_scorers %>
-                    <% else %>
-                        <%= render 'previous_top_scorers' %>
-                    <% end %>
+              </div>
+              <br>
+              <div class="text-center">
+                <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
+                                GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+                <% end %>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <div class="comment-marquee text-center">
+                <span class="text-pink">
+                <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
+                  <%= @current_match.time.strftime("%b %e") %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        </div> <!--  End of panel -->
 
+      <% else %>
+        <h2>Announcement</h2>
+        <div class="panel panel-danger" id="liveScoreArea">
+          <!-- If a match has ended, this will be the template -->
+          <div class="panel-body">
+            <div class="row text-center">
+              <h3>Tournament has ended</h3><br>
+              <div class="text-center">
+                <%= link_to matches_path, class: "btn btn-block btn-danger match-button" do%>
+                  CHECK OUT THE RESULTS&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+                <% end %>
+              </div>
+            </div> <!-- /row-->
+          </div> <!-- /panel-body -->
+        </div> <!--  End of panel -->
+      <% end %> <!-- end of if block -->
 
+      <div class="row">
+        <!-- Leaderboard -->
+        <div class="col-xs-12">
+          <h2>Leaderboard</h2>
+          <table class="table table-responsive table-striped leaderboard">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Team</th>
+                <th>Matches</th>
+                <th>Points</th>
+              </tr>
+            </thead>
 
-            </div> <!-- /nested row -->
+            <tbody>
+              <% @teams.each do |team| %>
+                <tr>
+                  <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
+                  <td> <%= team.name %> </td>
+                  <td> <%= team.matches_played %> </td>
+                  <td> <%= team.points %> </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
 
-        </div> <!-- end of second column -->
+        <!--  Top scorers -->
+        <div class="col-xs-12">
+          <% if @matches_ended > 5 %>
+            <h2>Top Scorers</h2>
+          <% else %>
+            <h2>Top Scorers - 2015</h3>
+          <% end %>
+          <p class="space"></p>
+        </div>
+        <!-- Top scorers of 2015 and 2016 -->
+        <% if @matches_ended > 5 %>
+          <%= render 'top_scorers', players: @top_scorers %>
+        <% else %>
+          <%= render 'previous_top_scorers' %>
+        <% end %>
+      </div> <!-- /nested row -->
+    </div> <!-- end of second column -->
+  </div> <!-- end of first row -->
 
+  <div class="row ridge-bottom">
+    <p class="space"></p>
+    <h2 class="text-center">A little about AHL</h2>
+    <p class="space"></p>
 
-    </div> <!-- end of first row -->
+    <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
+      <div class="jumbotron col-xs-12" id="ahl-intro">
+        <p class="col-xs-12 col-sm-4">
+          <b>Stones into Milestones</b> is the tagline of AHL '17. We are stronger than ever before with the inception of women's hockey team in our university. AHL '17 comprises of 6 teams which are named Sizzling Shooterz, Deadly Dribblerz, Crouching Griffinz, Yo Yo Yakz, Rising Warriorz and Roaring Ruffianz.
+        </p>
 
+        <p class="col-xs-12 col-sm-4">
+          The league consists of 4 levels and each level has 15 matches. The league comprises of 45 matches for men and 15 matches for women.  A match is divided into 5 rounds, each of 10 minutes totalling 50 minutes of action.
+        </p>
 
-    <div class="row ridge-bottom">
-      <p class="space"></p>
-      <h2 class="text-center">A little about AHL</h2>
-      <p class="space"></p>
+        <p class="col-xs-12 col-sm-4">
+          The official partners of the previous edition of AHL were&nbsp;<a href="http://www.redblacktree.com" target="_blank">RedBlackTree Techonologies</a>, <a href="http://www.swissgarnier.com" target="_blank">Swiss Garnier Life Sciences</a> and <a href="http://www.licindia.in" target="_blank">Life Insurance Corporation of India</a>.
+        </p>
+      </div><!-- end of jumbotron -->
+    </div> <!-- /column -->
+  </div> <!-- row-->
 
-      <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
-        <div class="jumbotron col-xs-12" id="ahl-intro">
-          <p class="col-xs-12 col-sm-4">
-            <b>Stones into Milestones</b> is the tagline of AHL '17. We are stronger than ever before with the inception of women's hockey team in our university. AHL '17 comprises of 6 teams which are named Sizzling Shooterz, Deadly Dribblerz, Crouching Griffinz, Yo Yo Yakz, Rising Warriorz and Roaring Ruffianz.</p>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2> Past Winners </h2>
+      <p class="space">
+    </div> <!-- end of column -->
 
-          <p class="col-xs-12 col-sm-4">
-            The league consists of 4 levels and each level has 15 matches. The league comprises of 45 matches for men and 15 matches for women.  A match is divided into 5 rounds, each of 10 minutes totalling 50 minutes of action.
-          </p>
-
-          <p class="col-xs-12 col-sm-4">
-            The official partners of the previous edition of AHL were&nbsp;<a href="http://www.redblacktree.com" target="_blank">RedBlackTree Techonologies</a>, <a href="http://www.swissgarnier.com" target="_blank">Swiss Garnier Life Sciences</a> and <a href="http://www.licindia.in" target="_blank">Life Insurance Corporation of India</a>.
-          </p>
-        </div><!-- end of jumbotron -->
-      </div> <!-- /column -->
-    </div> <!-- row-->
-
-    <div class="row">
-      <div class="col-xs-12 text-center">
-          <h2> Past Winners </h2>
-          <p class="space">
-      </div> <!-- end of column -->
-
-      <%= render 'past_winners' %>
-    </div> <!-- end of row -->
+    <%= render 'past_winners' %>
+  </div> <!-- end of row -->
 
     <!-- Promo video -->
-    <div class="row trailer">
-      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <h2 class="text-center">AHL trailer</h2>
-        <p class="space"></p>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/jV5DD_qsdew"></iframe>
-        </div>
-        <p class="space"></p>
-      </div>
-    </div>
-
-    <div class="row">
+  <div class="row trailer">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h2 class="text-center">AHL trailer</h2>
       <p class="space"></p>
-      <div class="col-xs-12 text-center sponsors-container">
-          <h2>Previous Sponsors</h2>
-          <p class="space"></p>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/jV5DD_qsdew"></iframe>
       </div>
-      <ul id="sponsors">
-        <li><%= image_tag "rbt.png", class: "img-responsive"%></li>
-        <li><%= image_tag "swiss.png", class: "img-responsive" %></li>
-        <li><%= image_tag "lic.jpg", class: "img-responsive"%></li>
-        <li><%= image_tag "dcb.png", class: "img-responsive"%></li>
-      </ul>
-    </div> <!--row -->
+      <p class="space"></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <p class="space"></p>
+    <div class="col-xs-12 text-center sponsors-container">
+      <h2>Previous Sponsors</h2>
+      <p class="space"></p>
+    </div>
+    <ul id="sponsors">
+      <li><%= image_tag "rbt.png", class: "img-responsive"%></li>
+      <li><%= image_tag "swiss.png", class: "img-responsive" %></li>
+      <li><%= image_tag "lic.jpg", class: "img-responsive"%></li>
+      <li><%= image_tag "dcb.png", class: "img-responsive"%></li>
+    </ul>
+  </div> <!--row -->
 </div>
