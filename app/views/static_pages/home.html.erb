@@ -73,7 +73,7 @@
                   <%=  @current_match.first_team.name %>
                 </div>
                 <div class="col-xs-2 set-down">
-                  <span class="text-pink">
+                  <span>
                     &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
                   </span>
                 </div>
@@ -94,7 +94,7 @@
             </div>
             <div class="panel-footer">
               <div class="comment-marquee text-center">
-                <span class="text-pink">
+                <span>
                 <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
                   <%= @current_match.time.strftime("%b %e") %>
                 </span>
@@ -107,7 +107,7 @@
         <h2>Announcement</h2>
         <div class="panel panel-danger" id="liveScoreArea">
           <!-- If a match has ended, this will be the template -->
-          <div class="panel-body">
+          <div class="panel-body pb-0">
             <div class="row text-center">
               <h3>Tournament has ended</h3><br>
               <div class="text-center">

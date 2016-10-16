@@ -5,8 +5,8 @@
             <div class="caption text-center">
                 <% first_team = Team.find(photo.match.team1_id) %>
                 <% opponent_team = Team.find(photo.match.team2_id) %>
-                <span class="text-pink"><%= first_team.name  %><span class="text-primary"> Vs </span>
-                <span class="text-pink"><%= opponent_team.name %></span>
+                <span><%= first_team.name  %><span class="text-primary"> Vs </span>
+                <span><%= opponent_team.name %></span>
             </div>
         <% end %>
     </div> <!-- end of thumbnail -->

@@ -2,7 +2,7 @@
 
    <!--printing out the errors -->
   <% if @match.errors.any? %>
-        <div class="alert alert-danger text-pink">
+        <div class="alert alert-danger">
            <ul>
               <% @match.errors.full_messages.each do |message| %>
                     <li><%= message %></li>

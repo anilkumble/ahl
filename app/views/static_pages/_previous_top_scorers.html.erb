@@ -1,22 +1,22 @@
-<% players = [ {name: "Vijay", goals: 20, image: "vijay.jpg"},
-            {name: "Lokesh", goals: 15, image: "lokesh.jpg"},
-        {name: "Siva", goals: 13, image: "siva.jpg"}]
-%>
+<% players = [
+  {name: "Vijay", goals: 20, image: "vijay.jpg"},
+  {name: "Lokesh", goals: 15, image: "lokesh.jpg"},
+  {name: "Siva", goals: 13, image: "siva.jpg"}
+] %>
 
 <% players.each do |player| %>
-    <div class="col-xs-12 col-sm-4">
-        <div class="panel panel-warning">
+  <div class="col-xs-12 col-sm-4 white-bg pt-20">
+    <div class="panel panel-warning">
+      <div class="panel-body">
+        <%= image_tag player[:image], class: "img-responsive" %>
+      </div>
 
-            <div class="panel-body">
-                <%= image_tag player[:image], class: "img-responsive" %>
-            </div>
-
-            <div class="panel-footer text-center">
-                <span class="text-black"><%= player[:name] %></span>
-                <div class="team-link">
-                    <span class="text-pink"><%= pluralize(player[:goals], "goal") %></span>
-                </div>
-            </div> <!-- /panel footer -->
-        </div> <!--  end of panel -->
-    </div>
+      <div class="panel-footer text-center">
+        <span class="text-black"><%= player[:name] %></span>
+        <div class="team-link">
+          <span class="text-green"><%= pluralize(player[:goals], "goal") %></span>
+        </div>
+      </div> <!-- /panel footer -->
+    </div> <!--  end of panel -->
+  </div>
 <% end %>

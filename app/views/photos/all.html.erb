@@ -18,9 +18,9 @@
                             <% first_team = Team.find(match.team1_id) %>
                             <% opponent_team = Team.find(match.team2_id) %>
 
-                            <span class="text-pink team-name-gallery"><%= first_team.name  %>
-                            <span class="text-primary"> Vs </span>
-                            <span class="text-pink team-name-gallery"><%= opponent_team.name %></span>
+                            <span class="team-name-gallery"><%= first_team.name  %>
+                            <span> Vs </span>
+                            <span class="team-name-gallery"><%= opponent_team.name %></span>
 
                             <p class="photo-count"><%= match.photos.count %> photos</p>
                         </div> <!-- /caption -->
