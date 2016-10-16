@@ -646,6 +646,9 @@ td,th{
   .navbar-brand{
     animation: none;
   }
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: $light-green;
+  }
 
   .carousel .item {
     height: 230px;
