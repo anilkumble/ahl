@@ -7,10 +7,10 @@
             <%=  live_score.match.first_team.name %>
         </div>
         <div class="col-xs-2 set-down">
-            <span class="text-pink" id="teamone_score">
+            <span id="teamone_score">
                 <%= live_score.teamone_goals %></span>
                 -&nbsp;
-            <span class="text-pink" id="teamtwo_score"><%= live_score.teamtwo_goals %>
+            <span id="teamtwo_score"><%= live_score.teamtwo_goals %>
             </span>
         </div>
         <div class="col-xs-3 set-down">
@@ -32,7 +32,7 @@
 <div class="panel-footer">
     <marquee class="comment-marquee">
         <% if live_score %>
-            <span id="commentary" class="text-pink"><%= live_score.commentary %></span>
+            <span id="commentary"><%= live_score.commentary %></span>
         <%else%>
             Match hasn't started yet
         <% end %>

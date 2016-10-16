@@ -37,19 +37,19 @@
             <p class="space"></p>
             <div class="col-xs-6 col-sm-3 col-sm-offset-3">
                 <div class="panel">
-    				<div class="panel-heading text-center man-of-the-match-panel-heading">
-    					<h4 class="text-white">Man of the match</h4>
-    				</div>
+            <div class="panel-heading text-center man-of-the-match-panel-heading">
+              <h4 class="text-white">Man of the match</h4>
+            </div>
 
-    				<div class="panel-body">
-    					<%= image_tag @man_of_the_match.photo, class: "img-responsive" %>
-    				</div>
+            <div class="panel-body">
+              <%= image_tag @man_of_the_match.photo, class: "img-responsive" %>
+            </div>
 
-    				<div class="panel-footer text-center text-pink">
-    					<%= @man_of_the_match.name %>
-    				</div>
+            <div class="panel-footer text-center text-green">
+              <%= @man_of_the_match.name %>
+            </div>
 
-    			</div> <!-- /panel -->
+          </div> <!-- /panel -->
             </div> <!-- /column -->
 
                 <div class="col-xs-6 col-sm-3">
@@ -62,7 +62,7 @@
                             <%= image_tag @budding_player.photo, class: "img-responsive" %>
                         </div>
 
-                        <div class="panel-footer text-center text-pink">
+                        <div class="panel-footer text-center text-green">
                             <%= @budding_player.name %>
                         </div>
 
@@ -89,7 +89,7 @@
             <!--Live scores to be displayed here -->
             <% if @live_scores.count == 0 %>
                 <div class="text-center">
-                    <span class="text-pink no-match">Match hasn't started yet</span>
+                    <span class="no-match">Match hasn't started yet</span>
                 </div>
             <% end %>
             <% @live_scores.each do |live_score| %>
@@ -102,7 +102,7 @@
                                 </div>
 
                                 <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-0">
-                                    <span class="text-pink text-big">
+                                    <span class="text-big">
                                         <strong><%= live_score.teamone_goals %></strong>&nbsp;&nbsp;-&nbsp;
                                         <strong><%= live_score.teamtwo_goals%></strong>
                                     </span>
@@ -157,6 +157,6 @@
         <div class="col-xs-12 col-sm-6">
             <%= render @opponent_team %>
         </div> <!-- End of column -->
-	</div> <!-- End of row -->
+  </div> <!-- End of row -->
 
 </div> <!-- end of container -->

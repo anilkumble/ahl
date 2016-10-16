@@ -2,12 +2,10 @@
 
 
 /** Colors **/
-$purple:  #3f2e55;
-$light-green: #4caf50;
+$light-green: #39B54A;
 $dark-grey: #2d2d2d;
-$royal-blue: #337ba7;
 $cream: #f39c12;
-$brown: #a07e46;
+$white: #fff;
 
 /** Overrides Bootstrap's default styles using less
   Customize bootstrap and then load it
@@ -16,21 +14,19 @@ $brown: #a07e46;
 $navbar-default-bg: #000;
 $navbar-height: 60px;
 $navbar-default-link-color: #fff;
-$navbar-default-link-active-color: $purple;
-$navbar-default-link-hover-color: $purple;
-$navbar-default-link-hover-bg: transparent;
-$navbar-default-link-active-bg: $light-green;
-$navbar-default-brand-color: $purple;
+$navbar-default-link-active-color: $white;
+$navbar-default-link-hover-color: $light-green;
+$navbar-default-link-hover-bg: $white;
+$navbar-default-link-active-bg: $white;
 $navbar-default-border: #fff;
-$navbar-default-toggle-icon-bar-bg: $purple;
-$navbar-default-link-active-color: $purple;
+$navbar-default-toggle-icon-bar-bg: $white;
 
 /** Dropdown **/
 $dropdown-link-color: #333;
-$dropdown-link-hover-color: #fff;
-$dropdown-link-hover-bg: $purple;
-$dropdown-link-active-color: $purple;
-$dropdown-caret-color: $purple;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: $light-green;
+$dropdown-link-active-color: $light-green;
+$dropdown-caret-color: $light-green;
 
 @import 'bootstrap';
 $footer-height: 200px;
@@ -51,9 +47,7 @@ body{
   font-family: 'Geomanist', sans-serif;
   overflow-x: hidden;
   font-size: 1.5em;
-  //padding-top: 20px;
-  background: rgba(63,46,85,0.2);
-  background: image-url("back.png");
+  background: whitesmoke;
 }
 /** Media queries for past winners**/
 @media (min-width: 768px){
@@ -84,10 +78,18 @@ a, a:hover{
 .space{
   padding-top: 30px;
 }
+.pb-0 {
+  padding-bottom: 0;
+}
 
 /** styles for quicklinks **/
+.active-link {
+  background: $white;
+  a {
+    color: $light-green
+  }
+}
 .quicklinks{
-  //background: linear-gradient($purple, rgba(63,46,85,0.7) 50%, $purple)
   background: rgba(255,255,255,0.8);
   background: $light-green;
 }
@@ -99,22 +101,6 @@ a, a:hover{
   font-size: 130%;
 }
 
-/* AHL Banner*/
-.container .banner{
-  border-top-right-radius: 35%;
-  border-bottom-right-radius: 35%;
-  background: $purple;
-  font-size: 16px;
-  color: $cream;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-
-  -webkit-animation: slidein 1s linear 0s infinite alternate;
-  -moz-animation: slidein 1s linear 0s infinite alternate;
-  -o-animation: slidein 1s linear 0s infinite alternate;
-  -ms-animation: slidein 1s linear 0s infinite alternate;
-  animation: slidein 1s linear 0s infinite alternate;
-}
 /** This is to remove the black gradient in the right control of the carousel **/
 .carousel-control.right{
     left: auto;
@@ -258,8 +244,11 @@ th{
   font-weight: bold;
   font-size: 1.2em;
 }
+.stats-table {
+  background: $white;
+}
 .stats-table thead tr{
-  color: $purple;
+  color: $light-green;
 }
 
 /** Cards **/
@@ -378,23 +367,23 @@ th{
 }
 /*****/
 .report-container{
+  background: $white;
+  font-size: 16px;
+  border: 1px solid #ccc;
   padding-bottom: 20px;
-  -webkit-box-shadow: 4px 4px 6px #999;
-  -moz-box-shadow: 4px 4px 6px #999;
-  -o-box-shadow: 4px 4px 6px #999;
-  -ms-box-shadow: 4px 4px 6px #999;
-  box-shadow: 4px 4px 6px #999;
-  &:hover{
-    border: 1px solid #bbb;
-  }
+  -webkit-box-shadow: 0 0 14px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 14px 1px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 14px 1px rgba(0,0,0,0.1);
+  -ms-box-shadow: 0 0 14px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 0 14px 1px rgba(0,0,0,0.1);
+  line-height: 2.5em;
 }
 .report img{
   float: right;
   margin: 20px 0 20px 20px;
 }
 .report{
-  background: #E9E9E9;
-  line-height: 30px;
+  line-height: 2em;
 }
 .text-italic{
   font-style: italic;
@@ -415,12 +404,12 @@ th{
   }
 }
 .report-title{
-  color: $purple;
+  color: $light-green;
   margin-top: 50px;
 }
 /* Style for team motto */
 #motto{
-  background: $purple;
+  background: $light-green;
   color: #fff;
   text-align: center;
   span
@@ -435,6 +424,9 @@ th{
 /* Players table styles
   Squad
  */
+.squad {
+  background: $white;
+}
 td,th{
   text-align: center;
 }
@@ -444,16 +436,17 @@ td,th{
 .players-table tr:nth-child(even){
   background: #eee;
 }
-.players-table tr:hover td:first-child{
-  border-left: 5px solid $royal-blue;
-}
+
 /* Fixtures styles */
 .match-fixture{
   color: #2d2d2d;
+  background: $white;
   &:hover{
   text-decoration: none;
-  color: $purple;
   }
+}
+.well.match {
+  background: $white;
 }
 .match:hover{
   border: 1px solid #ccc;
@@ -506,6 +499,11 @@ td,th{
   background: rgba(255,255,255,0.2);
 }
 
+.leaderboard {
+  background: #fff;
+  border: 1px solid #bbb;
+}
+
 .leaderboard tr:nth-child(even){
   background: rgba(255,255,255,0.4);
 }
@@ -531,8 +529,8 @@ td,th{
   width: 80%;
 }
 /* text colors */
-.text-pink{
-    color: $purple;
+.text-green{
+    color: $light-green;
 }
 .text-grey{
   color: #ddd;
@@ -546,7 +544,7 @@ td,th{
 }
 /* styles for panel danger */
 .panel-danger .panel-heading{
-  background: $purple;
+  background: $light-green;
   color: #eee;
 }
 
@@ -619,9 +617,6 @@ td,th{
   color: #000;
 }
 /* Styles for past winners */
-.past-winners{
-  border: 10px solid $purple;
-}
 .past-winners a img{
   height: 116px;
 }
@@ -671,7 +666,9 @@ td,th{
 }
 /* Goalscorers on the teams page */
 .team-description{
-  font-size: 130%;
+  font-size: 120%;
+  line-height: 1.8em;
+  padding: 15px;
 }
 .list-heading{
   background: $dark-grey;
@@ -695,17 +692,13 @@ td,th{
   color: $cream;
   font-size: 18px;
 }
-/*.social-area{
-  margin-top:165px;
-  height:40px;
-  line-height: 40px;
-  background: #2A3F9C url("linkit.png") 0 0 no-repeat;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  a{
-    margin-left: 5%;
-  }
-}*/
+.white-bg {
+  background: $white;
+}
+.pt-20 {
+  padding-top: 20px;
+}
+
 .text-white{
   color: #fff;
 }
@@ -921,6 +914,7 @@ ul.pagination a:hover{
 #about{
   letter-spacing: 0.02em;
   line-height: 30px;
+  line-height: 2.2em;
 }
 #about-rules li a{
   font-size: 110%;
@@ -935,6 +929,10 @@ ul.pagination a:hover{
 
 #rules li{
   margin-top: 10px;
+}
+
+.rules-list li {
+  line-height: 2em;
 }
 
 li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
@@ -953,7 +951,7 @@ li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
   font-weight: bold;
 }
 .link-active{
-  color: $purple;
+  color: $light-green;
 }
 /** navbar brand **/
 .navbar-brand span{
