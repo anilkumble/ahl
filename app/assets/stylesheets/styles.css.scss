@@ -348,11 +348,10 @@ th{
   background: #fff;
   margin-top: 30px;
 }
-/** Reports **/
 
 /* Report in home page*/
-.report-box{
-  margin-top: 20px;
+.report-box {
+  margin: 20px 20px 0 0;
 }
 .report-box img{
   max-width: 100%;
@@ -360,7 +359,7 @@ th{
 
 /** news **/
 .news-container{
-  background: #fff;
+  margin-right: -20px;
   a{
     color: #111;
   }
@@ -495,13 +494,19 @@ td,th{
 }
 
 /* Leaderboard */
-.table-striped > tbody > tr:nth-of-type(odd){
-  background: rgba(255,255,255,0.2);
+.leaderboard > thead > tr > th {
+  border-bottom: 3px solid whitesmoke;
+}
+.leaderboard > tbody > tr {
+  border-bottom: 2px solid whitesmoke;
+}
+.leaderboard > tbody > tr:nth-of-type(odd) {
+  background: #f9f9f9;
 }
 
 .leaderboard {
   background: #fff;
-  border: 1px solid #bbb;
+  border: 1px solid whitesmoke;
 }
 
 .leaderboard tr:nth-child(even){
@@ -547,6 +552,9 @@ td,th{
   background: $light-green;
   color: #eee;
 }
+.panel-danger {
+  border: 1px solid whitesmoke;
+}
 
 /* Form elements */
 .form-control{
@@ -566,10 +574,6 @@ td,th{
 }
 .ridge-border{
   border-bottom: 1px solid ridge;
-}
-#liveScoreArea .panel-heading{
-  color: #fff;
-  background: #aaa;
 }
 .live-score-heading{
   height: 50px;
@@ -685,12 +689,6 @@ td,th{
   }
 }
 
-/** for top row **/
-.left-border{
-  height: 165px;
-  line-height: 165px;
-  //border-left: 1px solid #aaa;
-}
 .main-title{
   color: $cream;
   font-size: 18px;
@@ -698,10 +696,41 @@ td,th{
 .white-bg {
   background: $white;
 }
+.white-bg h2 {
+  background: transparent;
+}
 .pt-20 {
   padding-top: 20px;
 }
-
+.pr-0 {
+  padding-right: 0;
+}
+.pl-0 {
+  padding-left: 0;
+}
+.pl-pr-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.ml-mr-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+.mr-0 {
+  margin-right: 0;
+}
+.ml-15 {
+  margin-left: 15px;
+}
+.ml--15 {
+  margin-left: -15px;
+}
+.mr-15 {
+  margin-right: 15px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
 .text-white{
   color: #fff;
 }
@@ -735,9 +764,6 @@ a.text-white:hover{
 
 
 /** Live score styles**/
-#liveScoreArea{
-  height: 100%;
-}
 .match-button{
   background: #e00023;
   height:40px;
@@ -780,10 +806,6 @@ a.text-white:hover{
     }
 }
 
-/** first-row **/
-/*.first-row{
-  margin-left: 2%;
-}*/
 .set-down{
   margin-top: 1%;
 }
@@ -966,4 +988,44 @@ li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
 }
 .navbar-brand{
   animation: none;
+}
+
+/** Extra small devices **/
+@media (max-width: 500px) {
+  .col-xxs-12 {
+    width: 100%;
+  }
+  .col-xxs-11 {
+    width: 91.666666667%;
+  }
+  .col-xxs-10 {
+    width: 83.333333333%;
+  }
+  .col-xxs-9 {
+    width: 75%;
+  }
+  .col-xxs-8 {
+    width: 66.666666667%;
+  }
+  .col-xxs-7 {
+    width: 58.333333333%;
+  }
+  .col-xxs-6 {
+    width: 50%;
+  }
+  .col-xxs-5 {
+    width: 41.666666667%;
+  }
+  .col-xxs-4 {
+    width: 33.333333333%;
+  }
+  .col-xxs-3 {
+    width: 25%;
+  }
+  .col-xxs-2 {
+    width: 16.666666667%;
+  }
+  .col-xxs-1 {
+    width: 8.3333%;
+  }
 }

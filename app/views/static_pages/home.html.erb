@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container pr-0">
   <div class="row ridge-bottom">
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
-      <div class="row first-row">
+      <div class="row ml-mr-0">
         <h2>Snapshots</h2>
         <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
           <!-- Indicators -->
@@ -38,16 +38,22 @@
         </div> <!-- end of carousel -->
       </div> <!-- nested first row -->
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 first-row">
-          <h2>Articles</h2>
+      <div class="row ml-mr-0">
+        <div class="col-xs-12 pl-pr-0">
           <p class="space"></p>
+          <h2>Articles</h2>
           <div class="news-container">
-            <% @reports.each do |report| %>
+            <% @reports.each_with_index do |report, index| %>
+            <% if index % 2 == 0 %>
+              <div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
+            <% end %>
+
               <%= link_to report do %>
-                <div class="col-xs-6 report-box">
-                  <%=image_tag report.image, alt: "Report#{report.id} image" %>
-                  <div class="panel-footer white-bg"> <%= report.caption %> </div>
+                <div class="col-xxs-12 col-xs-6 pl-pr-0">
+                  <div class="report-box">
+                    <%=image_tag report.image, alt: "Report#{report.id} image" %>
+                    <div class="panel-footer white-bg"> <%= report.caption %> </div>
+                  </div>
                 </div>
               <% end %> <!--/ link_to -->
             <% end %>
@@ -59,112 +65,115 @@
     <div class="col-xs-12 col-sm-5 col-sm-offset-1">
       <% if @current_match %>
         <h2>Live Score</h2>
-        <div class="panel panel-danger" id="liveScoreArea">
-          <% if @live_score %>
-            <%= render @live_score %>
-          <% else %>
-            <!-- If a match has ended, this will be the template -->
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-2">
-                  <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+        <div class="col-xs-12 white-bg pt-20">
+          <div class="panel panel-danger">
+            <% if @live_score %>
+              <%= render @live_score %>
+            <% else %>
+              <!-- If a match has ended, this will be the template -->
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-2">
+                    <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+                  </div>
+                  <div class="col-xs-3 set-down">
+                    <%=  @current_match.first_team.name %>
+                  </div>
+                  <div class="col-xs-2 set-down">
+                    <span>
+                      &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
+                    </span>
+                  </div>
+                  <div class="col-xs-3 set-down">
+                    <%= @current_match.opponent_team.name %>
+                  </div>
+
+                  <div class="col-xs-2">
+                    <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+                  </div>
                 </div>
-                <div class="col-xs-3 set-down">
-                  <%=  @current_match.first_team.name %>
+                <br>
+                <div class="text-center">
+                  <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
+                                  GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+                  <% end %>
                 </div>
-                <div class="col-xs-2 set-down">
+              </div>
+              <div class="panel-footer">
+                <div class="comment-marquee text-center">
                   <span>
-                    &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
+                  <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
+                    <%= @current_match.time.strftime("%b %e") %>
                   </span>
                 </div>
-                <div class="col-xs-3 set-down">
-                  <%= @current_match.opponent_team.name %>
-                </div>
-
-                <div class="col-xs-2">
-                  <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
-                </div>
               </div>
-              <br>
-              <div class="text-center">
-                <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
-                                GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
-                <% end %>
-              </div>
-            </div>
-            <div class="panel-footer">
-              <div class="comment-marquee text-center">
-                <span>
-                <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
-                  <%= @current_match.time.strftime("%b %e") %>
-                </span>
-              </div>
-            </div>
-          <% end %>
-        </div> <!--  End of panel -->
+            <% end %>
+          </div> <!--  End of panel -->
+        </div>
 
       <% else %>
         <h2>Announcement</h2>
-        <div class="panel panel-danger" id="liveScoreArea">
-          <!-- If a match has ended, this will be the template -->
-          <div class="panel-body pb-0">
-            <div class="row text-center">
-              <h3>Tournament has ended</h3><br>
-              <div class="text-center">
-                <%= link_to matches_path, class: "btn btn-block btn-danger match-button" do%>
-                  CHECK OUT THE RESULTS&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
-                <% end %>
-              </div>
-            </div> <!-- /row-->
-          </div> <!-- /panel-body -->
-        </div> <!--  End of panel -->
+        <div class="col-xs-12 white-bg pt-20">
+          <div class="panel panel-danger">
+            <!-- If a match has ended, this will be the template -->
+            <div class="panel-body pb-0">
+              <div class="row text-center">
+                <h3>Tournament has ended</h3><br>
+                <div class="text-center">
+                  <%= link_to matches_path, class: "btn btn-block btn-danger match-button" do%>
+                    CHECK OUT THE RESULTS&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
+                  <% end %>
+                </div>
+              </div> <!-- /row-->
+            </div> <!-- /panel-body -->
+          </div> <!--  End of panel -->
+        </div>
       <% end %> <!-- end of if block -->
 
-      <div class="row">
-        <!-- Leaderboard -->
-        <div class="col-xs-12">
-          <h2>Leaderboard</h2>
-          <table class="table table-responsive table-striped leaderboard">
-            <thead>
+      <!-- Leaderboard -->
+      <div class="col-xs-12">
+        <h2 class="ml--15">Leaderboard</h2>
+      </div>
+      <div class="col-xs-12 white-bg pt-20">
+        <table class="table table-responsive table-striped leaderboard">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Team</th>
+              <th>Matches</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @teams.each do |team| %>
               <tr>
-                <th></th>
-                <th>Team</th>
-                <th>Matches</th>
-                <th>Points</th>
+                <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
+                <td> <%= team.name %> </td>
+                <td> <%= team.matches_played %> </td>
+                <td> <%= team.points %> </td>
               </tr>
-            </thead>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
-            <tbody>
-              <% @teams.each do |team| %>
-                <tr>
-                  <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
-                  <td> <%= team.name %> </td>
-                  <td> <%= team.matches_played %> </td>
-                  <td> <%= team.points %> </td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-
-        <!--  Top scorers -->
-        <div class="col-xs-12">
-          <% if @matches_ended > 5 %>
-            <h2>Top Scorers</h2>
-          <% else %>
-            <h2>Top Scorers - 2015</h3>
-          <% end %>
-          <p class="space"></p>
-        </div>
-        <!-- Top scorers of 2015 and 2016 -->
+      <!--  Top scorers -->
+      <div class="col-xs-12">
         <% if @matches_ended > 5 %>
-          <%= render 'top_scorers', players: @top_scorers %>
+          <h2 class="ml--15">Top Scorers</h2>
         <% else %>
-          <%= render 'previous_top_scorers' %>
+          <h2 class="ml--15">Top Scorers - 2015</h3>
         <% end %>
-      </div> <!-- /nested row -->
-    </div> <!-- end of second column -->
-  </div> <!-- end of first row -->
+      </div>
+      <!-- Top scorers of 2015 and 2016 -->
+      <% if @matches_ended > 5 %>
+        <%= render 'top_scorers', players: @top_scorers %>
+      <% else %>
+        <%= render 'previous_top_scorers' %>
+      <% end %>
+    </div> <!-- /nested row -->
+  </div> <!-- end of second column -->
 
   <div class="row ridge-bottom">
     <p class="space"></p>

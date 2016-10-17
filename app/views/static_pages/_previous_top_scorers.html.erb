@@ -4,19 +4,21 @@
   {name: "Siva", goals: 13, image: "siva.jpg"}
 ] %>
 
-<% players.each do |player| %>
-  <div class="col-xs-12 col-sm-4 white-bg pt-20">
-    <div class="panel panel-warning">
-      <div class="panel-body">
-        <%= image_tag player[:image], class: "img-responsive" %>
-      </div>
-
-      <div class="panel-footer text-center">
-        <span class="text-black"><%= player[:name] %></span>
-        <div class="team-link">
-          <span class="text-green"><%= pluralize(player[:goals], "goal") %></span>
+<div class="col-xs-12 white-bg">
+  <% players.each do |player| %>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 pt-20">
+      <div class="panel panel-warning">
+        <div class="panel-body">
+          <%= image_tag player[:image], class: "img-responsive" %>
         </div>
-      </div> <!-- /panel footer -->
-    </div> <!--  end of panel -->
-  </div>
-<% end %>
+
+        <div class="panel-footer text-center">
+          <span class="text-black"><%= player[:name] %></span>
+          <div class="team-link">
+            <span class="text-green"><%= pluralize(player[:goals], "goal") %></span>
+          </div>
+        </div> <!-- /panel footer -->
+      </div> <!--  end of panel -->
+    </div>
+  <% end %>
+</div>
