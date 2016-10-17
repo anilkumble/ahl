@@ -1,22 +1,24 @@
-<% players.each do |player| %>
-  <div class="col-xs-12 col-sm-4 white-bg pt-20">
-    <div class="panel panel-warning">
-      <div class="panel-heading text-center">
-        <span class="text-black"><%= first_name player.name %></span>
-        <span class="badge pull-right"><%= player.goals %></span>
-      </div>
-
-      <div class="panel-body">
-        <%= image_tag player.photo, class: "img-responsive" %>
-      </div>
-
-      <div class="panel-footer text-center">
-        <div class="team-link">
-          <%= link_to player.team do %>
-            <span class="text-green"><%= short_form player.team.name %></span>
-          <% end %>
+<div class="col-xs-12 white-bg">
+  <% players.each do |player| %>
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 pt-20">
+      <div class="panel panel-warning">
+        <div class="panel-heading text-center">
+          <span class="text-black"><%= first_name player.name %></span>
+          <span class="badge pull-right"><%= player.goals %></span>
         </div>
-      </div> <!-- /panel footer -->
-    </div> <!--  end of panel -->
-  </div>
-<% end %>
+
+        <div class="panel-body">
+          <%= image_tag player.photo, class: "img-responsive" %>
+        </div>
+
+        <div class="panel-footer text-center">
+          <div class="team-link">
+            <%= link_to player.team do %>
+              <span class="text-green"><%= short_form player.team.name %></span>
+            <% end %>
+          </div>
+        </div> <!-- /panel footer -->
+      </div> <!--  end of panel -->
+    </div>
+  <% end %>
+</div>
