@@ -3,13 +3,13 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
       <div class="row ml-mr-0">
         <h2>Snapshots</h2>
-        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div id="carousel" class="carousel slide carousel-fade border-with-shadow" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="3"></li>
           </ol>
           <!-- Wrapper for slides -->
 
@@ -26,12 +26,12 @@
           </div> <!-- Carousel-inner -->
 
           <!-- Controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left green-back" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
 
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right green-back" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
@@ -39,9 +39,9 @@
       </div> <!-- nested first row -->
 
       <div class="row ml-mr-0">
-        <div class="col-xs-12 pl-pr-0">
+        <div class="col-xs-12 pl-pr-0 mt-20">
           <p class="space"></p>
-          <h2>Articles</h2>
+          <h2 class="mb--10">Articles</h2>
           <div class="news-container">
             <% @reports.each_with_index do |report, index| %>
             <% if index % 2 == 0 %>
@@ -52,7 +52,7 @@
                 <div class="col-xxs-12 col-xs-6 pl-pr-0">
                   <div class="report-box">
                     <%=image_tag report.image, alt: "Report#{report.id} image" %>
-                    <div class="panel-footer white-bg"> <%= report.caption %> </div>
+                    <div class="panel-footer white-bg border-with-shadow"> <%= report.caption %> </div>
                   </div>
                 </div>
               <% end %> <!--/ link_to -->
@@ -62,10 +62,10 @@
       </div>
     </div> <!-- end of first column -->
 
-    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1 mb-30">
       <% if @current_match %>
         <h2>Live Score</h2>
-        <div class="col-xs-12 white-bg pt-20">
+        <div class="col-xs-12 white-bg border-with-shadow pt-20">
           <div class="panel panel-danger">
             <% if @live_score %>
               <%= render @live_score %>
@@ -113,7 +113,7 @@
 
       <% else %>
         <h2>Announcement</h2>
-        <div class="col-xs-12 white-bg pt-20">
+        <div class="col-xs-12 white-bg border-with-shadow pt-20">
           <div class="panel panel-danger">
             <!-- If a match has ended, this will be the template -->
             <div class="panel-body pb-0">
@@ -131,10 +131,10 @@
       <% end %> <!-- end of if block -->
 
       <!-- Leaderboard -->
-      <div class="col-xs-12">
+      <div class="col-xs-12 mt-30">
         <h2 class="ml--15">Leaderboard</h2>
       </div>
-      <div class="col-xs-12 white-bg pt-20">
+      <div class="col-xs-12 white-bg border-with-shadow pt-20 mb-30">
         <table class="table table-responsive table-striped leaderboard">
           <thead>
             <tr>
@@ -161,9 +161,9 @@
       <!--  Top scorers -->
       <div class="col-xs-12">
         <% if @matches_ended > 5 %>
-          <h2 class="ml--15">Top Scorers</h2>
+          <h2 class="ml--15 mt-30">Top Scorers</h2>
         <% else %>
-          <h2 class="ml--15">Top Scorers - 2015</h3>
+          <h2 class="ml--15 mt-30">Top Scorers - 2015</h3>
         <% end %>
       </div>
       <!-- Top scorers of 2015 and 2016 -->
@@ -181,7 +181,7 @@
     <p class="space"></p>
 
     <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-sm-offset-0">
-      <div class="jumbotron col-xs-12" id="ahl-intro">
+      <div class="jumbotron col-xs-12 border-with-shadow" id="ahl-intro">
         <p class="col-xs-12 col-sm-4">
           <b>Stones into Milestones</b> is the tagline of AHL '17. We are stronger than ever before with the inception of women's hockey team in our university. AHL '17 comprises of 6 teams which are named Sizzling Shooterz, Deadly Dribblerz, Crouching Griffinz, Yo Yo Yakz, Rising Warriorz and Roaring Ruffianz.
         </p>
@@ -207,7 +207,7 @@
   </div> <!-- end of row -->
 
     <!-- Promo video -->
-  <div class="row trailer">
+  <div class="row trailer border-with-shadow">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <h2 class="text-center">AHL trailer</h2>
       <p class="space"></p>

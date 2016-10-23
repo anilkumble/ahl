@@ -26,7 +26,6 @@ $dropdown-link-color: #333;
 $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: $light-green;
 $dropdown-link-active-color: $light-green;
-$dropdown-caret-color: $light-green;
 
 @import 'bootstrap';
 $footer-height: 200px;
@@ -681,14 +680,6 @@ td,th{
   background: $dark-grey;
   color: #fff;
 }
-#myCarousel{
-  border: 1px solid #aaa;
-  &:hover
-  {
-    box-shadow: 2px 4px 2px #ccc;
-  }
-}
-
 .main-title{
   color: $cream;
   font-size: 18px;
@@ -698,6 +689,10 @@ td,th{
 }
 .white-bg h2 {
   background: transparent;
+}
+.border-with-shadow {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 5px 12px 0 rgba(0, 0, 0, 0.1);
 }
 .pt-20 {
   padding-top: 20px;
@@ -730,6 +725,15 @@ td,th{
 }
 .mt-20 {
   margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb--10 {
+  margin-bottom: -10px;
 }
 .text-white{
   color: #fff;
@@ -813,7 +817,10 @@ a.text-white:hover{
 #news-marquee{
   border: 2px solid #f00;
 }
-/** Dropdown on hover **/
+/** Dropdown styles **/
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: $light-green;
+}
 .dropdown:hover .dropdown-menu{
   display: block;
   margin-top:0px;
@@ -824,6 +831,9 @@ a.text-white:hover{
 /** navbar border **/
 .navbar{
   border: 0px;
+}
+.navbar.navbar-default {
+  border-radius: 0;
 }
 .center-links li ul li{
   font-size: 100%;
@@ -931,6 +941,21 @@ ul.pagination a:hover{
   margin-top: 30%;
   background: #f00;
 }
+/* Upcoming matches - Team page */
+.no-upcoming-matches {
+  background: #fff;
+  min-height: 150px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+.message {
+  position: absolute;
+	font-size: 120%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /** About page **/
 .about{
@@ -992,6 +1017,9 @@ li > span.glyphicon-chevron-right, li > span.glyphicon-info-sign{
 
 /** Extra small devices **/
 @media (max-width: 500px) {
+  h2 {
+    text-align: center;
+  }
   .col-xxs-12 {
     width: 100%;
   }
