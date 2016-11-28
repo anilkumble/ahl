@@ -1,23 +1,43 @@
 <div class="container">
-    <h1 class="text-center">Articles</h1>
-    <p class="space"></p>
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <div class="pagination">
-                <%= will_paginate @reports, renderer: BootstrapPagination::Rails %>
-            </div>
-        </div> <!-- /column -->
+    
+   
+
+    <div class="col-md-8">
+        <h1 class="text-center">Articles</h1>
+        
+        <div class="row">
+            <p class="space"></p>
+        </div>
+
+        <h3 class="report-title" id="report-caption"><%= @first_report.caption %></h3>
+        
+        <div class="text-light-grey report-time" id="report-written-date">
+            Written&nbsp;<%= @first_report.updated_at.strftime("%B %d, %Y") %>
+        </div>
+        
+        <div class="col-md-12" id="report-content">
+        <%= @first_report.article %>
+        </div>
+
     </div>
 
+
+    <div class="col-md-4" >
+        <h1 class="text-center">Article Lists</h1>
     <% @reports.each do |report| %>
-        <%= render report, article: simple_format(report.article[0..700] + "...") %>
+        <%= render report, article: simple_format(report.article[0..75] + "...") %>
     <% end %>
-
-    <div class="row">
+    </div>
+    
+    <!--<div class="row">
         <div class="col-xs-12 text-center">
             <div class="pagination">
-                <%= will_paginate @reports, renderer: BootstrapPagination::Rails %>
+                
             </div>
-        </div> <!-- /column -->
-    </div>
+        </div> <!-- /column 
+    </div>-->
+    
+
 </div>
+
+

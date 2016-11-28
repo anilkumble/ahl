@@ -3,7 +3,8 @@ class ReportsController < ApplicationController
   before_action :authenticate, except: [:show, :index]
 
   def index
-    @reports = Report.paginate(page: params[:page]).order(created_at: :desc)
+    @reports = Report.order(created_at: :desc)
+    @first_report = Report.last
   end
 
   def list
@@ -11,6 +12,11 @@ class ReportsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.js
+      #format.html {redirect_to :controller => "matches"}
+    end
+
   end
 
   def new
@@ -60,6 +66,7 @@ class ReportsController < ApplicationController
   private
     def set_report
       @report = Report.friendly.find(params[:id])
+
     end
 
     def report_params

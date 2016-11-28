@@ -1,0 +1,4 @@
+$('#report-content').html("<%= simple_format(@report.article) %>");
+$('#report-caption').html("<%= @report.caption %>");
+$('#report-written-date').html("<%= @report.updated_at.strftime("%B %d, %Y") %>");
+//$('#report-content').html("This is"); simple_format
