@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_match
 
 
-  def index
+  def index 
     @goals = @match.goals.all
   end
 

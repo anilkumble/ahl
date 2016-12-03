@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+  resources :commentaries, only: [:index, :create, :destroy, :edit]
   resources :players
   resources :reports
   resources :teams
@@ -23,6 +25,8 @@ get '/goals' => 'goals#index'
 get '/all_matches' => 'matches#list'
 get '/all_reports' => 'reports#list'
 get '/all_photos' => 'photos#list'
+
+get '/admin' => 'static_pages#admin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

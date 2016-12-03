@@ -1,0 +1,49 @@
+<div class="container">
+    <% if notice %>
+    <div class="alert alert-success">
+        <%= notice %>
+    </div>
+    <% elsif alert %>
+    <div class="alert alert-danger">
+        <%= alert %>
+    </div>
+    <% end %>
+
+    <%= form_for Commentary.new do |f| %>
+ 
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<h1>Listing Commentaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @commentaries.each do |commentary| %>
+      <tr>
+        <td><%= commentary.content %></td>
+        <td><%= link_to 'Show', commentary %></td>
+        <td><%= link_to 'Edit', edit_commentary_path(commentary) %></td>
+        <td><%= link_to 'Destroy', commentary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Commentary', commentaries_path %>
