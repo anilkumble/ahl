@@ -25,15 +25,9 @@ class CommentariesController < ApplicationController
   # POST /commentaries.json
   def create
     @commentary = Commentary.new(commentary_params)
-
-    respond_to do |format|
-      if @commentary.save
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully created.' }
-        format.json { render :show, status: :created, location: @commentary }
-      else
-        format.html { render :new }
-        format.json { render json: @commentary.errors, status: :unprocessable_entity }
-      end
+  
+    if @commentary.save
+      redirect_to admin_url
     end
   end
 
@@ -42,7 +36,7 @@ class CommentariesController < ApplicationController
   def update
     respond_to do |format|
       if @commentary.update(commentary_params)
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully updated.' }
+        format.html { redirect_to admin_url, notice: 'Commentary was successfully updated.' }
         format.json { render :show, status: :ok, location: @commentary }
       else
         format.html { render :edit }
@@ -56,7 +50,7 @@ class CommentariesController < ApplicationController
   def destroy
     @commentary.destroy
     respond_to do |format|
-      format.html { redirect_to commentaries_url, notice: 'Commentary was successfully destroyed.' }
+      format.html { redirect_to admin_url, notice: 'Commentary was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

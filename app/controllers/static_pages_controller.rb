@@ -19,8 +19,10 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-
-  def admin
-  end
   
+  def admin
+    @commentary = Commentary.new
+    
+  end
+
 end

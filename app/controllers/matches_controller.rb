@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
 
 before_action :set_match, only:[:show, :end_match, :end, :edit, :update, :destroy]
-before_action :authenticate, except:[:index,:show]
+#before_action :authenticate, except:[:index,:show]
 
   def index
   	@matches = Match.all

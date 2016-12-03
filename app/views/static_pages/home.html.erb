@@ -1,3 +1,14 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+        $("#commentary_btn").click(function(){
+            $("#commentary_box").slideToggle(1000);
+
+        });
+      });
+</script>
+</head>
 <div class="container pr-0">
   <div class="row ridge-bottom">
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
@@ -92,24 +103,37 @@
                     <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
                   </div>
                 </div>
-                <br>
-                <div class="text-center">
-                  <%= link_to @current_match, class: "btn btn-block btn-danger match-button" do%>
-                                  GO TO MATCH CENTER&nbsp;<span class="glyphicon glyphicon-chevron-right"></span>
-                  <% end %>
-                </div>
-              </div>
-              <div class="panel-footer">
+                
+              </div> <!-- End of Panel Body -->
+              <div class="panel-footer"> <!-- Start of panel Footer -->
                 <div class="comment-marquee text-center">
                   <span>
                   <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
                     <%= @current_match.time.strftime("%b %e") %>
                   </span>
                 </div>
-              </div>
+              </div> <!-- End of panel Footer -->
+
             <% end %>
           </div> <!--  End of panel -->
         </div>
+
+       <div class="text-center">
+          <button id="commentary_btn" style="background-color:#808080;color:white" class="btn btn-block btn-default">show/view commentary</button>
+       </div>
+       
+       <div id="commentary_box" style="background-color:#E6E6FA" class="panel panel-danger" hidden>
+        <% @commentaries = Commentary.last(5).reverse %>
+        <table>
+        <tbody>
+          <% @commentaries.each do |commentary| %>
+          <tr><td align="left"><%= commentary.content %><td></td><tr>
+          <tr><td><br></td></tr>
+          <% end %>
+        </tbody>
+        </table>
+       </div>
+        
 
       <% else %>
         <h2>Announcement</h2>

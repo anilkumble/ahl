@@ -1,5 +1,157 @@
-<div class="container">
-	<h1>Admin Page</h1>
-	<%= link_to 'Create Commentary', commentaries_path %>
+<!DOCTYPE html>
+<html>
+<head>
+  <!--<meta http-equiv="refresh" content="3" />-->
 
-</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $("#start").click(function(){
+            $("#start_div").show(1000) ;
+            $("#goals_div").hide(1000) ;
+            $("#comm_div").hide(1000) ;
+            $("#res_div").hide(1000) ;
+
+        });
+      });
+      $(document).ready(function(){
+        $("#goals").click(function(){
+            $("#start_div").hide(1000) ;
+            $("#goals_div").show(1000) ;
+            $("#comm_div").hide(1000) ;
+            $("#res_div").hide(1000) ;
+            
+        });
+      });
+
+      $(document).ready(function(){ 
+        $("#comm").click(function(){
+            $("#start_div").hide(1000) ;
+            $("#goals_div").hide(1000) ;
+            $("#comm_div").show(1000) ;
+            $("#res_div").hide(1000) ;
+            //document.location = ''; 
+            
+        });
+      });
+
+      $(document).ready(function(){
+        $("#res").click(function(){
+            $("#start_div").hide(1000) ;
+            $("#goals_div").hide(1000) ;
+            $("#comm_div").hide(1000) ;
+            $("#res_div").show(1000) ;
+        });
+      });
+
+      $(document).ready(function(){
+      $('#btn').click(function() {
+      var id = $(this).attr('id') ;
+      alert(id);
+      });
+    });
+</script>
+
+
+  </script>
+  
+  <title></title>
+</head>
+
+<body>
+
+  <div class="container">
+
+  <button id="start" class="btn btn-danger" >Start Match</button>
+  <button id="goals" class="btn btn-danger" >Update Goals</button>
+  <button id="comm" class="btn btn-danger" >Create Commentary</button>
+  <button id="res" class="btn btn-danger" >Update Result</button>
+  <div id="start_div" hidden>
+  <br>  
+  <h2>Start Match</h2>
+    <form >
+      <div class="form-group">
+        <label for="Player">Player Id</label>
+        <input type="number" class="form-control" id="number" placeholder="Enter player Id" size="20">
+      </div>
+    
+    <div class="form-group">
+      <label for="pwd">Opponent</label>
+      <input type="text" class="form-control" id="opp" size="20">
+    </div>
+
+    <button type="submit" class="btn btn-danger">Create Goal</button>
+    </form>
+  </div>
+
+  <div id="goals_div" style="display: none">
+  <br>  
+  <h2>New Goals</h2>
+    <form>
+      <div class="form-group">
+        <label for="Player">Player Id</label>
+        <input type="number" class="form-control" id="number" placeholder="Enter player Id" size="20">
+      </div>
+    
+    <div class="form-group">
+      <label for="pwd">Opponent</label>
+      <input type="text" class="form-control" id="opp" size="20">
+    </div>
+
+    <button type="submit" class="btn btn-danger">Create Goal</button>
+    </form>
+  </div>
+
+  <!-- Create Commentary Div Starts-->
+  <div id="comm_div" >
+  <br/>  
+    <% @commentaries = Commentary.all %>
+    <%= render 'commentaries/form' %>
+
+    <table class="table table-responsive table-hover table-condensed">
+      <thead>
+        <tr>
+            <th>Commentaries</th>
+            <th></th><th></th>
+            <th></th><th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @commentaries.each do |commentary| %>
+          <tr>
+              <td><%= commentary.content %></td>
+              <td><%= link_to 'Edit', edit_commentary_path(commentary) %></td>
+        		<td><%= link_to 'Destroy', commentary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div> <!--Create Commentary Div Ends-->
+
+  <div id="res_div" style="display: none">
+  <br>  
+  <h2>Update Result</h2>
+    <form>
+      <div class="form-group">
+        <label for="Player">Player Id</label>
+        <input type="number" class="form-control" id="number" placeholder="Enter player Id" size="20">
+      </div>
+    
+    <div class="form-group">
+      <label for="pwd">Opponent</label>
+      <input type="text" class="form-control" id="opp" size="20">
+    </div>
+
+    <button type="submit" class="btn btn-danger">Create Goal</button>
+    </form>
+  </div>
+
+  </div>
+
+
+</body>
+
+</html>

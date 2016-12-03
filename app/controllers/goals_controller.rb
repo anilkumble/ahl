@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :authenticate
+  #before_action :authenticate
   before_action :set_match
 
 
