@@ -25,8 +25,12 @@ class CommentariesController < ApplicationController
   # POST /commentaries.json
   def create
     @commentary = Commentary.new(commentary_params)
-  
     @commentary.save
+    
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   # PATCH/PUT /commentaries/1
