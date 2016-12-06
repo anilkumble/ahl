@@ -15,6 +15,10 @@ class StaticPagesController < ApplicationController
       #static content
       @previous_top_scorers = Player.all.sample(3)
 
+      #For Commentary
+      @commentaries = Commentary.last(5).reverse
+      @last_record = Commentary.last
+
   end
 
   def about
@@ -22,7 +26,6 @@ class StaticPagesController < ApplicationController
   
   def admin
     @commentary = Commentary.new
-    
   end
 
 end

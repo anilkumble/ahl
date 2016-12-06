@@ -26,9 +26,7 @@ class CommentariesController < ApplicationController
   def create
     @commentary = Commentary.new(commentary_params)
   
-    if @commentary.save
-      redirect_to admin_url
-    end
+    @commentary.save
   end
 
   # PATCH/PUT /commentaries/1
@@ -54,6 +52,17 @@ class CommentariesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def dynamic_commentary
+
+    
+    @commentaries = Commentary.last(5).reverse
+    require 'json'
+    @commentaries_json = @commentaries.to_json
+    
+  end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

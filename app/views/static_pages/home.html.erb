@@ -1,14 +1,43 @@
-<head>
+
+<head> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script type="text/javascript">
   $(document).ready(function(){
         $("#commentary_btn").click(function(){
             $("#commentary_box").slideToggle(1000);
 
-        });
       });
+  });
+
+  $(document).ready (function () {
+    done();
+    
+  });
+
+  function done(){
+    setTimeout(function() { 
+      updates();
+      done(); 
+    }, 2000 );
+  }
+
+  function updates(){
+
+    $.getJSON("/new_commentary.json", function(data){
+        
+      $.each(data,function(){  
+  
+        var each_commentary = '<br><div id="yourId" class="col-sm-12 text-left" >'+this['content']+'</div><br>';
+        $('#commentary_box').append(each_commentary);
+
+      });
+    });
+  }
+
 </script>
 </head>
+
 <div class="container pr-0">
   <div class="row ridge-bottom">
     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0">
@@ -122,16 +151,9 @@
           <button id="commentary_btn" style="background-color:#808080;color:white" class="btn btn-block btn-default">show/view commentary</button>
        </div>
        
-       <div id="commentary_box" style="background-color:#E6E6FA" class="panel panel-danger" hidden>
-        <% @commentaries = Commentary.last(5).reverse %>
-        <table>
-        <tbody>
-          <% @commentaries.each do |commentary| %>
-          <tr><td align="left"><%= commentary.content %><td></td><tr>
-          <tr><td><br></td></tr>
-          <% end %>
-        </tbody>
-        </table>
+       <div id="commentary_box" style="background-color:#E6E6FA" class="panel panel-danger" hidden >
+        
+
        </div>
         
 
@@ -187,7 +209,7 @@
         <% if @matches_ended > 5 %>
           <h2 class="ml--15 mt-30">Top Scorers</h2>
         <% else %>
-          <h2 class="ml--15 mt-30">Top Scorers - 2015</h3>
+          <h2 class="ml--15 mt-30">Top Scorers - 2015</h2>
         <% end %>
       </div>
       <!-- Top scorers of 2015 and 2016 -->
@@ -224,7 +246,7 @@
   <div class="row">
     <div class="col-xs-12 text-center">
       <h2> Past Winners </h2>
-      <p class="space">
+      <p class="space"></p>
     </div> <!-- end of column -->
 
     <%= render 'past_winners' %>
@@ -255,4 +277,5 @@
       <li><%= image_tag "dcb.png", class: "img-responsive"%></li>
     </ul>
   </div> <!--row -->
+</div>
 </div>

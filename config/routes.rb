@@ -28,6 +28,8 @@ get '/all_reports' => 'reports#list'
 get '/all_photos' => 'photos#list'
 
 get '/admin' => 'static_pages#admin'
+
+get '/new_commentary' => 'commentaries#dynamic_commentary'
 #get '/admin' => 'commentaries#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.

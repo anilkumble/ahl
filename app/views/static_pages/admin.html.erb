@@ -45,12 +45,11 @@
         });
       });
 
-      $(document).ready(function(){
-      $('#btn').click(function() {
-      var id = $(this).attr('id') ;
-      alert(id);
+    $( document ).ajaxStop(function() {
+        $("#test").append("<li>Request Complete.</li>");
       });
-    });
+
+     
 </script>
 
 
@@ -67,6 +66,7 @@
   <button id="goals" class="btn btn-danger" >Update Goals</button>
   <button id="comm" class="btn btn-danger" >Create Commentary</button>
   <button id="res" class="btn btn-danger" >Update Result</button>
+  <div id="test">Helloooo</div>
   <div id="start_div" hidden>
   <br>  
   <h2>Start Match</h2>
@@ -104,7 +104,7 @@
   </div>
 
   <!-- Create Commentary Div Starts-->
-  <div id="comm_div" >
+  <div id="comm_div" style="display: none">
   <br/>  
     <% @commentaries = Commentary.all %>
     <%= render 'commentaries/form' %>
