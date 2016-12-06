@@ -1,3 +1,4 @@
-
 alert('Hi');
-
+<% @commentaries.each do |commentary| %>
+$('#commentary_content').html("<%= commentary.content %>");
+<% end %>

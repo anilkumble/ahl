@@ -119,7 +119,7 @@
       <tbody id="commentary_table_body">
         <% @commentaries.each do |commentary| %>
           <tr>
-              <td id="commentary-content"><%= commentary.content %></td>
+              <td id="commentary_content"><%= commentary.content %></td>
               <td id="commentary_edit_box"><%= link_to 'Edit', edit_commentary_path(commentary) %></td>
         		<td id="commentary_destroy_box"><%= link_to 'Destroy', commentary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
