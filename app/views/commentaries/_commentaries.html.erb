@@ -1,0 +1,8 @@
+<% @commentaries.each do |commentary| %>
+
+<tr>
+	<td> <%= commentary.content %> </td>
+	<td> <%= link_to Edit, edit_commentary_path(commentary) %> </td>
+</tr>
+
+<% end %>

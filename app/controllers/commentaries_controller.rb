@@ -26,10 +26,10 @@ class CommentariesController < ApplicationController
   def create
     @commentary = Commentary.new(commentary_params)
     @commentary.save
-    
+    @commentaries = Commentary.all
     respond_to do |format|
       format.js
-    end
+  end
 
   end
 
