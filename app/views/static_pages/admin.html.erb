@@ -103,8 +103,7 @@
 
   <!-- Create Commentary Div Starts-->
   <div id="comm_div" style="display: none">
-  <br/>  
-    <% @commentaries = Commentary.all %>
+  <br/> 
     <%= render 'commentaries/form' %>
 
     <table class="table table-responsive table-hover table-condensed">
@@ -117,15 +116,17 @@
       </thead>
 
       <tbody id="commentary_table_body">
-        <% @commentaries.each do |commentary| %>
+          <% commentaries = Commentary.all %>
+          <% commentaries.each do |commentary| %>
           <tr>
-              <td id="commentary_content"><%= commentary.content %></td>
-              <td id="commentary_edit_box"><%= link_to 'Edit', edit_commentary_path(commentary) %></td>
-        		<td id="commentary_destroy_box"><%= link_to 'Destroy', commentary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= commentary.content %></td>
+              <td><%= link_to 'Edit', edit_commentary_path(commentary) %> </td>
+        		<td><%= link_to 'Destroy', commentary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
-        <% end %>
+          <% end %>
       </tbody>
     </table>
+    <div id="hi">Hi</div>
 
   </div> <!--Create Commentary Div Ends-->
 

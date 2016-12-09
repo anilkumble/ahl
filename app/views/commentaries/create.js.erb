@@ -1,4 +1,6 @@
-alert('Hi');
-<% @commentaries.each do |commentary| %>
-$('#commentary_content').html("<%= commentary.content %>");
+$('#commentary_table_body').empty();
+<% commentaries = Commentary.all %>
+<% commentaries.each do |commentary| %>
+var commentary_log = '<tr><td>'+ "<%= commentary.content %>" +'</td><td>'+"<%= link_to Edit, edit_commentary_path(@commentary) %>"+'</td></tr>';
+$('#commentary_table_body').append(commentary_log);
 <% end %>
