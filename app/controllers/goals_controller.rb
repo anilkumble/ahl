@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  #before_action :authenticate
+  before_action :authenticate
   before_action :set_match
 
 
@@ -14,9 +14,10 @@ class GoalsController < ApplicationController
           @player = @goal.player
           goal_count = @player.goals_count
           @player.update_attributes(goals_count: goal_count + 1)
-          redirect_to match_goals_url(@match), notice: 'Goal was successfully created.'
-      else
-        redirect_to match_goals_url(@match), alert: "Goal wasn't created"
+      end
+
+      respond_to do |format|
+        format.js
       end
   end
 
@@ -30,7 +31,10 @@ class GoalsController < ApplicationController
     @goal.destroy
 
     @player.update_attributes(goals_count: goal_count - 1)
-    redirect_to match_goals_url(@match), notice: 'Goal was successfully destroyed.'
+    
+    respond_to do |format|
+        format.js
+    end
 
   end
 
@@ -46,7 +50,7 @@ class GoalsController < ApplicationController
        end
     end
 
-    def goal_params
+    def goal_params 
       params.require(:goal).permit(:match_id, :player_id, :opponent_id)
     end
 end

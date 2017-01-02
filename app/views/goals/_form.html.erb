@@ -1,32 +1,20 @@
-<%= form_for(@goal) do |f| %>
-  <% if @goal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
-
-      <ul>
-      <% @goal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @running_match != nil %>
+  <%= form_for([@running_match, @running_match.goals.new], remote: true) do |f| %> 
   <div class="form-group">
+    <%= f.label :player_id %>
+    <%= f.text_field :player_id, id: "player_text_field" %>
+  </div>
 
-      <%= f.label :match_id , class: "label-control"%>
-      <%= f.text_field :match_id, class: "form-control" %>
+  <div class="form-group">
+    <%= f.label :opponent_id %>
+    <%= f.collection_select :opponent_id, Team.all, :id, :name, prompt: true%>
+  </div>
 
- </div>
-
- <div class="form-group">
-     <%= f.label :player_id , class: "label-control"%>
-     <%= f.text_field :player_id, class: "form-control" %>
-</div>
-
-<div class="form-group">
-    <%= f.label :opponent_id , class: "label-control"%>
-    <%= f.text_field :opponent_id, class: "form-control" %>
-</div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.submit class: "btn btn-danger" %>
+  <% end %>
+<%  else %>
+  <div class="alert alert-danger">
+    Match not yet started.
   </div>
 <% end %>
+

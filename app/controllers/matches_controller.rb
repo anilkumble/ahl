@@ -1,7 +1,7 @@
 class MatchesController < ApplicationController
 
 before_action :set_match, only:[:show, :end_match, :end, :edit, :update, :destroy]
-#before_action :authenticate, except:[:index,:show]
+before_action :authenticate, except:[:index,:show]
 
   def index
   	@matches = Match.all
@@ -68,7 +68,7 @@ before_action :set_match, only:[:show, :end_match, :end, :edit, :update, :destro
 
      # Only update if the result hasn't been updated yet
      if result_updated == -2
-         if @match.update(result: match_params[:result],man_of_the_match: match_params[:man_of_the_match], trump_card: match_params[:trump_card])
+         if @match.update(result: match_params[:result],man_of_the_match: match_params[:man_of_the_match], trump_card: match_params[:trump_card], running: 0)
              ## 1 refers to first team's win, -1 refers to first team's loss , 0 refers to draw
 
              if @match.result == 1
@@ -94,9 +94,10 @@ before_action :set_match, only:[:show, :end_match, :end, :edit, :update, :destro
 
   def create
       @match = Match.new(match_params)
-
       if @match.save
-          redirect_to all_matches_url, notice: "Match was created successfully"
+          respond_to do |format|
+            format.js
+          end
       else
           render 'new'
       end
@@ -104,15 +105,17 @@ before_action :set_match, only:[:show, :end_match, :end, :edit, :update, :destro
 
   def update
       if @match.update(match_params)
-          redirect_to all_matches_url, notice: "Match details were updated successfully"
-      else
-          render 'edit'
+          respond_to do |format|
+            format.js
+          end
       end
   end
 
   def destroy
       @match.destroy
-      redirect_to all_matches_url, notice: "Match was deleted successfully"
+       respond_to do |format|
+        format.js
+      end
   end
 
   private

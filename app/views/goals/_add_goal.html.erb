@@ -1,0 +1,5 @@
+<tr id="goal-<%= @goal.id %>">
+	<td> <%= @goal.player.name %> </td>
+	<td><%=  Team.find(@goal.opponent_id).name%></td>
+	<td><%= link_to 'Destroy', [@match, @goal], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

@@ -105,4 +105,133 @@ $(document).on('ready page:load', function(event) {
 
   }
 
+
+
 });
+
+// Scripts by kumble
+
+  $(document).ready(function(){
+      
+    // show/hide the commentary   
+    $("#commentary_btn").click(function(){
+        $("#commentary_box").slideToggle(1000);
+
+    });
+
+  setInterval(updateCommentary,3000);
+  function updateCommentary()
+  {
+      $.getJSON("/new_commentary.json", function(data){
+
+      $('#commentary_box').empty();
+      
+      $.each(data, function(){
+        var each_commentary = '<div id="'+this['id']+'"><div class="row" ><div class="col-sm-2"><b style="black;">&nbsp;&nbsp;R1 - 8 </b></div><div class="col-sm-10 text-left"> '+this['commentary']+' </div></div><br></div>';
+        $('#commentary_box').prepend(each_commentary);
+
+      });
+    });
+  }
+    
+  setInterval(updateCountDown,1000);
+    function updateCountDown()
+  {
+    
+    var reggie = /(\d{2})-(\d{2})-(\d{4}) (\d{2}):(\d{2}):(\d{2})/;
+    
+    var dateArray = reggie.exec(nextMatchDateTime);
+    
+    var nextMatchDays = parseInt(dateArray[1]);
+    var nextMatchMonths = parseInt(dateArray[2]);
+    var nextMatchYears = parseInt(dateArray[3]);
+    var nextMatchHours = parseInt(dateArray[4]);
+    var nextMatchMinutes = parseInt(dateArray[5]);
+    var nextMatchSeconds = parseInt(dateArray[6]);
+
+    var DateTime = new Date();
+
+    var currentDays = parseInt(DateTime.getDate());
+    var currentMonths = parseInt(DateTime.getMonth()) + 1;
+    var currentYears = parseInt(DateTime.getFullYear());
+    var currentHours = parseInt(DateTime.getHours());
+    var currentMinutes = parseInt(DateTime.getMinutes());
+    var currentSeconds = parseInt(DateTime.getSeconds());
+
+    if(currentMonths == 1 || currentMonths == 3)
+      var currentMonths_day = 31;
+    else if(currentMonths == 2)
+      var currentMonths_day = 28;
+    else if(currentMonths == 4)
+      var currentMonths_day = 30
+
+    if(nextMatchMonths == 1 || nextMatchMonths ==3)
+      var nextMatchMonths_day = 31;
+    else if(nextMatchMonths == 2)
+      var nextMatchMonths_day = 28;
+    else if(nextMatchMonths == 4)
+      var nextMatchMonths_day = 30
+
+    var days = (nextMatchMonths_day + nextMatchDays) - (currentMonths_day + currentDays);
+    var temp = ((nextMatchHours - currentHours) * 3600) + ((nextMatchMinutes - currentMinutes) * 60) + (nextMatchSeconds - currentSeconds)
+    
+    if( temp < 0 )
+    {
+      days = days - 1;
+      temp = 86400 + temp // since temp becomes negative;
+    }
+
+    var hours = temp / 3600;
+    temp = temp % 3600;
+    var minutes = temp / 60;
+    temp = temp % 60;
+    var seconds = temp;
+
+    // getting whole value 
+    days = Math.floor(days);
+    hours = Math.floor(hours);
+    minutes = Math.floor(minutes);
+    seconds = Math.floor(seconds);
+    
+    // Adding first digit as 0 if it is single digit 
+    if(days/10 < 1)
+      days = "0"+days;
+
+    if(hours/10 < 1)
+      hours = "0"+hours;
+
+    if(minutes/10 < 1)
+      minutes = "0"+minutes;
+
+    if(seconds/10 < 1)
+      seconds = "0"+seconds;
+
+    $('#d').html(days);
+    $('#h').html(hours);
+    $('#m').html(minutes);
+    $('#s').html(seconds);
+    
+  }
+
+    // Show / hide the required area For Admin Page
+    $('.btn-primary').click(function() {
+      $('.area').hide(1000);
+      $('#'+$(this).attr('data-value')).show(1000);
+    });
+
+    // checking the scores changed checkbox
+    $('#checkbox').change(function () {
+      if(this.checked){
+        $('#teamgoal_updating_div').show(1000);
+      }
+      else{
+        $('#teamgoal_updating_div').hide(1000);
+      }
+      });
+
+
+
+  });
+  
+
+

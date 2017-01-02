@@ -1,42 +1,10 @@
-
-<head> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
 <script type="text/javascript">
-  $(document).ready(function(){
-        $("#commentary_btn").click(function(){
-            $("#commentary_box").slideToggle(1000);
-
-      });
-  });
-
-  $(document).ready (function () {
-    done();
-    
-  });
-
-  function done(){
-    setTimeout(function() { 
-      updates();
-      done(); 
-    }, 2000 );
-  }
-
-  function updates(){
-
-    $.getJSON("/new_commentary.json", function(data){
-        
-      $.each(data,function(){  
   
-        var each_commentary = '<br><div class="col-sm-12 text-left" >'+this['content']+'</div><br>';
-        $('#commentary_box').append(each_commentary);
-
-      });
-    });
-  }
+  <% if @current_match %>
+  var nextMatchDateTime = "<%= @current_match.time.strftime "%d-%m-%Y %H:%M:%S" %>";  
+  <% end %>
 
 </script>
-</head>
 
 <div class="container pr-0">
   <div class="row ridge-bottom">
@@ -50,8 +18,8 @@
             <li data-target="#carousel" data-slide-to="1"></li>
             <li data-target="#carousel" data-slide-to="2"></li>
             <li data-target="#carousel" data-slide-to="3"></li>
-          </ol>
-          <!-- Wrapper for slides -->
+          </ol> 
+          <!-- Wrapper for slidr ds -->
 
           <div class="carousel-inner" role="listbox">
             <% @photos.each_with_index do |photo, index| %>
@@ -103,8 +71,29 @@
     </div> <!-- end of first column -->
 
     <div class="col-xs-12 col-sm-5 col-sm-offset-1 mb-30">
-      <% if @current_match %>
+      <% if @live_score %>
         <h2>Live Score</h2>
+      <% else %>
+        <div class="row">
+        <h2 class="col-sm-6">Next Match</h2><br>
+        <div class="col-sm-6" id="countdown">
+          <div id="vals">
+                <div id="d" class="numbs"></div>
+                <div id="h" class="numbs"></div>
+                <div id="m" class="numbs"></div>
+                <div id="s" class="numbs"></div>
+          </div>
+          <div id="labels" >
+                
+                <div id="dl" class="labs" style="margin-left: -8%">DAYS</div>
+                <div id="hl" class="labs">HOURS</div>
+                <div id="ml" class="labs">MINS</div>
+                <div id="sl" class="labs">SECS</div>
+              </div>
+        </div>
+        </div>
+      <% end %>
+
         <div class="col-xs-12 white-bg border-with-shadow pt-20">
           <div class="panel panel-danger">
             <% if @live_score %>
@@ -114,14 +103,14 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-xs-2">
-                    <%= image_tag @current_match.first_team.logo,width: "40", height: "25", class: "img-responsive livescore-style" %>
+                    <%= image_tag @current_match.first_team.logo,wiDateTimeh: "40", height: "25", class: "img-responsive livescore-style" %>
                   </div>
                   <div class="col-xs-3 set-down">
                     <%=  @current_match.first_team.name %>
                   </div>
                   <div class="col-xs-2 set-down">
                     <span>
-                      &nbsp;&nbsp;0&nbsp;&nbsp;-&nbsp;&nbsp;0
+                      &nbsp;&nbsp;Vs&nbsp;&nbsp;
                     </span>
                   </div>
                   <div class="col-xs-3 set-down">
@@ -129,35 +118,37 @@
                   </div>
 
                   <div class="col-xs-2">
-                    <%= image_tag @current_match.opponent_team.logo,height: "25", width: "40", class: "img-responsive livescore-style" %>
+                    <%= image_tag @current_match.opponent_team.logo,height: "25", wiDateTimeh: "40", class: "img-responsive livescore-style" %>
                   </div>
                 </div>
-                
               </div> <!-- End of Panel Body -->
+
               <div class="panel-footer"> <!-- Start of panel Footer -->
-                <div class="comment-marquee text-center">
-                  <span>
-                  <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
+                <div class="comment-marquee text-center" id="counddown">
+                  <span class="text-pink">
+                    <span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;Match scheduled at&nbsp;<%= @current_match.time.strftime("%H:%M") %>&nbsp;on
                     <%= @current_match.time.strftime("%b %e") %>
                   </span>
                 </div>
               </div> <!-- End of panel Footer -->
-
             <% end %>
+
           </div> <!--  End of panel -->
         </div>
 
+      <% if @live_score %>
        <div class="text-center">
-          <button id="commentary_btn" style="background-color:#808080;color:white" class="btn btn-block btn-default">show/view commentary</button>
+          <button id="commentary_btn" style="background-color:#808080;color:white;" class="btn btn-block btn-default">show/view commentary</button>
+          <br>
        </div>
        
-       <div id="commentary_box" style="background-color:#E6E6FA" class="panel panel-danger" hidden >
-        
+       <div id="commentary_box" style="max-height: 250px;" class="panel panel-danger" hidden >
+       
+       </div> 
+       <% end %>
+       
 
-       </div>
-        
-
-      <% else %>
+      <% if !@current_match %>
         <h2>Announcement</h2>
         <div class="col-xs-12 white-bg border-with-shadow pt-20">
           <div class="panel panel-danger">
@@ -178,9 +169,13 @@
 
       <!-- Leaderboard -->
       <div class="col-xs-12 mt-30">
-        <h2 class="ml--15">Leaderboard</h2>
+        <ul class="nav nav-pills"  id="about-rules">
+          <li role="presentation" class="active"><a href="#men-leaderboard" aria-controls="men-leaderboard" role="tab" data-toggle="tab" style="margin-bottom: 15%">Men</a></li>
+          <li role="presentation"><a href="#women-leaderboard" aria-controls="women-leaderboard" role="tab" data-toggle="tab">Women</a></li>
+        </ul>
       </div>
-      <div class="col-xs-12 white-bg border-with-shadow pt-20 mb-30">
+      <div class="tab-content">
+      <div class="col-xs-12 white-bg border-with-shadow pt-20 mb-30 tab-pane fade in active" role="tabpanel" id="men-leaderboard">
         <table class="table table-responsive table-striped leaderboard">
           <thead>
             <tr>
@@ -194,7 +189,7 @@
           <tbody>
             <% @teams.each do |team| %>
               <tr>
-                <td> <%= image_tag team.logo, width: "40", height: "25" %></td>
+                <td> <%= image_tag team.logo, wiDateTimeh: "40", height: "25" %></td>
                 <td> <%= team.name %> </td>
                 <td> <%= team.matches_played %> </td>
                 <td> <%= team.points %> </td>
@@ -204,6 +199,30 @@
         </table>
       </div>
 
+      <div class="col-xs-12 white-bg border-with-shadow pt-20 mb-30 tab-pane fade" role="tabpanel" id="women-leaderboard">
+        <table class="table table-responsive table-striped leaderboard">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Team(M)</th>
+              <th>Matches(M)</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @teams.each do |team| %>
+              <tr>
+                <td> <%= image_tag team.logo, wiDateTimeh: "40", height: "25" %></td>
+                <td> <%= team.name %> </td>
+                <td> <%= team.matches_played %> </td>
+                <td> <%= team.points %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      </div>
       <!--  Top scorers -->
       <div class="col-xs-12">
         <% if @matches_ended > 5 %>

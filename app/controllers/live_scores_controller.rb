@@ -1,46 +1,89 @@
 class LiveScoresController < ApplicationController
-  before_action :set_match, except: [:broadcast]
   before_action :authenticate
+  before_action :set_match, except: [:broadcast]
 
-  def index
+  # GET /commentaries
+  # GET /commentaries.json
+   def index
       @live_scores = @match.live_scores.order(created_at: :desc)
-      @live_score = @match.live_scores.new
+      @commentary = @match.live_scores.new
   end
 
+  # GET /commentaries/1 
+  # GET /commentaries/1.json
+  def show
+  end
 
+  # GET /commentaries/new
+  def new
+    @commentary = LiveScore.new
+  end
+
+  # GET /commentaries/1/edit
+  def edit
+    @commentary = @match.live_scores.find_by_id(14)
+  end
+
+  # POST /commentaries
+  # POST /commentaries.json
+  
   def create
 
-    @live_score = @match.live_scores.new(live_score_params)
-    if @live_score.save
-        redirect_to match_live_scores_url(@match), notice: 'Live score was successfully created.'
-    else
-        redirect_to match_live_scores_url(@match), alert: "Couldn't update. Fill all the fields and try again"
+    # render text :params and return 
+    @commentary = @match.live_scores.new(live_score_params)
+    
+    if @commentary.teamone_goals == nil 
+      @last_record = LiveScore.last
+      @commentary.teamone_goals = @last_record.teamone_goals
+      @commentary.teamtwo_goals = @last_record.teamtwo_goals
     end
 
+    @commentary.save
+
+    respond_to do |format|
+      format.js
+    end
   end
 
-  def broadcast
-      @current_match =  Match.where(result: -2).first
-      @live_score = @current_match.live_scores.order(created_at: :desc).first
-
-      render :json => @live_score
+  # PATCH/PUT /commentaries/1
+  # PATCH/PUT /commentaries/1.json
+  def update
+    if @commentary.update(live_score_params)
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
-
+  # DELETE /commentaries/1
+  # DELETE /commentaries/1.json
   def destroy
 
       @live_score = @match.live_scores.find(params[:id])
       @live_score.destroy
-      redirect_to match_live_scores_url(@match), notice: 'Live score was successfully destroyed.'
+      
+      respond_to do |format|
+        format.js
+      end
+  end
+
+  def dynamic_commentary
+
+    @commentaries = @match.live_scores.last(5)
+    require 'json'
+    @commentaries_json = @commentaries.to_json
+    
   end
 
   private
     def set_match
-        @match = Match.friendly.find(params[:match_id])
+
+        @match = Match.where(running: 1).last
+        
     end
 
     def live_score_params
-      params.require(:live_score).permit(:teamone_goals, :teamtwo_goals,:commentary)
+      params.require(:live_score).permit(:teamone_goals, :teamtwo_goals, :commentary)
     end
 
     def authenticate
@@ -48,5 +91,4 @@ class LiveScoresController < ApplicationController
             username == ENV['USERNAME'] and password == ENV['ADMIN_PASSWORD']
        end
     end
-
 end

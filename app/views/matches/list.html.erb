@@ -25,7 +25,7 @@
 
                 <tbody>
                     <% @matches.each do |match| %>
-                        <tr>
+                        <tr id="ma-<%= match.id %>">
 
                             <td><%= match.id %></td>
                             <td><%= match.first_team.name %></td>

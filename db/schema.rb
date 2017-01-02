@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202064537) do
+ActiveRecord::Schema.define(version: 20170109073811) do
+
+  create_table "chummas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "commentaries", force: :cascade do |t|
     t.string   "content",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "emps", force: :cascade do |t|
+    t.string   "user",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -47,6 +58,8 @@ ActiveRecord::Schema.define(version: 20161202064537) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "match_id",      limit: 4
+    t.string   "round",         limit: 255
+    t.string   "time",          limit: 255
   end
 
   create_table "matches", force: :cascade do |t|
@@ -97,6 +110,11 @@ ActiveRecord::Schema.define(version: 20161202064537) do
   end
 
   add_index "reports", ["slug"], name: "index_reports_on_slug", unique: true, using: :btree
+
+  create_table "samples", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",        limit: 255

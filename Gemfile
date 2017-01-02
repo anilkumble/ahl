@@ -25,6 +25,12 @@ gem 'will_paginate-bootstrap'
 
 gem 'therubyracer', platforms: :ruby
 
+#find Difference b/w time
+gem 'time_diff', '~> 0.3.0'
+
+
+#gem 'hirb', '~> 0.7.3'
+
 group :development do
     gem 'capistrano',         require: false
     gem 'capistrano-rvm',     require: false
@@ -32,6 +38,7 @@ group :development do
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
     gem 'rails_panel', '~> 0.0.1'
+    gem 'better_errors'
 
 end
 

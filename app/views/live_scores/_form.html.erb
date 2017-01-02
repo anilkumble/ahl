@@ -1,31 +1,42 @@
-<%= form_for([@match, @live_score]) do |f| %>
-  <% if @live_score.errors.any? %>
+<%= form_for(@commentary, remote: true) do |f| %>
+  <div id="update_commentary" class="aler-alert danger" hidden>
+    
+  </div>
+  <% if @commentary.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@live_score.errors.count, "error") %> prohibited this live_score from being saved:</h2>
+      <h2><%= pluralize(@commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
 
       <ul>
-      <% @live_score.errors.full_messages.each do |message| %>
+      <% @commentary.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  <div class="form-group">
+  <div class="field">
+    <%= check_box_tag 'checkbox', "checked",true%>
+    <%= f.label :Scores_Changed %><br>
+    
+    <div id="teamgoal_updating_div">
+    
+    <div class="form-group">
       <%= f.label :teamone_goals, class: "label-control" %>
-      <%= f.text_field :teamone_goals ,class: "form-control"%>
-  </div>
-
-  <div class="form-group">
+      <%= f.text_field :teamone_goals, id: 'teamone_goals', class: "form-control"%>
+    </div>
+    
+    <div class="form-group">
       <%= f.label :teamtwo_goals, class: "label-control" %>
-      <%= f.text_field :teamtwo_goals ,class: "form-control"%>
-  </div>
+      <%= f.text_field :teamtwo_goals, id: 'teamtwo_goals', class: "form-control"%>
+    </div>
 
-  <div class="form-group">
-      <%= f.label :commentary, class: "label-control" %>
-      <%= f.text_area :commentary ,class: "form-control"%>
-  </div>
+    </div>
 
+    <div class="form-group">
+    <%= f.label :commentary %><br>
+    <%= f.text_area :commentary, cols: "40", rows: "3", id: 'commentary_text_area', :required => true %>
+    </div>
+  </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-primary", id: "live_score_submit_button" %>
+    <%= f.submit %>
   </div>
 <% end %>

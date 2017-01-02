@@ -66,7 +66,7 @@ class TeamsController < ApplicationController
       format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
+  end 
 
   private
     def set_team

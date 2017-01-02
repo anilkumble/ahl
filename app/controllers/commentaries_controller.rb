@@ -1,11 +1,11 @@
 class CommentariesController < ApplicationController
-  before_action :set_commentary, only: [:show, :edit, :update, :destroy]
+  before_action :set_commentary, only: [:show, :update, :destroy]
 
   # GET /commentaries
   # GET /commentaries.json
   def index
     @commentaries = Commentary.all
-  end
+  end 
 
   # GET /commentaries/1
   # GET /commentaries/1.json
@@ -29,21 +29,14 @@ class CommentariesController < ApplicationController
     @commentaries = Commentary.all
     respond_to do |format|
       format.js
-  end
-
+    end
   end
 
   # PATCH/PUT /commentaries/1
   # PATCH/PUT /commentaries/1.json
   def update
     respond_to do |format|
-      if @commentary.update(commentary_params)
-        format.html { redirect_to admin_url, notice: 'Commentary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @commentary }
-      else
-        format.html { render :edit }
-        format.json { render json: @commentary.errors, status: :unprocessable_entity }
-      end
+      format.js
     end
   end
 

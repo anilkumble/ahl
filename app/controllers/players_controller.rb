@@ -27,15 +27,9 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-
-      respond_to do |format|
-      if @player.save
-        format.html { redirect_to players_url, notice: 'Player was successfully created.' }
-        format.json { render :show, status: :created, location: @player }
-      else
-        format.html { render :new }
-        format.json { render json: @player.errors, status: :unprocessable_entity }
-      end
+    @player.save
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -51,15 +45,13 @@ class PlayersController < ApplicationController
     end
   end
 
-
   def destroy
-    @player.destroy
-    respond_to do |format|
-      format.html { redirect_to players_url, notice: 'Player was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      @player.destroy
+       respond_to do |format|
+        format.js
+      end
   end
-
+  
   private
 
     def set_player

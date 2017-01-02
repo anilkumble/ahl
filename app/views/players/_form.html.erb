@@ -1,4 +1,7 @@
-<%= form_for(@player) do |f| %>
+<%= form_for(@player, remote: true) do |f| %>
+  <div id="notification_player_div" class="alert alert-success" hidden>
+    Player was successfully added
+  </div>
   <% if @player.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
@@ -14,13 +17,13 @@
     <div class="col-xs-6">
           <div class="form-group">
             <%= f.label :name, class: "control-label" %><br>
-            <%= f.text_field :name , class: "form-control", autofocus: true%>
+            <%= f.text_field :name , id: 'name', class: "form-control", autofocus: true, :required => true %>
           </div>
 
 
           <div class="form-group">
             <%= f.label :age, class: "control-label" %><br>
-            <%= f.number_field :age, class: "form-control" %>
+            <%= f.number_field :age, id: 'age', class: "form-control", :required => true  %>
           </div>
 
           <div class="form-group">
@@ -30,12 +33,12 @@
 
           <div class="form-group">
             <%= f.label :position, class: "control-label" %><br>
-            <%= f.text_field :position, class: "form-control" %>
+            <%= f.text_field :position, id: 'position', class: "form-control", :required => true  %>
           </div>
 
           <div class="form-group">
             <%= f.label :gender, class: "control-label" %><br>
-            <%= f.text_field :gender, class: "form-control" %>
+            <%= f.text_field :gender, id: 'gender', class: "form-control", :required => true  %>
           </div>
 
       </div>
@@ -44,22 +47,22 @@
 
           <div class="form-group">
             <%= f.label :goals_count, class: "control-label" %><br>
-            <%= f.number_field :goals_count, class: "form-control" %>
+            <%= f.number_field :goals_count, id: 'goals_count', class: "form-control", :required => true  %>
           </div>
 
           <div class="form-group">
             <%= f.label :green_cards, class: "control-label" %><br>
-            <%= f.number_field :green_cards, class: "form-control" %>
+            <%= f.number_field :green_cards, id: 'green_cards', class: "form-control", :required => true  %>
           </div>
 
           <div class="form-group">
             <%= f.label :yellow_cards, class: "control-label" %><br>
-            <%= f.number_field :yellow_cards, class: "form-control" %>
+            <%= f.number_field :yellow_cards, id: 'yellow_cards', class: "form-control", :required => true  %>
           </div>
 
           <div class="form-group">
             <%= f.label :red_cards, class: "control-label" %><br>
-            <%= f.number_field :red_cards, class: "form-control" %>
+            <%= f.number_field :red_cards, id: 'red_cards', class: "form-control", :required => true  %>
           </div>
 
           <div class="form-group">

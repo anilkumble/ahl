@@ -1,6 +1,7 @@
-<%= form_for(@match) do |f| %>
+<%= form_for(@match, remote: true) do |f| %>
 
    <!--printing out the errors -->
+   <div class="alert alert-danger" id="notice" hidden></div>
   <% if @match.errors.any? %>
         <div class="alert alert-danger">
            <ul>

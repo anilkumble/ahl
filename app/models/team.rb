@@ -31,7 +31,7 @@ class Team < ActiveRecord::Base
 		Match.where("(team1_id = ? OR team2_id = ?) AND result <> ?",self.id, self.id, -2).count
 	end
 
-	# Returns the recent 4 matches for team's recent performance
+	# Returns the recent 4 matches for team's recent performance 
 	def recent_matches
 		Match.where("(team1_id=? OR team2_id=?) AND result<>?",self.id, self.id,-2).order(id: :desc).limit(4)
 	end

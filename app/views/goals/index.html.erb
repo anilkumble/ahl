@@ -12,7 +12,8 @@
     <!-- form for creating a new goal -->
 
     <%= form_for([@match, @match.goals.new]) do |f| %>
-        <h3 class="text-primary">New goal</h3>
+        <h3 class="text-primary">New goals</h3>
+        <% byebug %>
         <div class="form-group">
             <%= f.label :player_id %>
             <%= f.text_field :player_id %>
